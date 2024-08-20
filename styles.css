@@ -34,41 +34,41 @@ header {
     position: relative;
     width: 150px;
     height: 50px;
-    margin: 0 20px; /* Espaço entre os botões */
+    margin: 0 20px; 
     cursor: pointer;
     font-size: 1rem;
     color: white;
-    background-color: red; /* Cor do botão "Sim" */
+    background-color: red; 
     border: none;
     border-radius: 8px;
-    transition: background-color 0.3s ease, transform 0.5s ease; /* Animação suave para movimentação */
+    transition: background-color 0.3s ease, transform 0.2s ease; 
 }
 
 .button:hover {
-    background-color: darkred;
+    background-color: rgb(63, 122, 77);
 }
 
-/* Botão "Não" */
+
 .button.no {
-    background-color: black;
+    background-color: rgb(126, 25, 77);
 }
 
 .button.no:hover {
     background-color: darkgray;
 }
 
-/* Animação para desviar do usuário */
+
 @keyframes moveAway {
     0% { transform: translateX(0); }
-    50% { transform: translateX(100px); } /* Move mais para o lado */
+    50% { transform: translateX(1000px); } /
     100% { transform: translateX(0); }
 }
 
 /* Adiciona a animação ao botão "Não" somente quando o mouse passa sobre ele */
 .button.no {
-    animation: none; /* Inicialmente, sem animação */
+    animation: none; 
 }
 
 .button.no:hover {
-    animation: moveAway 1s ease-in-out; /* Animação quando o mouse passa sobre o botão */
+    animation: moveAway 1s ease-in-out; 
 }
