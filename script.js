@@ -11,10 +11,10 @@ var noButton = document.querySelector(".button.no");
 
 // Adiciona um evento de movimento do mouse ao botão "Não"
 noButton.addEventListener("mouseover", function() {
-    noButton.style.transform = `translate(${Math.random() * 20}px, ${Math.random() * 20}px)`;
+    noButton.style.animation = "moveAway 1s ease-in-out"; // Ativa a animação
 });
 
-// Adiciona um evento de toque ao botão "Não"
-noButton.addEventListener("touchstart", function() {
-    noButton.style.transform = `translate(${Math.random() * 20}px, ${Math.random() * 20}px)`;
+// Remove a animação quando o mouse sai do botão
+noButton.addEventListener("mouseleave", function() {
+    noButton.style.animation = "none";
 });
