@@ -17,6 +17,4 @@ noButton.style.transition = "all 0.1.s ease";
 });
 
 
-noButton.addEventListener("mouseleave", function() {
-    noButton.style.animation = "none";
-});
+
