@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: #d0d0d0; /* Fundo cinza mais escuro */
+    background: #121212; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,7 +17,7 @@ header {
     align-items: center;
     text-align: center;
     background: #121212;
-    color: white;
+    color: green;
     width: 100%;
     font-size: 1rem;
     font-weight: bold;
@@ -70,5 +70,5 @@ header {
 }
 
 .button.no:hover {
-    animation: moveAway 6s ease-in-out; 
+    animation: moveAway 2s ease-out; 
 }
