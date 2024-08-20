@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: rgb(241, 23, 23);
+    background: #f0f0f0; /* Fundo cinza */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,30 +30,22 @@ header {
     align-items: center;
 }
 
-.yes-or-no .yes {
-    font-weight: bold;
-    margin-right: 5px;
-    background: rgb(0, 128, 0);
-    color: white;
-    font-size: 1rem;
-    border: 2px solid black;
-    border-radius: 8px;
-    padding: 5px;
-    text-transform: uppercase;
-}
-
-.heart {
+.heart, .broken-heart {
     position: relative;
     width: 50px;
     height: 50px;
-    background-color: red;
-    transform: rotate(-45deg);
-    margin-left: 10px; /* Espaço entre o botão "Sim" e o coração */
+    margin: 0 10px; /* Espaço entre os botões */
+    cursor: pointer;
     z-index: 1000;
-    animation: beat 1s infinite;
+    transition: transform 0.3s ease; /* Animação suave para movimentação */
 }
 
-/* Forma do coração usando pseudo-elementos */
+/* Estilo e animação para o coração vermelho */
+.heart {
+    background-color: red;
+    transform: rotate(-45deg);
+}
+
 .heart::before, .heart::after {
     content: '';
     position: absolute;
@@ -76,17 +68,37 @@ header {
     transform-origin: 100% 100%;
 }
 
-/* Animação de batimento */
-@keyframes beat {
-    0% {
-        transform: scale(1) rotate(-45deg);
-    }
-    50% {
-        transform: scale(1.2) rotate(-45deg);
-    }
-    100% {
-        transform: scale(1) rotate(-45deg);
-    }
+/* Estilo e animação para o coração partido */
+.broken-heart {
+    background-color: black;
+    transform: rotate(-45deg);
+}
+
+.broken-heart::before, .broken-heart::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    background-color: black;
+    border-radius: 50px 50px 0 0;
+    top: 0;
+}
+
+.broken-heart::before {
+    left: 50px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.broken-heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+/* Efeito de movimentação ao passar o mouse */
+.heart:hover, .broken-heart:hover {
+    transform: scale(1.1) rotate(-45deg);
 }
 
 img {
