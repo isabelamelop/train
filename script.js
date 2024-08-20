@@ -11,9 +11,9 @@ var noButton = document.querySelector(".button.no");
 
 
 noButton.addEventListener("mouseover", function() {
-    position ? (position = 0) : (position = 190);
+    position ? (position = 50) : (position = 190);
 noButton.style.transform = 'translate(${position}px, 0px)';
-noButton.style.transition = "all 0.2.s ease";
+noButton.style.transition = "all 0.1.s ease";
 });
 
 
