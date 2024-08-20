@@ -1,20 +1,22 @@
-// Seleciona o botão "Sim"
+
 var yesButton = document.querySelector(".button.yes");
 
-// Adiciona um evento de clique ao botão "Sim"
+
 yesButton.addEventListener("click", function() {
-    alert("Mor, a segurança que encontro na sua companhia me faz acreditar que a paz existe, mesmo quando tudo tá muito caótico. porque quando você segue sua vida, o que mais me importa é saber que tô junto com você. e, ao perceber que posso contar com você, tudo na minha vida se acalma e encontra o seu equilíbrio.\n\nfico admirando você e me maravilho com sua capacidade de crescer e aprender, a forma como você lida com os desafios da vida. sua fé me motiva, fazendo com que eu queira, mais do que nunca, estar com você. e sempre estarei.\n\neu quero compartilhar novas experiências ao seu lado, na esperança de que, juntas, possamos encontrar a beleza que o mundo tem a oferecer.\n\nsou perdidamente apaixonada por você e sou profundamente grata pela pessoa que me tornei, e tudo isso porque você faz parte da minha vida. namora comigo!");
+    alert("Ao perceber que posso contar com você, tudo na minha vida se acalma e encontra o seu equilíbrio.\n\nMor, a segurança que encontro na sua companhia me faz acreditar que a paz existe, mesmo quando tudo tá muito caótico. porque quando você segue sua vida, o que mais me importa é saber que tô junto com você. Fico admirando você e me maravilho com sua capacidade de crescer e aprender, a forma como você lida com os desafios da vida. sua fé me motiva, fazendo com que eu queira, mais do que nunca, estar com você. e sempre estarei.\n\neu quero compartilhar novas experiências ao seu lado, na esperança de que, juntas, possamos encontrar a beleza que o mundo tem a oferecer.\n\nsou perdidamente apaixonada por você e sou profundamente grata pela pessoa que me tornei, e tudo isso porque você faz parte da minha vida. namora comigo!");
 });
 
-// Seleciona o botão "Não"
+
 var noButton = document.querySelector(".button.no");
 
-// Adiciona um evento de movimento do mouse ao botão "Não"
+
 noButton.addEventListener("mouseover", function() {
-    noButton.style.animation = "moveAway 1s ease-in-out"; // Ativa a animação
+    position ? (position = 0) : (position = 150);
+noNutton.style.transform = 'translate(${position}px, 0px)';
+noButton.style.transition = "all 0.1.s ease";
 });
 
-// Remove a animação quando o mouse sai do botão
+
 noButton.addEventListener("mouseleave", function() {
     noButton.style.animation = "none";
 });
