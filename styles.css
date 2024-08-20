@@ -41,7 +41,7 @@ header {
     background-color: red; /* Cor do botão "Sim" */
     border: none;
     border-radius: 8px;
-    transition: transform 0.3s ease, background-color 0.3s ease; /* Animação suave para movimentação */
+    transition: background-color 0.3s ease, transform 0.5s ease; /* Animação suave para movimentação */
 }
 
 .button:hover {
@@ -60,11 +60,15 @@ header {
 /* Animação para desviar do usuário */
 @keyframes moveAway {
     0% { transform: translateX(0); }
-    50% { transform: translateX(20px); }
+    50% { transform: translateX(100px); } /* Move mais para o lado */
     100% { transform: translateX(0); }
 }
 
-/* Adiciona a animação ao botão "Não" */
+/* Adiciona a animação ao botão "Não" somente quando o mouse passa sobre ele */
 .button.no {
-    animation: moveAway 1s ease-in-out infinite;
+    animation: none; /* Inicialmente, sem animação */
+}
+
+.button.no:hover {
+    animation: moveAway 1s ease-in-out; /* Animação quando o mouse passa sobre o botão */
 }
