@@ -34,13 +34,13 @@ header {
     position: relative;
     width: 50px;
     height: 50px;
-    margin: 0 10px; /* Espaço entre os botões */
+    margin: 0 20px; /* Espaço entre os botões */
     cursor: pointer;
     z-index: 1000;
     transition: transform 0.3s ease; /* Animação suave para movimentação */
 }
 
-/* Estilo e animação para o coração vermelho */
+/* Estilo para o coração vermelho (Sim) */
 .heart {
     background-color: red;
     transform: rotate(-45deg);
@@ -68,7 +68,7 @@ header {
     transform-origin: 100% 100%;
 }
 
-/* Estilo e animação para o coração partido */
+/* Estilo para o coração partido (Não) */
 .broken-heart {
     background-color: black;
     transform: rotate(-45deg);
@@ -96,9 +96,15 @@ header {
     transform-origin: 100% 100%;
 }
 
-/* Efeito de movimentação ao passar o mouse */
-.heart:hover, .broken-heart:hover {
-    transform: scale(1.1) rotate(-45deg);
+/* Animação de movimentação para o coração partido */
+.broken-heart {
+    animation: move-heart 2s linear infinite;
+}
+
+@keyframes move-heart {
+    0% { transform: translateX(0) rotate(-45deg); }
+    50% { transform: translateX(20px) rotate(-45deg); }
+    100% { transform: translateX(0) rotate(-45deg); }
 }
 
 img {
