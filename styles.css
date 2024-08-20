@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: rgb(0, 123, 255); /* Alterado para azul, ajuste conforme necessário */
+    background: rgb(0, 123, 255); /* Azul claro */
     display: flex;
     align-items: center;
     justify-content: center;
