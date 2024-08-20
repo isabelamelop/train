@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: #f0f0f0; /* Fundo cinza */
+    background: #d0d0d0; /* Fundo cinza mais escuro */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,88 +30,41 @@ header {
     align-items: center;
 }
 
-.heart, .broken-heart {
+.button {
     position: relative;
-    width: 50px;
+    width: 150px;
     height: 50px;
     margin: 0 20px; /* Espaço entre os botões */
     cursor: pointer;
-    z-index: 1000;
-    transition: transform 0.3s ease; /* Animação suave para movimentação */
+    font-size: 1rem;
+    color: white;
+    background-color: red; /* Cor do botão "Sim" */
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Animação suave para movimentação */
 }
 
-/* Estilo para o coração vermelho (Sim) */
-.heart {
-    background-color: red;
-    transform: rotate(-45deg);
+.button:hover {
+    background-color: darkred;
 }
 
-.heart::before, .heart::after {
-    content: '';
-    position: absolute;
-    width: 50px;
-    height: 80px;
-    background-color: red;
-    border-radius: 50px 50px 0 0;
-    top: 0;
-}
-
-.heart::before {
-    left: 50px;
-    transform: rotate(-45deg);
-    transform-origin: 0 100%;
-}
-
-.heart::after {
-    left: 0;
-    transform: rotate(45deg);
-    transform-origin: 100% 100%;
-}
-
-/* Estilo para o coração partido (Não) */
-.broken-heart {
+/* Botão "Não" */
+.button.no {
     background-color: black;
-    transform: rotate(-45deg);
 }
 
-.broken-heart::before, .broken-heart::after {
-    content: '';
-    position: absolute;
-    width: 50px;
-    height: 80px;
-    background-color: black;
-    border-radius: 50px 50px 0 0;
-    top: 0;
+.button.no:hover {
+    background-color: darkgray;
 }
 
-.broken-heart::before {
-    left: 50px;
-    transform: rotate(-45deg);
-    transform-origin: 0 100%;
+/* Animação para desviar do usuário */
+@keyframes moveAway {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+    100% { transform: translateX(0); }
 }
 
-.broken-heart::after {
-    left: 0;
-    transform: rotate(45deg);
-    transform-origin: 100% 100%;
-}
-
-/* Animação de movimentação para o coração partido */
-.broken-heart {
-    animation: move-heart 2s linear infinite;
-}
-
-@keyframes move-heart {
-    0% { transform: translateX(0) rotate(-45deg); }
-    50% { transform: translateX(20px) rotate(-45deg); }
-    100% { transform: translateX(0) rotate(-45deg); }
-}
-
-img {
-    width: 300px;
-    height: 250px;
-}
-
-h1 {
-    color: #fff;
+/* Adiciona a animação ao botão "Não" */
+.button.no {
+    animation: moveAway 1s ease-in-out infinite;
 }
