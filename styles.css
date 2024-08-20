@@ -45,12 +45,12 @@ header {
 }
 
 .button:hover {
-    background-color: rgb(63, 122, 77);
+    background-color: rgb(0, 128, 0);
 }
 
 
 .button.no {
-    background-color: rgb(126, 25, 77);
+    background-color: rgb(255, 36, 0);
 }
 
 .button.no:hover {
@@ -70,5 +70,5 @@ header {
 }
 
 .button.no:hover {
-    animation: moveAway 1s ease-in-out; 
+    animation: moveAway 10s ease-in-out; 
 }
