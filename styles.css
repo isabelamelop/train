@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: rgb(241, 23, 23);
+    background: rgb(0, 123, 255); /* Alterado para azul, ajuste conforme necessário */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,14 +66,14 @@ img {
 /* Estilo e animação do coração */
 .heart {
     position: fixed;
-    top: 10px; /* Ajuste conforme necessário */
-    right: 10px; /* Ajuste conforme necessário */
-    width: 50px; /* Ajuste o tamanho conforme necessário */
-    height: 50px; /* Ajuste o tamanho conforme necessário */
-    background-color: red; /* Cor do coração */
-    transform: rotate(-45deg); /* Inclina o coração para parecer mais com um coração */
-    z-index: 1000; /* Garante que o coração fique acima de outros elementos */
-    animation: beat 1s infinite; /* Animação contínua de batimento */
+    top: 20px; /* Ajuste para a posição vertical desejada */
+    right: 20px; /* Ajuste para a posição horizontal desejada */
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    transform: rotate(-45deg);
+    z-index: 1000;
+    animation: beat 1s infinite;
 }
 
 /* Forma do coração usando pseudo-elementos */
