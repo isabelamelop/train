@@ -8,9 +8,9 @@ body {
     flex-direction: column;
     height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
-    }
-    
-    header {
+}
+
+header {
     position: fixed;
     top: 0;
     padding: 5px;
@@ -21,16 +21,16 @@ body {
     width: 100%;
     font-size: 1rem;
     font-weight: bold;
-    }
-    
-    .yes-or-no {
+}
+
+.yes-or-no {
     height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
-    }
-    
-    .yes-or-no .yes {
+}
+
+.yes-or-no .yes {
     font-weight: bold;
     margin-right: 5px;
     background: rgb(0, 128, 0);
@@ -40,9 +40,9 @@ body {
     border-radius: 8px;
     padding: 5px;
     text-transform: uppercase;
-    }
-    
-    .yes-or-no .no {
+}
+
+.yes-or-no .no {
     margin-left: 5px;
     font-weight: bold;
     background: rgb(216, 106, 106);
@@ -52,14 +52,62 @@ body {
     border: 2px solid black;
     padding: 5px;
     text-transform: uppercase;
-    }
-    
-    h1 {
-    color: #fff;
-    }
+}
 
-    img {
-        width: 300px;
-        height: 250px;
+h1 {
+    color: #fff;
+}
+
+img {
+    width: 300px;
+    height: 250px;
+}
+
+/* Estilo e animação do coração */
+.heart {
+    position: fixed;
+    top: 10px; /* Ajuste conforme necessário */
+    right: 10px; /* Ajuste conforme necessário */
+    width: 50px; /* Ajuste o tamanho conforme necessário */
+    height: 50px; /* Ajuste o tamanho conforme necessário */
+    background-color: red; /* Cor do coração */
+    transform: rotate(-45deg); /* Inclina o coração para parecer mais com um coração */
+    z-index: 1000; /* Garante que o coração fique acima de outros elementos */
+    animation: beat 1s infinite; /* Animação contínua de batimento */
+}
+
+/* Forma do coração usando pseudo-elementos */
+.heart::before, .heart::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 80px;
+    background-color: red;
+    border-radius: 50px 50px 0 0;
+    top: 0;
+}
+
+.heart::before {
+    left: 50px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+/* Animação de batimento */
+@keyframes beat {
+    0% {
+        transform: scale(1);
     }
-    
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
