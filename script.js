@@ -1,9 +1,7 @@
 // script.js
 
 const tracks = [
-    'tracks/musica1.mp3',
-    'tracks/musica2.mp3',
-    'tracks/musica3.mp3' // Adicione mais músicas conforme necessário
+    'tracks/musica.mp3' // Adicione mais faixas aqui se necessário
 ];
 
 let currentTrackIndex = 0;
@@ -13,6 +11,10 @@ const audioElement = document.getElementById('musica');
 const playPauseButton = document.getElementById('playPause');
 const nextButton = document.getElementById('next');
 const progressBar = document.getElementById('progress');
+
+// Carrega a música inicial e configura o loop
+audioElement.src = tracks[currentTrackIndex];
+audioElement.loop = true; // Configura para repetir a música quando acabar
 
 // Função para tocar/pausar a música
 function togglePlay() {
@@ -44,6 +46,3 @@ progressBar.addEventListener('input', () => {
     const newTime = (progressBar.value / 100) * audioElement.duration;
     audioElement.currentTime = newTime;
 });
-
-// Carrega a primeira faixa
-audioElement.src = tracks[currentTrackIndex];
