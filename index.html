@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <div class="cabecalho">
+        <div class="cabeçalho">
             <h3>EU TE AMO MEU BBER</h3>
         </div>
     </header>
@@ -23,17 +23,13 @@
             <audio id="musica" loop></audio>
             <div class="controls">
                 <button id="playPause" onclick="togglePlay()">Play</button>
-                <button id="next" onclick="nextTrack()">Próxima Música</button>
-                <input id="progress" type="range" value="0" min="0" max="100" step="1">
             </div>
         </div>
 
-        <!-- Imagem GIF -->
-        <img src="mor2.jpg.gif" alt="Fotinha FOFA">
-
-        <!-- Texto de mensagem -->
-        <div id="message" class="message">
-            <p>Ao perceber que posso contar com você, tudo na minha vida se acalma e encontra o seu equilíbrio. Mor, a segurança que encontro na sua companhia me faz acreditar que a paz existe, mesmo quando tudo tá muito caótico. Porque quando você segue sua vida, o que mais me importa é saber que tô junto com você. Fico admirando você e me maravilho com sua capacidade de crescer e aprender, a forma como você lida com os desafios da vida. Sua fé me motiva, fazendo com que eu queira, mais do que nunca, estar com você. E sempre estarei. Eu quero compartilhar novas experiências ao seu lado, na esperança de que, juntas, possamos encontrar a beleza que o mundo tem a oferecer. Sou perdidamente apaixonada por você e sou profundamente grata pela pessoa que me tornei, e tudo isso porque você faz parte da minha vida. Boa noite!</p>
+        <!-- Imagem GIF e Texto de mensagem -->
+        <img id="morImage" src="mor2.jpg.gif" alt="Fotinha FOFA" style="display: none;">
+        <div id="message" class="message" style="display: none;">
+            <p>ao perceber que posso contar com você, tudo na minha vida se acalma e encontra o seu equilíbrio. mor, a segurança que encontro na sua companhia me faz acreditar que a paz existe, mesmo quando tudo tá muito caótico. porque quando você segue sua vida, o que mais me importa é saber que tô junto com você. fico admirando você e me maravilho com sua capacidade de crescer e aprender, a forma como você lida com os desafios da vida. sua fé me motiva, fazendo com que eu queira, mais do que nunca, estar com você. e sempre estarei. eu quero compartilhar novas experiências ao seu lado, na esperança de que, juntas, possamos encontrar a beleza que o mundo tem a oferecer. sou perdidamente apaixonada por você e sou profundamente grata pela pessoa que me tornei, e tudo isso porque você faz parte da minha vida. boa noite!</p>
         </div>
     </main>
 
