@@ -31,6 +31,7 @@ main {
     max-width: 90%;
     margin-top: 80px; /* Adiciona margem para não sobrepor o header */
     margin-bottom: 100px; /* Adiciona margem na parte inferior para o texto */
+    position: relative; /* Permite ajustar o posicionamento dos botões em relação ao container principal */
 }
 
 h1 {
@@ -76,6 +77,7 @@ img {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    z-index: 1000; /* Garante que os botões fiquem acima do header */
 }
 
 button {
