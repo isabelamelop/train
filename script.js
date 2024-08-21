@@ -1,32 +1,58 @@
 // script.js
 
+// Lista de músicas
+const tracks = [
+    'musica1.mp3',
+    'musica2.mp3',
+    'musica3.mp3' // Adicione mais músicas conforme necessário
+];
+
+let currentTrackIndex = 0;
+
 // Seleciona os botões e o elemento de áudio
-var yesButton = document.querySelector(".button.yes");
-var noButton = document.querySelector(".button.no");
-var audioElement = document.getElementById('musica');
+const audioElement = document.getElementById('musica');
+const playPauseButton = document.getElementById('playPause');
+const stopButton = document.getElementById('stop');
+const nextButton = document.getElementById('next');
+const progressBar = document.getElementById('progress');
 
-// Função para tocar a música e mostrar o alerta
-function playMusic() {
-    // Verifica se o áudio está carregado e pronto para reprodução
-    if (audioElement.readyState >= 3) {
-        audioElement.play(); // Reproduz a música
+// Função para tocar/pausar a música
+function togglePlay() {
+    if (audioElement.paused) {
+        audioElement.play();
+        playPauseButton.textContent = 'Pause';
     } else {
-        console.error("O áudio não está pronto para reprodução.");
+        audioElement.pause();
+        playPauseButton.textContent = 'Play';
     }
-    alert("ao perceber que posso contar com você, tudo na minha vida se acalma e encontra o seu equilíbrio.\n\nmor, a segurança que encontro na sua companhia me faz acreditar que a paz existe, mesmo quando tudo tá muito caótico. porque quando você segue sua vida, o que mais me importa é saber que tô junto com você.\n\nfico admirando você e me maravilho com sua capacidade de crescer e aprender, a forma como você lida com os desafios da vida. sua fé me motiva, fazendo com que eu queira, mais do que nunca, estar com você. e sempre estarei.\n\neu quero compartilhar novas experiências ao seu lado, na esperança de que, juntas, possamos encontrar a beleza que o mundo tem a oferecer.\n\nsou perdidamente apaixonada por você e sou profundamente grata pela pessoa que me tornei, e tudo isso porque você faz parte da minha vida. namora comigo!");
 }
 
-// Função para mover o botão "Não" ao passar o mouse
-function moveButton() {
-    // Obtém a posição atual do botão
-    var position = parseInt(getComputedStyle(noButton).transform.split(',')[4]) || 0;
-    position = (position === 0) ? 190 : 0; // Alterna a posição
-    noButton.style.transform = `translate(${position}px, 0px)`;
-    noButton.style.transition = "all 0.4s ease"; // Corrige a transição para 0.4s
+// Função para parar a música
+function stopMusic() {
+    audioElement.pause();
+    audioElement.currentTime = 0;
+    playPauseButton.textContent = 'Play';
 }
 
-// Adiciona o listener de clique para o botão "Sim"
-yesButton.addEventListener("click", playMusic);
+// Função para tocar a próxima faixa
+function nextTrack() {
+    currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+    audioElement.src = tracks[currentTrackIndex];
+    audioElement.play();
+    playPauseButton.textContent = 'Pause';
+}
 
-// Adiciona o listener de mouseover para o botão "Não"
-noButton.addEventListener("mouseover", moveButton);
+// Atualiza o controle de progresso
+audioElement.addEventListener('timeupdate', () => {
+    const progress = (audioElement.currentTime / audioElement.duration) * 100;
+    progressBar.value = progress;
+});
+
+// Manipula o clique na barra de progresso
+progressBar.addEventListener('input', () => {
+    const newTime = (progressBar.value / 100) * audioElement.duration;
+    audioElement.currentTime = newTime;
+});
+
+// Carrega a primeira faixa
+audioElement.src = tracks[currentTrackIndex];
