@@ -13,4 +13,83 @@ header {
     width: 100%;
     padding: 10px;
     text-align: center;
-    background: rgb(105
+    background: rgb(105, 89, 205);
+    color: rgb(227, 185, 255);
+    z-index: 1000;
+}
+
+main {
+    text-align: center;
+    padding: 20px;
+    max-width: 90%;
+    margin-top: 80px; /* Adiciona margem para não sobrepor o header */
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    display: block; /* Garante que o GIF seja exibido corretamente */
+}
+
+.message {
+    display: none; /* Inicialmente oculto */
+    background: rgba(255, 255, 255, 0.9);
+    color: #000;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 90vw;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    white-space: pre-wrap; /* Mantém a formatação dos saltos de linha */
+}
+
+/* Estilos para o reprodutor de mídia */
+.media-player {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.controls {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+button {
+    background-color: red;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    padding: 10px;
+    color: white;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .media-player {
+        width: 100%;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+}
