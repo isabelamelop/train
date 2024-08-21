@@ -1,13 +1,11 @@
-// script.js
-
 const audioElement = document.getElementById('musica');
 const playPauseButton = document.getElementById('playPause');
 const nextButton = document.getElementById('next');
 const progressBar = document.getElementById('progress');
 const messageDiv = document.getElementById('message');
 
-// Define a fonte do áudio e configura o loop
-audioElement.src = 'musica.mp3';
+// Defina o link do Google Drive como fonte do áudio
+audioElement.src = 'https://drive.google.com/uc?export=download&id=SEU_ID_DE_ARQUIVO';
 audioElement.loop = true;
 
 // Função para tocar/pausar a música
