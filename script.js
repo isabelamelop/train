@@ -4,7 +4,7 @@ const messageDiv = document.getElementById('message');
 const morImage = document.getElementById('morImage');
 
 // Define a URL da música do Google Drive
-audioElement.src = 'https://drive.google.com/uc?export=download&id=178IqvGVzhb3VPQfLlcWqOH5d_hPB8Yn0';
+audioElement.src = 'https://drive.google.com/uc?export=download&id=16d6q4S1cXT7KNfehiZpErScmBh3h-Z56';
 audioElement.loop = true;
 
 // Função para tocar/pausar a música
@@ -13,11 +13,13 @@ function togglePlay() {
         audioElement.play().catch(error => {
             console.error('Erro ao tentar tocar o áudio:', error);
         });
-        playPauseButton.textContent = 'Pause';
+        playPauseButton.style.backgroundColor = 'red'; // Muda a cor do botão para vermelho quando tocando
+        playPauseButton.innerHTML = 'Pause'; // Muda o texto do botão
         messageDiv.style.display = 'block'; // Exibe a mensagem
         morImage.style.display = 'block'; // Exibe a imagem
     } else {
         audioElement.pause();
-        playPauseButton.textContent = 'Play';
+        playPauseButton.style.backgroundColor = 'transparent'; // Muda a cor do botão para transparente quando pausado
+        playPauseButton.innerHTML = 'Play'; // Muda o texto do botão
     }
 }
