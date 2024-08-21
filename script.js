@@ -7,7 +7,7 @@ const morImage = document.getElementById('morImage');
 const header = document.getElementById('cabeçalho');
 
 // Playlist atualizada com a música2
-const playlist = ['musica2.mp3', 'musica10.mp3', 'musica11.mp3', 'musica12.mp3'];
+const playlist = ['musica10.mp3', 'musica2.mp3', , 'musica11.mp3', 'musica12.mp3'];
 let currentTrack = 0;
 let isShuffle = false;
 
