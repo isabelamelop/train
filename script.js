@@ -11,7 +11,6 @@ let currentTrackIndex = 0;
 // Seleciona os botões e o elemento de áudio
 const audioElement = document.getElementById('musica');
 const playPauseButton = document.getElementById('playPause');
-const stopButton = document.getElementById('stop');
 const nextButton = document.getElementById('next');
 const progressBar = document.getElementById('progress');
 
@@ -24,13 +23,6 @@ function togglePlay() {
         audioElement.pause();
         playPauseButton.textContent = 'Play';
     }
-}
-
-// Função para parar a música
-function stopMusic() {
-    audioElement.pause();
-    audioElement.currentTime = 0;
-    playPauseButton.textContent = 'Play';
 }
 
 // Função para tocar a próxima faixa
