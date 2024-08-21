@@ -3,7 +3,7 @@ const playPauseButton = document.getElementById('playPause');
 const messageDiv = document.getElementById('message');
 const morImage = document.getElementById('morImage');
 
-// URL da música do Google Drive (substitua o id pelo correto)
+// Define a URL da música do Google Drive
 audioElement.src = 'https://drive.google.com/uc?export=download&id=16d6q4S1cXT7KNfehiZpErScmBh3h-Z56';
 audioElement.loop = true;
 
