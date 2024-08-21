@@ -1,21 +1,14 @@
 // script.js
 
-const tracks = [
-    'tracks/musica.mp3' // Música única para reprodução em loop
-];
-
-let currentTrackIndex = 0;
-
-// Seleciona os botões e o elemento de áudio
 const audioElement = document.getElementById('musica');
 const playPauseButton = document.getElementById('playPause');
 const nextButton = document.getElementById('next');
 const progressBar = document.getElementById('progress');
 const messageDiv = document.getElementById('message');
 
-// Carrega a música inicial e configura o loop
-audioElement.src = tracks[currentTrackIndex];
-audioElement.loop = true; // Configura para repetir a música quando acabar
+// Define a fonte do áudio e configura o loop
+audioElement.src = 'musica.mp3';
+audioElement.loop = true;
 
 // Função para tocar/pausar a música
 function togglePlay() {
@@ -31,8 +24,8 @@ function togglePlay() {
 
 // Função para tocar a próxima faixa
 function nextTrack() {
-    currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
-    audioElement.src = tracks[currentTrackIndex];
+    // Como há apenas uma faixa, esta função reinicia a faixa atual
+    audioElement.currentTime = 0;
     audioElement.play();
     playPauseButton.textContent = 'Pause';
 }
