@@ -7,7 +7,12 @@ var audioElement = document.getElementById('musica');
 
 // Função para tocar a música e mostrar o alerta
 function playMusic() {
-    audioElement.play(); // Reproduz a música
+    // Verifica se o áudio está carregado e pronto para reprodução
+    if (audioElement.readyState >= 3) {
+        audioElement.play(); // Reproduz a música
+    } else {
+        console.error("O áudio não está pronto para reprodução.");
+    }
     alert("ao perceber que posso contar com você, tudo na minha vida se acalma e encontra o seu equilíbrio.\n\nmor, a segurança que encontro na sua companhia me faz acreditar que a paz existe, mesmo quando tudo tá muito caótico. porque quando você segue sua vida, o que mais me importa é saber que tô junto com você.\n\nfico admirando você e me maravilho com sua capacidade de crescer e aprender, a forma como você lida com os desafios da vida. sua fé me motiva, fazendo com que eu queira, mais do que nunca, estar com você. e sempre estarei.\n\neu quero compartilhar novas experiências ao seu lado, na esperança de que, juntas, possamos encontrar a beleza que o mundo tem a oferecer.\n\nsou perdidamente apaixonada por você e sou profundamente grata pela pessoa que me tornei, e tudo isso porque você faz parte da minha vida. namora comigo!");
 }
 
@@ -15,7 +20,7 @@ function playMusic() {
 function moveButton() {
     // Obtém a posição atual do botão
     var position = parseInt(getComputedStyle(noButton).transform.split(',')[4]) || 0;
-    position = (position === 0) ? 150 : 0; // Alterna a posição
+    position = (position === 0) ? 190 : 0; // Alterna a posição
     noButton.style.transform = `translate(${position}px, 0px)`;
     noButton.style.transition = "all 0.4s ease"; // Corrige a transição para 0.4s
 }
