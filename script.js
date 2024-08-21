@@ -13,11 +13,11 @@ function togglePlay() {
         audioElement.play().catch(error => {
             console.error('Erro ao tentar tocar o áudio:', error);
         });
-        playPauseButton.textContent = 'Pausar'; // Atualiza o texto do botão
+        playPauseButton.textContent = 'Pausar';
         messageDiv.style.display = 'block'; // Exibe a mensagem
         morImage.style.display = 'block'; // Exibe a imagem
     } else {
         audioElement.pause();
-        playPauseButton.textContent = 'Dormir'; // Atualiza o texto do botão
+        playPauseButton.textContent = 'Dormir';
     }
 }
