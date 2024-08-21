@@ -1,10 +1,9 @@
 // script.js
 
-// Lista de músicas
 const tracks = [
-    'musica1.mp3',
-    'musica2.mp3',
-    'musica3.mp3' // Adicione mais músicas conforme necessário
+    'tracks/musica1.mp3',
+    'tracks/musica2.mp3',
+    'tracks/musica3.mp3' // Adicione mais músicas conforme necessário
 ];
 
 let currentTrackIndex = 0;
