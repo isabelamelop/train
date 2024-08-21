@@ -15,7 +15,7 @@ function playMusic() {
 function moveButton() {
     // Obtém a posição atual do botão
     var position = parseInt(getComputedStyle(noButton).transform.split(',')[4]) || 0;
-    position = (position === 0) ? 190 : 0; // Alterna a posição
+    position = (position === 0) ? 150 : 0; // Alterna a posição
     noButton.style.transform = `translate(${position}px, 0px)`;
     noButton.style.transition = "all 0.4s ease"; // Corrige a transição para 0.4s
 }
