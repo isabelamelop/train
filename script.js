@@ -4,8 +4,14 @@ const nextButton = document.getElementById('next');
 const progressBar = document.getElementById('progress');
 const messageDiv = document.getElementById('message');
 
-// Defina o link do Google Drive como fonte do áudio
-audioElement.src = 'https://drive.google.com/uc?export=download&id=178IqvGVzhb3VPQfLlcWqOH5d_hPB8Yn0';
+// Define a URL da música do Google Drive
+const initialTrack = 'https://drive.google.com/uc?export=download&id=178IqvGVzhb3VPQfLlcWqOH5d_hPB8Yn0';
+const nextTrack = 'musica.mp3';
+
+let isInitialTrack = true;
+
+// Configura a faixa inicial e o loop
+audioElement.src = initialTrack;
 audioElement.loop = true;
 
 // Função para tocar/pausar a música
@@ -22,8 +28,12 @@ function togglePlay() {
 
 // Função para tocar a próxima faixa
 function nextTrack() {
-    // Como há apenas uma faixa, esta função reinicia a faixa atual
-    audioElement.currentTime = 0;
+    if (isInitialTrack) {
+        audioElement.src = nextTrack;
+        isInitialTrack = false; // Define que a próxima faixa foi carregada
+    } else {
+        audioElement.currentTime = 0; // Reinicia a faixa atual
+    }
     audioElement.play();
     playPauseButton.textContent = 'Pause';
 }
