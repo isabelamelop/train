@@ -1,7 +1,7 @@
 // script.js
 
 const tracks = [
-    'tracks/musica.mp3' // Adicione mais faixas aqui se necessário
+    'tracks/musica.mp3' // Música única para reprodução em loop
 ];
 
 let currentTrackIndex = 0;
@@ -11,6 +11,7 @@ const audioElement = document.getElementById('musica');
 const playPauseButton = document.getElementById('playPause');
 const nextButton = document.getElementById('next');
 const progressBar = document.getElementById('progress');
+const messageDiv = document.getElementById('message');
 
 // Carrega a música inicial e configura o loop
 audioElement.src = tracks[currentTrackIndex];
@@ -21,6 +22,7 @@ function togglePlay() {
     if (audioElement.paused) {
         audioElement.play();
         playPauseButton.textContent = 'Pause';
+        messageDiv.style.display = 'block'; // Exibe a mensagem
     } else {
         audioElement.pause();
         playPauseButton.textContent = 'Play';
