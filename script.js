@@ -4,8 +4,10 @@ const nextButton = document.getElementById('next');
 const randomButton = document.getElementById('random');
 const messageDiv = document.getElementById('message');
 const morImage = document.getElementById('morImage');
+const header = document.getElementById('cabeçalho');
 
-const playlist = ['musica10.mp3', 'musica11.mp3', 'musica12.mp3'];
+// Playlist atualizada com a música2
+const playlist = ['musica2.mp3', 'musica10.mp3', 'musica11.mp3', 'musica12.mp3'];
 let currentTrack = 0;
 let isShuffle = false;
 
@@ -20,13 +22,16 @@ function togglePlay() {
             console.error('Erro ao tentar tocar o áudio:', error);
         });
         playPauseButton.textContent = 'Pause';
+        playPauseButton.style.backgroundColor = '#6a1b9a'; // Muda o fundo para roxo após clicar
         messageDiv.style.display = 'block'; // Exibe a mensagem
         morImage.style.display = 'block'; // Exibe a imagem
         nextButton.style.display = 'block'; // Exibe o botão de próxima música
         randomButton.style.display = 'block'; // Exibe o botão de aleatório
+        header.style.display = 'none'; // Remove o cabeçalho
     } else {
         audioElement.pause();
-        playPauseButton.textContent = 'Play';
+        playPauseButton.textContent = 'Só clica se me ama';
+        playPauseButton.style.backgroundColor = 'red'; // Volta o fundo para vermelho
     }
 }
 
