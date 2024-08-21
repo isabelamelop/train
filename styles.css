@@ -43,12 +43,11 @@ img {
     height: auto;
     margin-top: 20px;
     display: block; /* Garante que o GIF seja exibido corretamente */
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .message {
     display: none; /* Inicialmente oculto */
+    position: relative; /* Ajusta a posição para permitir rolar */
     background: rgba(255, 255, 255, 0.9);
     color: #000;
     padding: 15px;
@@ -58,7 +57,7 @@ img {
     font-size: 0.9rem;
     margin-top: 20px;
     white-space: pre-wrap; /* Mantém a formatação dos saltos de linha */
-    text-align: center; /* Centraliza o texto */
+    text-align: center;
 }
 
 /* Estilos para o reprodutor de mídia */
@@ -81,36 +80,31 @@ img {
 }
 
 button {
-    background-color: #6200ea;
+    background-color: transparent;
     border: none;
-    color: white;
-    padding: 10px 15px;
-    font-size: 1rem;
-    border-radius: 5px;
     cursor: pointer;
     margin: 5px;
     transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #3700b3;
-}
-
-/* Botão "Dormir" */
-.heart-button {
-    background-color: #6200ea;
-    border: none;
+/* Botão de dormir */
+.sleep-button {
+    width: 100px;
+    height: 50px;
+    background-color: #6200ea; /* Roxo */
     color: white;
-    padding: 10px 20px;
     font-size: 1rem;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: background-color 0.3s;
 }
 
-.heart-button:hover {
-    background-color: #3700b3;
+.sleep-button:hover {
+    background-color: #3700b3; /* Roxo escuro */
 }
 
 /* Responsivo */
