@@ -21,8 +21,3 @@ function togglePlay() {
         playPauseButton.textContent = 'Play';
     }
 }
-
-// Atualiza o controle de progresso (opcional)
-audioElement.addEventListener('timeupdate', () => {
-    // Nenhuma atualização necessária para a barra de progresso
-});
