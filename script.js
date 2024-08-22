@@ -40,7 +40,7 @@ function nextTrack() {
 
 function toggleShuffle() {
     isShuffling = !isShuffling;
-    randomButton.textContent = isShuffling ? 'Aleatório: Ligado' : 'Aleatório: Desligado';
+    randomButton.textContent = isShuffling ? 'Modo Aleatório: Ligado' : 'Modo Aleatório: Desligado';
 }
 
 audioElement.addEventListener('ended', () => {
