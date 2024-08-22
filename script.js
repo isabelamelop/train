@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Lista de arquivos de música
     const tracks = [
         'musica10.mp3',
-        'musica11.mp3',
-        'musica12.mp3',
-        'musica3.mp3',
-        'musica2.mp3'
+        'musica.mp3',
+        'musica.mp3',
+        'musica.mp3',
+        'musica.mp3'
     ];
 
     // Define a primeira música para tocar
