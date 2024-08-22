@@ -13,7 +13,8 @@ const tracks = [
     'musica10.mp3',
     'musica11.mp3',
     'musica12.mp3',
-    'musica3.mp3'
+    'musica3.mp3',
+    'musica2.mp3'
 ];
 
 audioElement.src = tracks[currentTrack];
