@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         'musica.mp3',
         'musica.mp3',
         'musica.mp3',
+        'musica.mp3',
         'musica.mp3'
     ];
 
