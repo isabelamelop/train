@@ -6,6 +6,7 @@ const morImage = document.getElementById('morImage');
 
 let currentTrack = 0;
 
+// Lista de arquivos de música
 const tracks = [
     'musica10.mp3',
     'musica11.mp3',
@@ -14,15 +15,16 @@ const tracks = [
     'musica2.mp3'
 ];
 
+// Define a primeira música para tocar
 audioElement.src = tracks[currentTrack];
 
 function togglePlay() {
     if (audioElement.paused) {
         audioElement.play();
         playPauseButton.textContent = 'Pausar';
-        messageDiv.style.display = 'block';
-        morImage.style.display = 'block';
-        nextButton.style.display = 'block'; // Exibe o botão "Próxima Música" após clicar em play
+        messageDiv.style.display = 'block'; // Exibe a mensagem
+        morImage.style.display = 'block'; // Exibe a imagem
+        nextButton.style.display = 'block'; // Exibe o botão "Próxima Música"
     } else {
         audioElement.pause();
         playPauseButton.textContent = 'Só clica se me ama';
@@ -35,4 +37,5 @@ function nextTrack() {
     audioElement.play();
 }
 
+// Adiciona um ouvinte de eventos para reproduzir a próxima música quando a atual terminar
 audioElement.addEventListener('ended', nextTrack);
