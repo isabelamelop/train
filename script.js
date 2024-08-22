@@ -22,9 +22,9 @@ function togglePlay() {
     if (audioElement.paused) {
         audioElement.play();
         playPauseButton.textContent = 'Pausar';
-        messageDiv.style.display = 'block'; // Exibe a mensagem
-        morImage.style.display = 'block'; // Exibe a imagem
-        nextButton.style.display = 'block'; // Exibe o botão "Próxima Música"
+        messageDiv.style.display = 'block';
+        morImage.style.display = 'block';
+        nextButton.style.display = 'block'; // Exibe o botão "Próxima Música" após clicar em play
     } else {
         audioElement.pause();
         playPauseButton.textContent = 'Só clica se me ama';
@@ -37,5 +37,5 @@ function nextTrack() {
     audioElement.play();
 }
 
-// Adiciona um ouvinte de eventos para reproduzir a próxima música quando a atual terminar
+// Adiciona o evento de terminar a música para tocar a próxima
 audioElement.addEventListener('ended', nextTrack);
