@@ -82,18 +82,15 @@ button {
     transition: background-color 0.3s;
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
-    .media-player {
-        width: 100%;
-        padding: 10px;
-    }
-
-    button {
-        font-size: 0.8rem;
-        padding: 8px 12px;
-    }
+button:focus {
+    outline: none;
 }
+
+button:hover {
+    background-color: darkred;
+}
+
+/* Estilos para o botão de WhatsApp */
 .whatsapp-button {
     display: inline-block;
     margin-top: 20px;
@@ -110,4 +107,17 @@ button {
 
 .whatsapp-button:hover {
     background-color: #1ebe59;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .media-player {
+        width: 100%;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
 }
