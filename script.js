@@ -1,8 +1,8 @@
-// Garantir que o código seja executado apenas uma vez
 document.addEventListener('DOMContentLoaded', (event) => {
     const audioElement = document.getElementById('musica');
     const playPauseButton = document.getElementById('playPause');
     const nextButton = document.getElementById('next');
+    const nextButtonInMessage = document.getElementById('nextInMessage');
     const messageDiv = document.getElementById('message');
     const morImage = document.getElementById('morImage');
 
@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             messageDiv.style.display = 'block';
             morImage.style.display = 'block';
             nextButton.style.display = 'block'; // Exibe o botão "Próxima Música" após clicar em play
+            nextButtonInMessage.style.display = 'block'; // Exibe o botão "Próxima Música" dentro da mensagem
         } else {
             audioElement.pause();
             playPauseButton.textContent = 'Só clica se me ama';
@@ -47,4 +48,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Atribui a função nextTrack ao botão next
     nextButton.addEventListener('click', nextTrack);
+
+    // Atribui a função nextTrack ao botão next dentro da mensagem
+    nextButtonInMessage.addEventListener('click', nextTrack);
 });
