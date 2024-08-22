@@ -33,21 +33,22 @@ function togglePlay() {
 }
 
 function nextTrack() {
-    currentTrack = (currentTrack + 1) % tracks.length;
+    if (isShuffling) {
+        let nextTrack;
+        do {
+            nextTrack = Math.floor(Math.random() * tracks.length);
+        } while (nextTrack === currentTrack);
+        currentTrack = nextTrack;
+    } else {
+        currentTrack = (currentTrack + 1) % tracks.length;
+    }
     audioElement.src = tracks[currentTrack];
     audioElement.play();
 }
 
 function toggleShuffle() {
     isShuffling = !isShuffling;
-    randomButton.textContent = isShuffling ? 'Modo Aleatório: Ligado' : 'Modo Aleatório: Desligado';
+    randomButton.textContent = isShuffling ? 'Aleatório: Ligado' : 'Aleatório: Desligado';
 }
 
-audioElement.addEventListener('ended', () => {
-    if (isShuffling) {
-        currentTrack = Math.floor(Math.random() * tracks.length);
-    } else {
-        nextTrack();
-    }
-    audioElement.play();
-});
+audioElement.addEventListener('ended', nextTrack);
