@@ -2,78 +2,51 @@ const audioElement = document.getElementById('musica');
 const playPauseButton = document.getElementById('playPause');
 const nextButton = document.getElementById('next');
 const randomButton = document.getElementById('random');
+const extraControls = document.getElementById('extraControls');
 const messageDiv = document.getElementById('message');
 const morImage = document.getElementById('morImage');
-const header = document.getElementById('cabeçalho');
 
-// Playlist atualizada com a música2
-const playlist = ['musica10.mp3', 'musica2.mp3', , 'musica11.mp3', 'musica12.mp3'];
+let isShuffling = false;
 let currentTrack = 0;
-let isShuffle = false;
 
-// Define a música inicial
-audioElement.src = playlist[currentTrack];
-audioElement.loop = false;
+const tracks = [
+    'musica10.mp3',
+    'musica11.mp3',
+    'musica12.mp3',
+    'musica3.mp3'
+];
 
-// Função para tocar/pausar a música
+audioElement.src = tracks[currentTrack];
+
 function togglePlay() {
     if (audioElement.paused) {
-        audioElement.play().catch(error => {
-            console.error('Erro ao tentar tocar o áudio:', error);
-        });
-        playPauseButton.textContent = 'Pause';
-        playPauseButton.style.backgroundColor = '#6a1b9a'; // Muda o fundo para roxo após clicar
-        messageDiv.style.display = 'block'; // Exibe a mensagem
-        morImage.style.display = 'block'; // Exibe a imagem
-        nextButton.style.display = 'block'; // Exibe o botão de próxima música
-        randomButton.style.display = 'block'; // Exibe o botão de aleatório
-        header.style.display = 'none'; // Remove o cabeçalho
+        audioElement.play();
+        playPauseButton.textContent = 'Pausar';
+        messageDiv.style.display = 'block';
+        morImage.style.display = 'block';
+        extraControls.style.display = 'flex'; // Exibe os botões após clicar em play
     } else {
         audioElement.pause();
         playPauseButton.textContent = 'Só clica se me ama';
-        playPauseButton.style.backgroundColor = 'red'; // Volta o fundo para vermelho
     }
 }
 
-// Função para tocar a próxima faixa
 function nextTrack() {
-    currentTrack = (currentTrack + 1) % playlist.length;
-    audioElement.src = playlist[currentTrack];
+    currentTrack = (currentTrack + 1) % tracks.length;
+    audioElement.src = tracks[currentTrack];
     audioElement.play();
-    playPauseButton.textContent = 'Pause';
 }
 
-// Função para alternar o modo aleatório
 function toggleShuffle() {
-    isShuffle = !isShuffle;
-    randomButton.textContent = isShuffle ? 'Aleatório: On' : 'Aleatório: Off';
-    if (isShuffle) {
-        shufflePlaylist();
-    } else {
-        audioElement.src = playlist[currentTrack];
-    }
-}
-
-// Função para embaralhar a playlist
-function shufflePlaylist() {
-    let shuffledPlaylist = playlist.slice();
-    for (let i = shuffledPlaylist.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffledPlaylist[i], shuffledPlaylist[j]] = [shuffledPlaylist[j], shuffledPlaylist[i]];
-    }
-    playlist.length = 0;
-    playlist.push(...shuffledPlaylist);
-    currentTrack = 0;
-    audioElement.src = playlist[currentTrack];
+    isShuffling = !isShuffling;
+    randomButton.textContent = isShuffling ? 'Aleatório: Ligado' : 'Aleatório: Desligado';
 }
 
 audioElement.addEventListener('ended', () => {
-    if (isShuffle) {
-        nextTrack();
+    if (isShuffling) {
+        currentTrack = Math.floor(Math.random() * tracks.length);
     } else {
-        currentTrack = (currentTrack + 1) % playlist.length;
-        audioElement.src = playlist[currentTrack];
-        audioElement.play();
-        playPauseButton.textContent = 'Pause';
+        nextTrack();
     }
+    audioElement.play();
 });
