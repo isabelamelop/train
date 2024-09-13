@@ -1,11 +1,10 @@
 // Informações que serão exibidas
 const personalInfo = {
     name: 'Isabela de Melo Pereira',
-    introduction: 'Olá, meu nome é Isabela de Melo Pereira, sou estudante de Ciência da Computação no 3º período e faço estágio com atendimento ao cliente. Estou sempre buscando aprender mais sobre desenvolvimento web, ciência de dados e tecnologias emergentes.',
+    introduction: 'Olá, meu nome é Isabela de Melo Pereira, sou estudante de Ciência da Computação no 3º período e faço estágio com atendimento ao cliente. Estou sempre buscando aprender mais sobre inteligência artificial, ciência de dados e tecnologias emergentes.',
     experiences: [
         'Estudante de Ciência da Computação no 3º período',
-        'Atendimento ao Cliente na Wave Lojas Virtuais',
-        'Desenvolvimento de uma base de conhecimento para o e-commerce Wave Lojas Virtuais',
+        'Atendimento ao Cliente na Wave Lojas Virtuais',        
     ],
     skills: [
         'Excel e Power BI',
@@ -40,3 +39,7 @@ if (skillsList) {
         skillsList.appendChild(li);
     });
 }
+<div id="impact-graph" class="graph-container">
+    <canvas id="impact-canvas"></canvas>
+</div>
+
