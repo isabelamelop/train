@@ -106,7 +106,9 @@ const config = {
         },
         onClick: (event, chartElement) => {
             if (chartElement.length > 0) {
+                // Obtém o rótulo da área clicada
                 const label = chartElement[0].element.$context.raw.label;
+                // Exibe a solução correspondente
                 displaySolution(label);
             }
         }
