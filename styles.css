@@ -70,15 +70,17 @@ footer {
 
 /* Estilo para o gráfico */
 .graph-container {
-  width: 100%;
-  height: 400px; /* Altura do gráfico */
-  margin: 20px 0;
+    width: 100%;
+    height: 400px; /* Altura do gráfico */
+    margin: 20px 0;
 }
 
-.graph-bar {
-  cursor: pointer; /* change cursor on hover */
-}
-
-.graph-bar:hover {
-  background-color: #b03a2e; /* highlight the bar on hover */
+/* Estilo para a exibição das soluções */
+.solution-display {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #333;
 }
