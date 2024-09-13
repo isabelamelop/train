@@ -9,15 +9,11 @@ const data = {
     datasets: [{
         label: 'Impacto Potencial',
         data: [90, 80, 70, 85], // Valores fictícios
-        backgroundColor: 'rgba(176, 98, 98, 0.2)',
-        borderColor: 'rgba(176, 98, 98, 1)',
+        backgroundColor: 'rgba(176, 98, 98, 0.2)', // Bordô claro
+        borderColor: 'rgba(176, 98, 98, 1)', // Bordô escuro
         borderWidth: 1
     }]
 };
-<div id="impact-graph" class="graph-container">
-    <canvas id="impact-canvas"></canvas>
-</div>
-
 
 // Configuração do gráfico
 const config = {
@@ -36,12 +32,27 @@ const config = {
                     }
                 }
             }
+        },
+        scales: {
+            x: {
+                grid: {
+                    color: '#f4f4f4'
+                }
+            },
+            y: {
+                grid: {
+                    color: '#f4f4f4'
+                },
+                ticks: {
+                    color: '#333'
+                }
+            }
         }
     }
 };
 
 // Criar o gráfico
 window.onload = function() {
-    const ctx = document.getElementById('impact-graph').getContext('2d');
+    const ctx = document.getElementById('impact-canvas').getContext('2d');
     new Chart(ctx, config);
 };
