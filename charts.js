@@ -29,8 +29,22 @@ const config = {
                 callbacks: {
                     label: function(context) {
                         return `${context.label}: ${context.raw}% de Impacto Potencial`;
+                    },
+                    title: function(context) {
+                        return `Área de Impacto: ${context[0].label}`;
                     }
-                }
+                },
+                backgroundColor: '#333', // Cor de fundo do tooltip
+                titleColor: '#fff', // Cor do título do tooltip
+                bodyColor: '#fff', // Cor do corpo do tooltip
+                borderColor: '#b03a2e', // Cor da borda do tooltip
+                borderWidth: 1
+            },
+            // Animações
+            datalabels: {
+                display: true,
+                color: '#fff',
+                formatter: (value) => `${value}%`
             }
         },
         scales: {
@@ -46,6 +60,15 @@ const config = {
                 ticks: {
                     color: '#333'
                 }
+            }
+        },
+        // Eventos personalizados
+        onHover: (event, chartElement) => {
+            if (chartElement.length > 0) {
+                // Adicione efeitos personalizados ou ações quando o usuário passa o mouse sobre um elemento
+                event.native.target.style.cursor = 'pointer';
+            } else {
+                event.native.target.style.cursor = 'default';
             }
         }
     }
