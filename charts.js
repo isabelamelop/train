@@ -14,6 +14,10 @@ const data = {
         borderWidth: 1
     }]
 };
+<div id="impact-graph" class="graph-container">
+    <canvas id="impact-canvas"></canvas>
+</div>
+
 
 // Configuração do gráfico
 const config = {
