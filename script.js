@@ -16,20 +16,27 @@ const personalInfo = {
 };
 
 // Adicionar a introdução
-document.getElementById('introduction').innerText = personalInfo.introduction;
+const introElement = document.getElementById('introduction');
+if (introElement) {
+    introElement.innerText = personalInfo.introduction;
+}
 
 // Adicionar as experiências
 const experienceList = document.getElementById('experience-list');
-personalInfo.experiences.forEach(exp => {
-    const li = document.createElement('li');
-    li.innerText = exp;
-    experienceList.appendChild(li);
-});
+if (experienceList) {
+    personalInfo.experiences.forEach(exp => {
+        const li = document.createElement('li');
+        li.innerText = exp;
+        experienceList.appendChild(li);
+    });
+}
 
 // Adicionar as habilidades
 const skillsList = document.getElementById('skills-list');
-personalInfo.skills.forEach(skill => {
-    const li = document.createElement('li');
-    li.innerText = skill;
-    skillsList.appendChild(li);
-});
+if (skillsList) {
+    personalInfo.skills.forEach(skill => {
+        const li = document.createElement('li');
+        li.innerText = skill;
+        skillsList.appendChild(li);
+    });
+}
