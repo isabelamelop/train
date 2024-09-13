@@ -8,11 +8,10 @@ const personalInfo = {
         'Desenvolvimento de uma base de conhecimento para o e-commerce Wave Lojas Virtuais',
     ],
     skills: [
-        'HTML, CSS e JavaScript',
-        'Git e controle de versão',
         'Excel e Power BI',
-        'Python e R para análise de dados',
-        'Conhecimentos básicos de ciência de dados através de cursos gratuitos'
+        'VSCode, Eclipse, Linux, Oracle',
+        'Conhecimentos básicos de ciência de dados através de cursos gratuitos',
+        'PL/SQL, POO em Java, C#, Python e R para análise de dados'
     ]
 };
 
