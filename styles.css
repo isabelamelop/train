@@ -1,49 +1,34 @@
-/* Font and Global Styles */
+/* Fonte e reset básico */
 body {
     font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
     color: #333;
 }
 
 header {
-    background-color: #800000; /* Vermelho Bordô */
-    color: white;
-    padding: 20px;
+    background: #b03a2e; /* Vermelho bordô */
+    color: #fff;
+    padding: 1rem 0;
     text-align: center;
 }
 
-h1, h2 {
-    margin: 10px 0;
-    font-weight: 700;
+header h1 {
+    margin: 0;
 }
 
-h2 {
-    color: #800000; /* Vermelho Bordô */
+/* Estilo das seções */
+section {
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
-p {
-    margin: 10px 0;
-}
-
-a {
-    color: #800000; /* Vermelho Bordô */
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Introduction Section */
-section.intro {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.profile {
+.intro {
+    background: #f4f4f4;
+    border-radius: 8px;
+    padding: 2rem;
     text-align: center;
 }
 
@@ -51,53 +36,118 @@ section.intro {
     border-radius: 50%;
     width: 150px;
     height: 150px;
+    object-fit: cover;
 }
 
-section.about-me {
-    padding: 20px;
-    background-color: white;
-    margin: 20px auto;
-    width: 80%;
+.about-me {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.video {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 1rem;
+}
+
+.video h2 {
+    margin-bottom: 1rem;
+}
+
+video {
+    max-width: 100%;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-section.details {
-    padding: 20px;
-    background-color: white;
-    margin: 20px auto;
-    width: 80%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Lista de experiências e habilidades */
+.details {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.details h2 {
+    margin-top: 0;
 }
 
 ul {
-    list-style-type: square;
-    padding-left: 20px;
+    list-style: none;
+    padding: 0;
 }
 
-section.contact, section.cta {
+li {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+}
+
+/* Seção de contato */
+.contact {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
     text-align: center;
-    padding: 20px;
 }
 
-.btn-download {
-    background-color: #800000; /* Vermelho Bordô */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+.contact a {
+    color: #b03a2e; /* Vermelho bordô */
     text-decoration: none;
 }
 
-.btn-download:hover {
-    background-color: #660000; /* Tom um pouco mais escuro de Bordô */
+.contact a:hover {
+    text-decoration: underline;
 }
 
-/* Footer */
-footer {
-    background-color: #800000; /* Vermelho Bordô */
-    color: white;
+/* Chamada para ação */
+.cta {
     text-align: center;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    margin: 2rem 0;
+}
+
+.btn-download {
+    background: #b03a2e; /* Vermelho bordô */
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-download:hover {
+    background: #a32e1d;
+}
+
+/* Seção Localiza Impacto */
+.localiza-impact {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.localiza-impact h2 {
+    margin-top: 0;
+}
+
+.localiza-impact ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+/* Rodapé */
+footer {
+    background: #b03a2e; /* Vermelho bordô */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    margin-top: 2rem;
 }
