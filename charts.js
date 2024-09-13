@@ -1,17 +1,3 @@
-// Soluções para cada área de impacto
-const solutions = {
-    'Otimização de Processos': 'Usar ciência de dados para otimizar a gestão da frota e a estratégia de preços.',
-    'Desenvolvimento de Soluções Inovadoras': 'Criar ferramentas e dashboards para melhorar a eficiência operacional e a experiência do cliente.',
-    'Fortalecimento da Presença Online': 'Implementar estratégias digitais para aumentar a visibilidade e o engajamento com o público-alvo.',
-    'Colaboração em Projetos de Tecnologia': 'Propor e implementar novas tecnologias que podem melhorar a operação e a satisfação do cliente.'
-};
-
-// Função para exibir a solução
-function displaySolution(label) {
-    const solutionText = solutions[label] || 'Nenhuma solução disponível para esta área.';
-    document.getElementById('solution-display').innerText = solutionText;
-}
-
 // Dados para a visualização
 const data = {
     labels: [
@@ -72,5 +58,7 @@ const config = {
 };
 
 // Criar o gráfico
-const ctx = document.getElementById('impact-graph').getContext('2d');
-new Chart(ctx, config);
+window.onload = function() {
+    const ctx = document.getElementById('impact-graph').getContext('2d');
+    new Chart(ctx, config);
+};
