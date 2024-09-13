@@ -71,6 +71,14 @@ const data = {
     }]
 };
 
+// Soluções para cada área
+const solutions = {
+    'Otimização de Processos': 'Usar ciência de dados para otimizar a gestão da frota e a estratégia de preços.',
+    'Desenvolvimento de Soluções Inovadoras': 'Criar ferramentas e dashboards para melhorar a eficiência operacional e a experiência do cliente.',
+    'Fortalecimento da Presença Online': 'Desenvolver campanhas digitais para aumentar a visibilidade da marca e engajar com o público.',
+    'Colaboração em Projetos de Tecnologia': 'Propor e implementar novas tecnologias que podem melhorar a operação e a satisfação do cliente.'
+};
+
 // Configuração do gráfico
 const config = {
     type: 'bar',
@@ -106,15 +114,17 @@ const config = {
         },
         onClick: (event, chartElement) => {
             if (chartElement.length > 0) {
-                // Obtém o rótulo da área clicada
-                const label = chartElement[0].element.$context.raw.label;
-                // Exibe a solução correspondente
-                displaySolution(label);
+                const index = chartElement[0].index;
+                const label = data.labels[index];
+                const solution = solutions[label];
+                document.getElementById('solution-container').innerText = solution || 'Nenhuma solução disponível para esta área.';
             }
         }
     }
 };
 
 // Criar o gráfico
-const ctx = document.getElementById('impact-graph').getContext('2d');
-new Chart(ctx, config);
+window.onload = function() {
+    const ctx = document.getElementById('impact-graph').getContext('2d');
+    new Chart(ctx, config);
+};
