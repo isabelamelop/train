@@ -74,6 +74,13 @@ footer {
     height: 400px; /* Altura do gráfico */
     margin: 20px 0;
 }
+.solution-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+}
 
 /* Estilo para a exibição das soluções */
 .solution-display {
