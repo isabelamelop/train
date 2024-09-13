@@ -1,50 +1,74 @@
-const personalInfo = {
-  name: 'Isabela de Melo Pereira',
-  introduction: 'Olá, meu nome é Isabela de Melo Pereira, sou estudante de Ciência da Computação no 3º período e faço estágio com atendimento ao cliente. Estou sempre buscando aprender mais sobre inteligência artificial, ciência de dados e tecnologias emergentes.',
-  experiences: [
-    'Estudante de Ciência da Computação no 3º período',
-    'Atendimento ao Cliente na Wave Lojas Virtuais',        
-  ],
-  skills: [
-    'Excel e Power BI',
-    'VSCode, Eclipse, Linux, Oracle',
-    'Conhecimentos básicos de ciência de dados através de cursos gratuitos',
-    'PL/SQL, POO em Java, C#, Python e R para análise de dados'
-  ]
+// Soluções para cada área de impacto
+const solutions = {
+    'Otimização de Processos': 'Usar ciência de dados para otimizar a gestão da frota e a estratégia de preços.',
+    'Desenvolvimento de Soluções Inovadoras': 'Criar ferramentas e dashboards para melhorar a eficiência operacional e a experiência do cliente.',
+    'Fortalecimento da Presença Online': 'Implementar estratégias digitais para aumentar a visibilidade e o engajamento com o público-alvo.',
+    'Colaboração em Projetos de Tecnologia': 'Propor e implementar novas tecnologias que podem melhorar a operação e a satisfação do cliente.'
 };
 
-// Adicionar a introdução
-const introElement = document.getElementById('introduction');
-if (introElement) {
-  introElement.innerText = personalInfo.introduction;
+// Função para exibir a solução
+function displaySolution(label) {
+    const solutionText = solutions[label] || 'Nenhuma solução disponível para esta área.';
+    document.getElementById('solution-display').innerText = solutionText;
 }
 
-// Adicionar as experiências
-const experienceList = document.getElementById('experience-list');
-if (experienceList) {
-  personalInfo.experiences.forEach(exp => {
-    const li = document.createElement('li');
-    li.innerText = exp;
-    experienceList.appendChild(li);
-  });
-}
+// Dados para a visualização
+const data = {
+    labels: [
+        'Otimização de Processos',
+        'Desenvolvimento de Soluções Inovadoras',
+        'Fortalecimento da Presença Online',
+        'Colaboração em Projetos de Tecnologia'
+    ],
+    datasets: [{
+        label: 'Impacto Potencial',
+        data: [90, 80, 70, 85], // Valores fictícios
+        backgroundColor: 'rgba(176, 98, 98, 0.2)', // Bordô claro
+        borderColor: 'rgba(176, 98, 98, 1)', // Bordô escuro
+        borderWidth: 1
+    }]
+};
 
-// Adicionar as habilidades
-const skillsList = document.getElementById('skills-list');
-if (skillsList) {
-  personalInfo.skills.forEach(skill => {
-    const li = document.createElement('li');
-    li.innerText = skill;
-    skillsList.appendChild(li);
-  });
-}
-
-// Definir as soluções para cada problema
-const solutions = {
-  'Análise de Dados': 'Usar ciência de dados para otimizar a gestão da frota e a estratégia de preços',
-  'Desenvolvimento de Soluções': 'Criar ferramentas e dashboards para melhorar a eficiência operacional e a experiência do cliente',
-  'Inovação Tecnológica': 'Propor e implementar novas tecnologias que podem melhorar a operação e a satisfação do cliente',
-  'Colaboração em Projetos de Tecnologia': 'Trabalhar em equipe para desenvolver soluções inovadoras e eficazes'
+// Configuração do gráfico
+const config = {
+    type: 'bar',
+    data: data,
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        return `${context.label}: ${context.raw}% de Impacto Potencial`;
+                    }
+                }
+            }
+        },
+        scales: {
+            x: {
+                grid: {
+                    color: '#f4f4f4'
+                }
+            },
+            y: {
+                grid: {
+                    color: '#f4f4f4'
+                },
+                ticks: {
+                    color: '#333'
+                }
+            }
+        },
+        onClick: (event, chartElement) => {
+            if (chartElement.length > 0) {
+                const label = chartElement[0].element.$context.raw.label;
+                displaySolution(label);
+            }
+        }
+    }
 };
 
 // Criar o gráfico
