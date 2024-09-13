@@ -23,12 +23,13 @@
     <section class="about-me">
         <h2>Sobre Mim</h2>
         <p>Desde criança, sempre tive curiosidade por tecnologia. Adorava baixar joguinhos modificados e ficava fascinada em saber como era possível 'clonar' aplicativos e modificá-los.</p>
+        <p>Eu também sempre gostei muito de música e esportes, toco guitarra, violão, teclado, etc., jogava vôlei, futebol e futsal, o que me deixou na dúvida sobre minha carreira, mas acho que esses dois precisam de sorte e investimento, rs.</p>
         <p>Hoje, estou no 3º período de Ciência da Computação e me sinto realizada por poder explorar essa curiosidade através de códigos e soluções tecnológicas. Também sou apaixonada por música, línguas e sempre busco adquirir novos conhecimentos para evoluir não só como profissional, mas também como pessoa.</p>
         <p>Criei este site como uma forma criativa e pessoal de me apresentar. Espero que gostem!</p>
     </section>
 
     <section class="video">
-        <h2>Minha paixão 👇 </h2>
+        <h2>Dica de show para festa de fim de ano 👇 </h2>
         <video controls>
             <source src="videos/violao.mp4" type="video/mp4">
             Seu navegador não suporta o elemento de vídeo.
@@ -48,6 +49,9 @@
         <p>Utilizando ciência de dados, posso transformar dados brutos em insights valiosos para otimizar a experiência dos clientes da Localiza. Posso desenvolver dashboards interativos para a visualização de métricas importantes e, com isso, tomar decisões mais rápidas e estratégicas. Caso não considerem essa área adequada para mim, sou uma pessoa super flexível e disposta a conhecer novas áreas. Meu interesse é em qualquer área tecnológica. Isso me encanta.</p>
         <p>Acredito que os conhecimentos que adquiri na faculdade e em cursos externos podem trazer soluções inovadoras para melhorar a eficiência operacional e criar novas oportunidades de crescimento.</p>
         <p>Minha paixão pela tecnologia pode estabelecer uma conexão entre eu e a Localiza para um futuro promissor. Espero que tenham interesse em conhecer mais sobre mim, meu interesse na empresa, minha liberdade na vida e minha vontade de viver, especialmente a vontade de viver trabalhando nesta empresa incrível!</p>
+        <p>Veja como minha experiência e habilidades podem transformar a Localiza com uma visualização interativa:</p>
+        <div id="impact-graph" class="graph-container"></div>
+        <p>Explore o gráfico interativo para descobrir como cada área pode ser impactada.</p>
     </section>
 
     <section class="contact">
@@ -60,6 +64,50 @@
         <p>&copy; 2024 Isabela de Melo Pereira</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Dados para a visualização
+        const data = {
+            labels: [
+                'Otimização de Processos',
+                'Desenvolvimento de Soluções Inovadoras',
+                'Fortalecimento da Presença Online',
+                'Colaboração em Projetos de Tecnologia'
+            ],
+            datasets: [{
+                label: 'Impacto Potencial',
+                data: [90, 80, 70, 85], // Valores fictícios
+                backgroundColor: 'rgba(176, 98, 98, 0.2)',
+                borderColor: 'rgba(176, 98, 98, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Configuração do gráfico
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `${context.label}: ${context.raw}% de Impacto Potencial`;
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        // Criar o gráfico
+        const ctx = document.getElementById('impact-graph').getContext('2d');
+        new Chart(ctx, config);
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
