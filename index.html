@@ -1,40 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quem Sou Eu</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="isa2.jpg">
-    <title>Boa noite de amor</title>
 </head>
 <body>
-    <header id="cabeçalho">
-        <div>
-            <h3>EU TE AMO MEU BBER</h3>
-        </div>
+    <header>
+        <h1>Quem Sou Eu</h1>
     </header>
     
-    <main>
-        <h1>BONNE NUIT, MOR</h1>
-
-        <!-- Reprodutor de mídia personalizado -->
-        <div class="media-player">
-            <audio id="musica" loop></audio>
-            <div class="controls">
-                <button id="playPause" class="play-button">Só clica se me ama</button>
-                <button id="next" class="control-button" style="display: none;">Próxima Música</button>
-            </div>
+    <section class="intro">
+        <div class="profile">
+            <img src="https://via.placeholder.com/150" alt="Minha Foto" class="profile-img">
+            <p id="introduction"></p>
         </div>
+    </section>
 
-        <!-- Imagem GIF e Texto de mensagem -->
-        <img id="morImage" src="mor2.jpg.gif" alt="Fotinha FOFA" style="display: none;">
-        <div id="message" class="message">
-            <p>oi bb <br><br> eu coloquei umas 14h de ruído branco pra você dormir até quando quiser<br><br><br><br>mas ele faz um barulhinho pra pular pro próximo áudio e eu acho que vai te acordar<br><br><br><br>o importante é que todo dia tô tentando um jeito diferente de fazer funcionar esse ruído, né?<br><br>te ama!</p>
-            <a href="https://wa.me/5531983862759?text=te%20amo%20mor" target="_blank" class="whatsapp-button">Clica aqui, mor</a>
-            <button id="nextInMessage" class="control-button" style="display: none;">Próxima Música</button>
-        </div>
-    </main>
+    <section class="details">
+        <h2>Minhas Experiências</h2>
+        <ul id="experience-list"></ul>
+        
+        <h2>Habilidades Técnicas</h2>
+        <ul id="skills-list"></ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Seu Nome</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
