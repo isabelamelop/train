@@ -1,75 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Currículo - Isabela de Melo Pereira</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Currículo - Isabela de Melo Pereira</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Isabela de Melo Pereira</h1>
-    </header>
+  <header>
+    <h1>Isabela de Melo Pereira</h1>
+  </header>
 
-    <section class="intro">
-        <div class="profile">
-            <img src="isabela.png" alt="Minha Foto" class="profile-img">
-            <p id="introduction"></p>
-        </div>
-    </section>
+  <section class="intro">
+    <div class="profile">
+      <img src="isabela.png" alt="Minha Foto" class="profile-img">
+      <p id="introduction"></p>
+    </div>
+  </section>
 
-    <section class="about-me">
-        <h2>Sobre Mim</h2>
-        <p>Desde criança, sempre tive curiosidade por tecnologia. Adorava baixar joguinhos modificados e ficava fascinada em saber como era possível 'clonar' aplicativos e modificá-los.</p>
-        <p>Eu também sempre gostei muito de música e esportes, toco guitarra, violão, teclado, etc., jogava vôlei, futebol e futsal, o que me deixou na dúvida sobre minha carreira, mas acho que esses dois precisam de sorte e investimento, rs.</p>
-        <p>Hoje, estou no 3º período de Ciência da Computação e me sinto realizada por poder explorar essa curiosidade através de códigos e soluções tecnológicas. Também sou apaixonada por música, línguas e sempre busco adquirir novos conhecimentos para evoluir não só como profissional, mas também como pessoa.</p>
-        <p>Criei este site como uma forma criativa e pessoal de me apresentar. Espero que gostem!</p>
-    </section>
+  <section class="about-me">
+    <h2>Sobre Mim</h2>
+    <p>Desde criança, sempre tive curiosidade por tecnologia. Adorava baixar joguinhos modificados e ficava fascinada em saber como era possível 'clonar' aplicativos e modificá-los.</p>
+    <p>Hoje, estou no 3º período de Ciência da Computação e me sinto realizada por explorar essa curiosidade através de códigos e soluções tecnológicas. Também sou apaixonada por música e línguas.</p>
+  </section>
 
-    <section class="video">
-        <h2>Desafio da Localiza 👇 </h2>
-        <video controls>
-            <source src="videos/violao.mp4" type="video/mp4">
-            Seu navegador não suporta o elemento de vídeo.
-        </video>
-    </section>
+  <section class="localiza-impact">
+    <h2>Como Posso Contribuir com a Localiza Meoo</h2>
+    <canvas id="impact-graph" class="graph-container"></canvas>
+    <p>Explore o gráfico interativo para descobrir como cada área pode ser impactada.</p>
+  </section>
 
-    <section class="details">
-        <h2>Minhas Experiências</h2>
-        <ul id="experience-list"></ul>
+  <section class="contact">
+    <h2>Contato</h2>
+    <p>Email: <a href="mailto:isamp1612@gmail.com">isamp1612@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://br.linkedin.com/in/isabela-melo-a74193288" target="_blank">linkedin.com/in/isabela-melo-a74193288</a></p>
+  </section>
 
-        <h2>Habilidades Técnicas</h2>
-        <ul id="skills-list"></ul>
-    </section>
-
-    <section class="localiza-impact">
-        <h2>Como Posso Contribuir com a Localiza Meoo</h2>
-        <p>Utilizando ciência de dados, posso transformar dados brutos em insights valiosos para otimizar a experiência dos clientes da Localiza. Posso desenvolver dashboards interativos para a visualização de métricas importantes e, com isso, tomar decisões mais rápidas e estratégicas. Caso não considerem essa área adequada para mim, sou uma pessoa super flexível e disposta a conhecer novas áreas. Meu interesse é em qualquer área tecnológica. Isso me encanta.</p>
-        <p>Acredito que os conhecimentos que adquiri na faculdade e em cursos externos podem trazer soluções inovadoras para melhorar a eficiência operacional e criar novas oportunidades de crescimento.</p>
-        <p>Minha paixão pela tecnologia pode estabelecer uma conexão entre eu e a Localiza para um futuro promissor. Espero que tenham interesse em conhecer mais sobre mim, meu interesse na empresa, minha liberdade na vida e minha vontade de viver, especialmente a vontade de viver trabalhando nesta empresa incrível!</p>
-        <div class="impact-visualization">
-            <p>Veja como minha experiência e habilidades podem transformar a Localiza com uma visualização interativa:</p>
-            <canvas id="impact-graph" class="graph-container"></canvas>
-            <p>Explore o gráfico interativo para descobrir como cada área pode ser impactada.</p>
-            <div id="solution-container" class="solution-container"></div>
-        </div>
-    </section>
-
-    <section class="contact">
-        <h2>Contato</h2>
-        <p>Email: <a href="mailto:isamp1612@gmail.com">isamp1612@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://br.linkedin.com/in/isabela-melo-a74193288" target="_blank">linkedin.com/in/isabela-melo-a74193288</a></p>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Isabela de Melo Pereira</p>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-    <script src="charts.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+  <footer>
+    <p>&copy; 2024 Isabela de Melo Pereira</p>
+  </
