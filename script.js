@@ -1,55 +1,57 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    const audioElement = document.getElementById('musica');
-    const playPauseButton = document.getElementById('playPause');
-    const nextButton = document.getElementById('next');
-    const nextButtonInMessage = document.getElementById('nextInMessage');
-    const messageDiv = document.getElementById('message');
-    const morImage = document.getElementById('morImage');
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
 
-    let currentTrack = 0;
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
 
-    // Lista de arquivos de música
-    const tracks = [
-        'musica10.mp3',
-        'musica.mp3',
-        'musica.mp3',
-        'musica.mp3',
-        'musica.mp3',
-        'musica.mp3'
-    ];
+h1, h2 {
+    margin: 10px 0;
+}
 
-    // Define a primeira música para tocar
-    audioElement.src = tracks[currentTrack];
+section.intro {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
 
-    function togglePlay() {
-        if (audioElement.paused) {
-            audioElement.play();
-            playPauseButton.textContent = 'Pausar';
-            messageDiv.style.display = 'block';
-            morImage.style.display = 'block';
-            nextButton.style.display = 'block'; // Exibe o botão "Próxima Música" após clicar em play
-            nextButtonInMessage.style.display = 'block'; // Exibe o botão "Próxima Música" dentro da mensagem
-        } else {
-            audioElement.pause();
-            playPauseButton.textContent = 'Só clica se me ama';
-        }
-    }
+.profile {
+    text-align: center;
+}
 
-    function nextTrack() {
-        currentTrack = (currentTrack + 1) % tracks.length;
-        audioElement.src = tracks[currentTrack];
-        audioElement.play();
-    }
+.profile-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
 
-    // Adiciona o evento de terminar a música para tocar a próxima
-    audioElement.addEventListener('ended', nextTrack);
+.details {
+    padding: 20px;
+    background-color: white;
+    margin: 20px auto;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-    // Atribui a função togglePlay ao botão playPause
-    playPauseButton.addEventListener('click', togglePlay);
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
 
-    // Atribui a função nextTrack ao botão next
-    nextButton.addEventListener('click', nextTrack);
-
-    // Atribui a função nextTrack ao botão next dentro da mensagem
-    nextButtonInMessage.addEventListener('click', nextTrack);
-});
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
