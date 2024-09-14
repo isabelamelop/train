@@ -15,6 +15,17 @@
       <h1>Isabela de Melo Pereira</h1>
     </header>
 
+    <section class="video-section">
+      <video id="intro-video" width="100%" controls>
+        <source src="seu-video.mp4" type="video/mp4">
+        Seu navegador não suporta a exibição de vídeos.
+      </video>
+      <div id="video-end-screen" style="display: none;">
+        <h2>Saiba mais sobre mim</h2>
+        <a href="https://whoamiisabela.netlify.app" class="cta-button">Clique aqui</a>
+      </div>
+    </section>
+
     <section class="intro">
       <div class="profile">
         <img src="isabela.png" alt="Minha Foto" class="profile-img">
@@ -47,5 +58,14 @@
 
   <script src="script.js"></script>
   <script src="charts.js"></script>
+  <script>
+    const video = document.getElementById('intro-video');
+    const videoEndScreen = document.getElementById('video-end-screen');
+
+    video.onended = function() {
+      video.style.display = 'none';
+      videoEndScreen.style.display = 'block';
+    };
+  </script>
 </body>
 </html>
