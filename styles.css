@@ -95,7 +95,9 @@ footer {
   text-align: center;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  left: 0; /* Alinha o rodapé à esquerda */
+  right: 0; /* Alinha o rodapé à direita */
+  width: 100%; /* Garante que o rodapé ocupe toda a largura da tela */
   color: white;
   box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
