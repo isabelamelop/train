@@ -55,7 +55,14 @@ h2 {
   margin: 20px 0;
 }
 
-/* Estilos da seção de contato */
+/* Seção de contato */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .contact-info a {
   text-decoration: none;
   color: #800020; /* Bordô */
@@ -64,11 +71,16 @@ h2 {
   align-items: center;
   justify-content: center;
   margin: 10px 0;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
+  background-color: #f4f4f4;
+  padding: 10px 20px;
+  border-radius: 25px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .contact-info a:hover {
-  color: #ff4d4d; /* Cor mais clara ao passar o mouse */
+  color: #ffffff;
+  background-color: #800020; /* Bordô */
 }
 
 .contact-info i {
@@ -78,13 +90,13 @@ h2 {
 
 /* Rodapé */
 footer {
-  background-color: #f4f4f4;
+  background-color: #800020; /* Bordô */
   padding: 10px;
   text-align: center;
   position: fixed;
   bottom: 0;
   width: 100%;
-  color: #800020; /* Bordô */
+  color: white;
 }
 
 footer p {
