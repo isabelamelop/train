@@ -15,7 +15,7 @@ body {
 }
 
 header {
-  background-color: #ff0000;
+  background-color: #800020; /* Bordô */
   padding: 20px;
   text-align: center;
 }
@@ -43,10 +43,10 @@ header h1 {
 }
 
 h2 {
-  border-bottom: 2px solid #ff0000;
+  border-bottom: 2px solid #800020; /* Bordô */
   padding-bottom: 10px;
   margin-bottom: 20px;
-  color: #ff0000;
+  color: #800020;
 }
 
 .graph-container {
@@ -63,4 +63,16 @@ footer {
   bottom: 0;
   width: 100%;
   color: #333;
+}
+
+.cta-button {
+  padding: 10px 20px;
+  background-color: #800020; /* Bordô */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.cta-button:hover {
+  background-color: #a52a2a; /* Cor mais clara ao passar o mouse */
 }
