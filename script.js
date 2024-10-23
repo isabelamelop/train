@@ -4,33 +4,38 @@ function updateTotal() {
     const ticketPrice = 60; // Preço fixo
     const totalValue = ticketQuantity * ticketPrice;
     document.getElementById("total-value").innerText = totalValue;
+    updateBuyerFields(ticketQuantity); // Atualiza os campos de comprador
+}
+
+// Função para atualizar os campos de comprador
+function updateBuyerFields(quantity) {
+    const buyer2Fields = document.getElementById("buyer2-fields");
+    if (quantity == 2) {
+        buyer2Fields.style.display = "block";
+    } else {
+        buyer2Fields.style.display = "none";
+    }
 }
 
 // Função para validar CPF
 function isValidCPF(cpf) {
     cpf = cpf.replace(/\D/g, ''); // Remove caracteres não numéricos
-
     if (cpf.length !== 11) return false;
-
     let sum = 0;
     let remainder;
-
     // Verificação do primeiro dígito verificador
     for (let i = 1; i <= 9; i++) {
         sum += parseInt(cpf[i - 1]) * (11 - i);
     }
     remainder = (sum * 10) % 11;
-
     if (remainder === 10 || remainder === 11) remainder = 0;
     if (remainder !== parseInt(cpf[9])) return false;
-
     sum = 0;
     // Verificação do segundo dígito verificador
     for (let i = 1; i <= 10; i++) {
         sum += parseInt(cpf[i - 1]) * (12 - i);
     }
     remainder = (sum * 10) % 11;
-
     if (remainder === 10 || remainder === 11) remainder = 0;
     return remainder === parseInt(cpf[10]);
 }
@@ -38,26 +43,24 @@ function isValidCPF(cpf) {
 // Função para concluir a compra
 function purchaseTicket() {
     const quantity = document.getElementById("ticket-quantity").value;
-    const guestName = document.getElementById("guest-name").value;
-    const guestCPF = document.getElementById("guest-cpf").value;
+    const guestName1 = document.getElementById("guest-name1").value;
+    const guestCPF1 = document.getElementById("guest-cpf1").value;
+    const guestName2 = quantity == 2 ? document.getElementById("guest-name2").value : '';
+    const guestCPF2 = quantity == 2 ? document.getElementById("guest-cpf2").value : '';
     const messageBox = document.getElementById("message-box");
     
     // Validação do CPF
-    if (!isValidCPF(guestCPF)) {
+    if (!isValidCPF(guestCPF1) || (quantity == 2 && !isValidCPF(guestCPF2))) {
         messageBox.style.display = "block";
         messageBox.innerText = "CPF inválido. Por favor, digite um CPF válido.";
         return;
     }
-
+    
     // Se o CPF for válido
     const totalValue = document.getElementById("total-value").innerText;
-    const whatsappLink = `https://wa.me/5531997746789?text=Olá, gostaria de finalizar a compra de ingressos.%0ANome Completo: ${guestName}%0ACPF: ${guestCPF}%0AQuantidade de Ingressos: ${quantity}%0AValor Total: R$${totalValue}`;
-
+    const whatsappLink = `https://wa.me/5531997746789?text=Olá, gostaria de finalizar a compra de ingressos.%0ANome Completo 1: ${guestName1}%0ACPF 1: ${guestCPF1}%0A${quantity == 2 ? `Nome Completo 2: ${guestName2}%0ACPF 2: ${guestCPF2}%0A` : ''}Quantidade de Ingressos: ${quantity}%0AValor Total: R$${totalValue}`;
     messageBox.style.display = "block";
-    messageBox.innerHTML = `
-        Para finalizar a compra, envie o comprovante para o WhatsApp:<br><br>
-        <strong><a href="${whatsappLink}" target="_blank">Clique aqui para enviar</a></strong>
-    `;
+    messageBox.innerHTML = `Para finalizar a compra, envie o comprovante para o WhatsApp:<br><br><strong><a href="${whatsappLink}" target="_blank">Clique aqui para enviar</a></strong>`;
 }
 
 // Função para exibir informações sobre o evento
