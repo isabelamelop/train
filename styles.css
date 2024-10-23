@@ -13,7 +13,7 @@ body {
     max-width: 800px; /* Largura máxima do container */
     margin: 0 auto; /* Centralizar */
     padding: 20px;
-    background-color: white; /* Fundo do container */
+    background-color: #fff; /* Fundo do container */
     border-radius: 8px; /* Bordas arredondadas */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra do container */
 }
@@ -79,9 +79,18 @@ h3 {
     border-radius: 5px; /* Bordas arredondadas */
 }
 
+/* Estilo dos campos de nome e CPF */
+.guest-name, .guest-cpf {
+    width: 100%; /* Largura total */
+    padding: 10px; /* Preenchimento */
+    border-radius: 5px; /* Bordas arredondadas */
+    border: 1px solid #ccc; /* Borda cinza */
+    margin-bottom: 10px; /* Margem inferior */
+}
+
 /* Estilo do botão de compra */
 .purchase-button {
-    background-color: #27ae60; /* Verde */
+    background-color: #f39c12; /* Laranja */
     color: white; /* Texto branco */
     padding: 10px 20px; /* Preenchimento do botão */
     border: none; /* Sem borda */
@@ -91,12 +100,12 @@ h3 {
 }
 
 .purchase-button:hover {
-    background-color: #219653; /* Verde mais escuro ao passar o mouse */
+    background-color: #e67e22; /* Laranja mais escuro ao passar o mouse */
 }
 
 /* Estilo do botão de informações */
 .info-button {
-    background-color: #f39c12; /* Laranja */
+    background-color: #27ae60; /* Verde */
     color: white;
     font-size: 16px;
     padding: 10px 20px;
@@ -108,7 +117,7 @@ h3 {
 }
 
 .info-button:hover {
-    background-color: #e67e22; /* Laranja mais escuro */
+    background-color: #219653; /* Verde mais escuro */
 }
 
 /* Estilo para a seção de informações do evento */
@@ -150,14 +159,4 @@ h3 {
         min-width: auto; /* Remover a largura mínima */
         margin: 5px 0; /* Margem vertical */
     }
-}
-
-/* Cores dos campos de nome e CPF */
-input[type="text"] {
-    border: 2px solid #3498db; /* Borda azul */
-    background-color: #f0f8ff; /* Fundo azul claro */
-    padding: 10px; /* Preenchimento */
-    border-radius: 5px; /* Bordas arredondadas */
-    margin-bottom: 10px; /* Margem inferior */
-    width: 100%; /* Largura total */
 }
