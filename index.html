@@ -30,7 +30,6 @@
                     <div class="carousel-item">+ bebidas surpresas</div>
                 </div>
             </div>
-
             <div class="carousel" id="food-carousel">
                 <h3>Cardápio Open Food</h3>
                 <div class="carousel-items">
@@ -42,7 +41,7 @@
                 </div>
             </div>
         </section>
-
+        
         <div class="ticket-info">
             <h3>Ingressos</h3>
             <h4>Lotes e Valores</h4>
@@ -52,27 +51,28 @@
                 <li>2° Lote (até 30/10): R$75</li>
                 <li>3° Lote (até 07/11): R$80</li>
             </ul>
-
             <label for="ticket-quantity">Quantidade de Ingressos:</label>
             <select id="ticket-quantity" class="ticket-quantity" onchange="updateTotal()">
                 <option value="1">1</option>
                 <option value="2">2</option>
             </select>
-
             <div id="guest-info">
-                <label for="guest-name">Nome:</label>
-                <input type="text" id="guest-name" class="guest-name" placeholder="Digite seu nome" required>
-
-                <label for="guest-cpf">CPF:</label>
-                <input type="text" id="guest-cpf" class="guest-cpf" placeholder="Digite seu CPF" required maxlength="14">
+                <label for="guest-name1">Nome:</label>
+                <input type="text" id="guest-name1" class="guest-name" placeholder="Digite seu nome" required>
+                <label for="guest-cpf1">CPF:</label>
+                <input type="text" id="guest-cpf1" class="guest-cpf" placeholder="Digite seu CPF" required maxlength="14">
             </div>
-
+            <div id="buyer2-fields" style="display: none;">
+                <label for="guest-name2">Nome do segundo convidado:</label>
+                <input type="text" id="guest-name2" class="guest-name" placeholder="Digite o nome do segundo convidado">
+                <label for="guest-cpf2">CPF do segundo convidado:</label>
+                <input type="text" id="guest-cpf2" class="guest-cpf" placeholder="Digite o CPF do segundo convidado" maxlength="14">
+            </div>
             <p><strong>Valor total:</strong> R$<span id="total-value">60</span></p>
             <button class="purchase-button" onclick="purchaseTicket()">Concluir Compra</button>
-
             <div id="message-box" class="message-box" style="display: none;"></div>
         </div>
-
+        
         <button class="info-button" onclick="showEventInfo()">Informações sobre o Evento</button>
         <div id="event-info" class="event-info" style="display: none;">
             <h4>Detalhes do Evento</h4>
@@ -81,7 +81,7 @@
             <p>Shot de Licor 43 para quem vier fantasiado.</p>
             <p>Beer Pong com Vodka (00h).</p>
         </div>
-
+        
         <div id="event-policies" class="event-policies">
             <h3>Políticas do Evento</h3>
             <ul>
@@ -91,8 +91,6 @@
             </ul>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
-``
