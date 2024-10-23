@@ -66,38 +66,35 @@ function purchaseTicket() {
     messageBox.innerHTML = Chave PIX: freakynight2024@gmail.com<br>Para finalizar a compra, envie o comprovante para o WhatsApp:<br><br><strong><a href="${whatsappLink}" target="_blank">Clique aqui para enviar</a></strong>;
 }
 
-// Objeto com os dados dos lotes
-const lotes = [
-    { inicio: new Date('2023-10-18'), fim: new Date('2023-10-19'), preco: 50 },
-    { inicio: new Date('2023-10-20'), fim: new Date('2023-10-24'), preco: 60 },
-    // ... outros lotes
-];
-
-// Função para verificar o lote atual
-function getLoteAtual() {
-    const hoje = new Date();
-    for (let lote of lotes) {
-        if (hoje >= lote.inicio && hoje <= lote.fim) {
-            return lote.preco;
-        }
-    }
-    // Se não encontrar nenhum lote válido, retorna um preço padrão
-    return 60; // Por exemplo
+// Função para validar o CPF (exemplo usando uma biblioteca)
+function isValidCPF(cpf) {
+  // Utilize uma biblioteca de validação de CPF aqui
+  // Exemplo usando a biblioteca 'cpf_cnpj':
+  return cpf_cnpj.validate(cpf);
 }
 
-// Função para atualizar o preço do ingresso
+// Função para atualizar o preço do ingresso e exibir informações do lote
 function updatePrice() {
-    const precoAtual = getLoteAtual();
-    document.getElementById("total-value").innerText = precoAtual;
+  const hoje = new Date();
+  let loteAtual;
+  for (let lote of lotes) {
+    if (hoje >= lote.inicio && hoje <= lote.fim) {
+      loteAtual = lote;
+      break;
+    }
+  }
+
+  const precoAtual = loteAtual ? loteAtual.preco : 60; // Preço padrão se não encontrar lote
+  document.getElementById("total-value").innerText = precoAtual;
+
+  // Exibir informações do lote atual (opcional)
+  const loteInfoElement = document.getElementById("lote-info");
+  if (loteAtual) {
+    loteInfoElement.textContent = `Lote atual: ${loteAtual.preco} - Válido até ${loteAtual.fim.toLocaleDateString()}`;
+  } else {
+    loteInfoElement.textContent = "Não há lotes disponíveis no momento.";
+  }
 }
-
-// Chama a função ao carregar a página
-window.onload = updatePrice;
-
-// Chama a função a cada minuto para atualizar o preço
-setInterval(updatePrice, 60000);
-
-
 
 
 // Função para exibir informações sobre o evento
