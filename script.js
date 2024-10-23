@@ -1,27 +1,22 @@
-document.getElementById('buyerForm').addEventListener('submit', async function (event) {
+document.getElementById("ticket-form").addEventListener("submit", function(event) {
     event.preventDefault();
+
+    const quantity = document.getElementById("quantity").value;
+    const prices = {
+        "1": 60,
+        "2": 120,
+        "3": 180,
+        "4": 240,
+    };
     
-    const name = document.getElementById('name').value;
+    // Determine o preço com base na quantidade de ingressos
+    const totalPrice = prices[quantity];
 
-    const response = await fetch('/add-buyer', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name })
-    });
-
-    const message = await response.text();
-    alert(message);
-    document.getElementById('name').value = '';
-    loadBuyers();
+    // Lógica para exibir o QR Code de acordo com a quantidade
+    const qrCodeImage = `https://api.qrserver.com/v1/create-qr-code/?data=PIX Link para ${totalPrice}&size=200x200`;
+    
+    // Exibir QR Code e preço
+    document.getElementById("qr-image").src = qrCodeImage;
+    document.getElementById("price-info").innerText = `Total: R$ ${totalPrice}`;
+    document.getElementById("qr-code").classList.remove("hidden");
 });
-
-async function loadBuyers() {
-    const response = await fetch('/buyers');
-    const buyers = await response.json();
-    const buyersList = document.getElementById('buyersList');
-    buyersList.innerHTML = '<h2>Compradores:</h2>' + buyers.map(b => `<p>${b.name}</p>`).join('');
-}
-
-loadBuyers();
