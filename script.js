@@ -10,16 +10,27 @@ function updateTotal() {
 function purchaseTicket() {
     const ticketQuantity = document.getElementById("ticket-quantity").value;
     const totalValue = document.getElementById("total-value").innerText;
+    const fullName = document.getElementById("full-name").value;
+    const cpf = document.getElementById("cpf").value;
 
-    const whatsappLink = `https://wa.me/5531997746789?text=Olá, gostaria de finalizar a compra de ingressos.
-     Vou te mandar o comprovante da compra!
-    \nInformações adicionais: Nome completo e CPF:\n`;
+    if (fullName === "" || cpf === "") {
+        alert("Por favor, preencha seu nome completo e CPF.");
+        return;
+    }
+
+    const whatsappLink = `https://wa.me/5531997746789?text=Olá, gostaria de finalizar a compra de ingressos.%0A
+    - Nome completo: ${fullName}%0A
+    - CPF: ${cpf}%0A
+    - Quantidade de Ingressos: ${ticketQuantity}%0A
+    - Valor Total: R$${totalValue}%0A
+    Vou te mandar o comprovante da compra!`;
 
     // Atualiza o conteúdo da caixa de mensagem com quebra de linha
     document.getElementById("message-box").innerHTML = `
         Para finalizar a compra, envie o comprovante para o WhatsApp:
         <br><br>
-        - Chave Pix: freakynight2024@gmail.com<br>
+        - Nome completo: ${fullName}<br>
+        - CPF: ${cpf}<br>
         - Quantidade de Ingressos: ${ticketQuantity}<br>
         - Valor total: R$${totalValue}<br><br>
         <strong><a href="${whatsappLink}" target="_blank">Clique aqui para enviar</a></strong>
@@ -28,14 +39,4 @@ function purchaseTicket() {
     // Exibe a caixa de mensagem e rola até ela
     document.getElementById("message-box").style.display = 'block';
     document.getElementById("message-box").scrollIntoView({ behavior: 'smooth' });
-}
-
-// Função para exibir informações sobre o evento
-function showEventInfo() {
-    const eventInfo = document.getElementById("event-info");
-    if (eventInfo.style.display === "none") {
-        eventInfo.style.display = "block";
-    } else {
-        eventInfo.style.display = "none";
-    }
 }
