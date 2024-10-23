@@ -1,84 +1,149 @@
 /* Estilo do corpo */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    font-family: 'Oswald', sans-serif; /* Fonte padrão moderna */
+    line-height: 1.6; /* Aumentar o espaço entre as linhas */
     color: #fff; /* Cor do texto */
     background-color: #222; /* Fundo escuro */
     margin: 0;
     padding: 20px;
 }
 
+/* Variáveis para espaçamento */
+:root {
+    --spacing: 20px; /* Espaçamento padrão */
+}
+
 /* Estilo do container principal */
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 800px; /* Largura máxima do container */
+    margin: 0 auto; /* Centralizar */
+    padding: var(--spacing); /* Preenchimento do container */
     background-color: #333; /* Fundo do container */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra do container */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra do container */
 }
 
 /* Estilo do cabeçalho */
 header {
-    text-align: center;
-    margin-bottom: 20px;
+    text-align: center; /* Centralizar texto */
+    margin-bottom: var(--spacing); /* Margem abaixo do cabeçalho */
 }
 
 /* Estilo dos títulos */
 h1 {
     font-family: 'Creepster', cursive; /* Fonte do título */
     font-size: 2.5em; /* Tamanho do título */
-    color: #f39c12; /* Cor do título */
+    color: #f39c12; /* Cor do título amarelo */
 }
 
 h2 {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 300;
+    font-size: 1.5em; /* Tamanho do subtítulo */
+    color: #f1c40f; /* Cor do subtítulo amarelo claro */
 }
 
-h3, h4 {
-    color: #f39c12; /* Cor dos subtítulos */
+h3 {
+    margin-top: var(--spacing); /* Margem superior */
 }
 
-/* Estilo dos inputs e selects */
-input[type="text"], select {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #f39c12; /* Borda laranja */
-    border-radius: 5px;
-    margin: 5px 0;
-    background-color: #444; /* Fundo dos inputs */
+/* Estilo dos carrosséis */
+.carousels {
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Direção das colunas */
+    margin-bottom: var(--spacing); /* Margem abaixo dos carrosséis */
+}
+
+.carousel {
+    margin: 10px 0; /* Margens dos carrosséis */
+}
+
+.carousel-items {
+    display: flex; /* Flexbox para os itens */
+    overflow-x: auto; /* Rolagem horizontal */
+}
+
+.carousel-item {
+    min-width: 120px; /* Largura mínima dos itens */
+    margin-right: 10px; /* Margem entre itens */
+    text-align: center; /* Centralizar texto */
+    color: #ecf0f1; /* Cor do texto das imagens */
+}
+
+.carousel-item img {
+    max-width: 100%; /* Limitar a largura das imagens */
+    height: auto; /* Altura automática para manter proporção */
+    border-radius: 5px; /* Bordas arredondadas das imagens */
+}
+
+/* Estilo da seção de informações do ingresso */
+.ticket-info {
+    margin-top: var(--spacing); /* Margem superior */
+}
+
+/* Estilo dos campos de nome e CPF */
+.guest-name, .guest-cpf {
+    width: 100%; /* Largura total */
+    padding: 10px; /* Preenchimento */
+    border-radius: 5px; /* Bordas arredondadas */
+    border: 1px solid #f39c12; /* Borda amarela */
+    background-color: #444; /* Fundo dos campos */
     color: #fff; /* Texto branco */
+    margin-bottom: 10px; /* Margem inferior */
 }
 
 /* Estilo do botão de compra */
-.purchase-button, .info-button {
+.purchase-button {
     background-color: #f39c12; /* Laranja */
+    color: white; /* Texto branco */
+    padding: 10px 20px; /* Preenchimento do botão */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de mão */
+    transition: background-color 0.3s, transform 0.2s; /* Transição suave */
+}
+
+.purchase-button:hover {
+    background-color: #e67e22; /* Laranja mais escuro ao passar o mouse */
+    transform: scale(1.05); /* Aumenta levemente o botão ao passar o mouse */
+}
+
+/* Estilo do botão de informações */
+.info-button {
+    background-color: #27ae60; /* Verde */
     color: white;
+    font-size: 16px;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s, transform 0.2s; /* Transição suave */
 }
 
-.purchase-button:hover, .info-button:hover {
-    background-color: #e67e22; /* Laranja mais escuro */
+.info-button:hover {
+    background-color: #219653; /* Verde mais escuro */
+    transform: scale(1.05); /* Aumenta levemente o botão ao passar o mouse */
 }
 
-/* Estilo da seção de informações do evento */
+/* Estilo para a seção de informações do evento */
 .event-info, .event-policies {
     background-color: rgba(255, 255, 255, 0.1); /* Fundo branco com leve transparência */
-    border: 1px solid #ccc; /* Borda cinza */
+    border: 1px solid #f39c12; /* Borda amarela */
     padding: 15px; /* Preenchimento */
     border-radius: 5px; /* Bordas arredondadas */
-    margin-top: 20px; /* Margem superior */
+    margin-bottom: var(--spacing); /* Margem inferior */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra para destaque */
 }
 
 /* Estilo das listas dentro das seções */
 .event-info p, .event-policies ul {
     margin: 10px 0; /* Margem entre os parágrafos e itens */
+    color: #fff; /* Texto branco */
+}
+
+/* Estilo para o título das políticas */
+.event-policies h3 {
+    margin-top: 0; /* Sem margem superior */
+    color: #f39c12; /* Título em amarelo */
 }
 
 /* Estilo da caixa de mensagens */
@@ -87,6 +152,17 @@ input[type="text"], select {
     color: white; /* Texto branco */
     padding: 15px; /* Preenchimento */
     border-radius: 5px; /* Bordas arredondadas */
-    margin-top: 20px; /* Margem superior */
-    display: none; /* Inicialmente escondido */
+    margin-top: var(--spacing); /* Margem superior */
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .carousel-items {
+        flex-direction: column; /* Alinhar verticalmente em telas pequenas */
+    }
+
+    .carousel-item {
+        min-width: auto; /* Remover a largura mínima */
+        margin: 5px 0; /* Margem vertical */
+    }
 }
