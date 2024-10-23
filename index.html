@@ -69,8 +69,13 @@
             color: #00ff00; /* Verde para o número do WhatsApp */
             font-weight: bold;
         }
-        .quantity-selector {
-            margin: 10px 0;
+        .ticket-quantity {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
         }
     </style>
 </head>
@@ -120,18 +125,16 @@
                 <li>2° Lote (até 30/10): R$75</li>
                 <li>3° Lote (até 07/11): R$80</li>
             </ul>
-            <div class="quantity-selector">
-                <label for="ticket-quantity">Quantidade de Ingressos:</label>
-                <select id="ticket-quantity" onchange="updateTotal()">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
             <p><strong>Chave Pix:</strong> <span id="pix-key">freakynight2024@gmail.com</span> <button onclick="copyPixKey()">Copiar Chave</button></p>
             <p><strong>Valor total:</strong> R$<span id="total-value">60</span></p>
+            <label for="ticket-quantity">Quantidade de Ingressos:</label>
+            <select id="ticket-quantity" class="ticket-quantity" onchange="updateTotal()">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
             <p><strong>Obs:</strong> só venderemos e adicionaremos na lista, compras individuais, cada convidado deverá se responsabilizar por enviar o seu comprovante + nome completo + n° documento/cpf pelo privado no contato: <span class="whatsapp-number">(31) 99774-6789</span> <a href="https://wa.me/+5531997746789">Whatsapp</a>.</p>
             <p>A festa é privada, então, para convidar e adicionar pessoas ao grupo, favor solicitar no privado de algum dos adms o link de entrada. (só aceitaremos pix e enviaremos comprovante de compra e o convite, de pessoas adicionadas ao grupo)</p>
             <button class="purchase-button" onclick="purchaseTicket()">Comprar Ingresso</button>
@@ -142,22 +145,22 @@
     <script>
         function copyPixKey() {
             const pixKey = document.getElementById('pix-key').innerText;
-            navigator.clipboard.writeText(pixKey);
-            // Ao copiar, você pode também alterar o texto do botão ou adicionar algum feedback visual
-            alert('Chave Pix copiada: ' + pixKey);
+            navigator.clipboard.writeText(pixKey).then(() => {
+                console.log('Chave Pix copiada: ' + pixKey);
+            }).catch(() => {
+                console.error('Erro ao copiar a chave Pix.');
+            });
         }
 
         function updateTotal() {
             const quantity = document.getElementById('ticket-quantity').value;
             const pricePerTicket = 60; // Preço por ingresso
             const totalValue = quantity * pricePerTicket;
-            document.getElementById('total-value').innerText = totalValue;
+            document.getElementById('total-value').innerText = totalValue.toFixed(2);
         }
 
         function purchaseTicket() {
-            const quantity = document.getElementById('ticket-quantity').value;
-            const totalValue = document.getElementById('total-value').innerText;
-            alert(`Instruções de compra: Envie o comprovante para WhatsApp. Total a pagar: R$${totalValue}`);
+            alert('Instruções de compra: Envie o comprovante para WhatsApp.');
         }
     </script>
 </body>
