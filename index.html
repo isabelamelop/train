@@ -60,34 +60,35 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-
-            <!-- Campo para inserir os dados dos ingressos -->
-            <div id="guest-info-container" class="guest-info-container"></div>
-
             <p><strong>Valor total:</strong> R$<span id="total-value">60</span></p>
+
+            <!-- Campos dinâmicos para nomes e CPFs -->
+            <div id="guest-info-container"></div>
+            
             <button class="purchase-button" onclick="purchaseTicket()">Concluir Compra</button>
 
             <!-- Caixa de mensagem -->
             <div id="message-box" class="message-box" style="display: none;"></div>
         </div>
 
-        <button class="info-button" onclick="showEventInfo()">Informações sobre o Evento</button>
+        <!-- Seção de informações do evento -->
+        <button class="info-button" onclick="showEventInfo()">Informações sobre o evento</button>
         <div id="event-info" class="event-info" style="display: none;">
-            <h4>Informações do Evento</h4>
-            <p>Horário: 21h às 3h</p>
-            <p>Open Bar - 21h às 1h (se inicia às 21h e se encerra minimamente às 1h, ou até às bebidas acabarem)</p>
-            <p>Shot de Licor 43 para quem vier fantasiado</p>
-            <p>Beer Pong com Vodka (00h)</p>
+            <p>Horário do evento: 21h às 3h<br>
+            Open Bar: 21h às 1h<br>
+            Shot de Licor 43 para quem vier fantasiado<br>
+            Beer Pong com Vodka (00h)</p>
         </div>
 
+        <!-- Seção de políticas do evento -->
         <div class="event-policies">
             <h3>Políticas do Evento</h3>
             <ul>
-                <li>Não será permitido entrada de menores de idade.</li>
-                <li>Traje: Fantasia é obrigatório!</li>
-                <li>Se houver qualquer tipo de comportamento inadequado, o convidado será retirado do evento.</li>
-                <li>Não será permitido o consumo de bebidas alcoólicas fora do espaço designado.</li>
-                <li>Em caso de cancelamento, não haverá reembolso.</li>
+                <li>O evento é restrito a maiores de 18 anos.</li>
+                <li>A entrada será permitida apenas mediante apresentação de documento original com foto.</li>
+                <li>Proibida a entrada com bebidas ou substâncias ilícitas.</li>
+                <li>A organização não se responsabiliza por objetos pessoais perdidos ou furtados.</li>
+                <li>Respeite as regras de convivência e o espaço do evento.</li>
             </ul>
         </div>
     </div>
