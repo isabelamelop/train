@@ -75,4 +75,17 @@ header h1, header h2 {
     transition: background-color 0.3s;
 }
 .purchase-button:hover {
-    background-color: #218838; /* Tom
+    background-color: #218838; /* Tom de verde mais escuro ao passar o mouse */
+}
+.whatsapp-number {
+    color: #00ff00; /* Verde para o número do WhatsApp */
+    font-weight: bold;
+}
+.ticket-quantity {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
