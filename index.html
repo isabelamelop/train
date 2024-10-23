@@ -17,34 +17,8 @@
             <strong>Data:</strong> 16/11<br>
             <strong>Horário:</strong> 21h às 3h</p>
         </header>
-        
-        <section class="carousels">
-            <div class="carousel" id="beverages-carousel">
-                <h3>Cardápio Open Bar</h3>
-                <div class="carousel-items">
-                    <div class="carousel-item"><img src="IMG_8060.jpeg" alt="Beats Sense" /> Beats Sense</div>
-                    <div class="carousel-item"><img src="IMG_8062.jpeg" alt="Beats GT" /> Beats GT</div>
-                    <div class="carousel-item"><img src="IMG_8066.jpeg" alt="Xeque Mate" /> Xeque Mate</div>
-                    <div class="carousel-item"><img src="IMG_8063.jpeg" alt="Ice de Limão" /> Ice de Limão</div>
-                    <div class="carousel-item"><img src="IMG_8064.jpeg" alt="Refrigerante" /> Refrigerante</div>
-                    <div class="carousel-item"><img src="IMG_8065.jpeg" alt="Água Mineral" /> Água Mineral</div>
-                    <div class="carousel-item">+ bebidas surpresas</div>
-                </div>
-            </div>
 
-            <div class="carousel" id="food-carousel">
-                <h3>Cardápio Open Food</h3>
-                <div class="carousel-items">
-                    <div class="carousel-item">Coxinha de Frango</div>
-                    <div class="carousel-item">Bolinha de presunto e mussarela</div>
-                    <div class="carousel-item">Kibe de Carne</div>
-                    <div class="carousel-item">Pastel de Queijo com Milho</div>
-                    <div class="carousel-item">Bolinha de Alho Poró</div>
-                </div>
-            </div>
-        </section>
-
-        <div class="ticket-info">
+        <section class="ticket-info">
             <h3>Ingressos</h3>
             <h4>Lotes e Valores</h4>
             <ul>
@@ -63,13 +37,13 @@
                 <option value="5">5</option>
             </select>
 
-            <div id="guest-info"></div> <!-- Campos para nome e CPF serão inseridos aqui -->
+            <div id="name-cpf-container"></div> <!-- Campos para nome e CPF serão inseridos aqui -->
 
             <p><strong>Valor total:</strong> R$<span id="total-value">60</span></p>
             <button class="purchase-button" onclick="purchaseTicket()">Concluir Compra</button>
 
             <div id="message-box" class="message-box" style="display: none;"></div>
-        </div>
+        </section>
 
         <button class="info-button" onclick="showEventInfo()">Informações sobre o Evento</button>
         <div id="event-info" class="event-info" style="display: none;">
