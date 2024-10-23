@@ -88,4 +88,5 @@ input[type="text"], select {
     padding: 15px; /* Preenchimento */
     border-radius: 5px; /* Bordas arredondadas */
     margin-top: 20px; /* Margem superior */
+    display: none; /* Inicialmente escondido */
 }
