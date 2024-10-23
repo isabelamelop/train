@@ -1,86 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Currículo - Isabela de Melo Pereira</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halloween QR Code</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Isabela de Melo Pereira</h1>
-    </header>
-
-    <section class="video-section">
-      <video id="intro-video" width="100%" controls>
-        <source src="seu-video.mp4" type="video/mp4">
-        Seu navegador não suporta a exibição de vídeos.
-      </video>
-      <div id="video-end-screen" style="display: none;">
-        <h2>Saiba mais sobre mim</h2>
-        <a href="https://whoamiisabela.netlify.app" class="cta-button">Clique aqui</a>
-      </div>
-    </section>
-
-    <section class="intro">
-      <div class="profile">
-        <img src="isabela.jpeg" alt="Minha Foto" class="profile-img">
-        <p id="introduction"></p>
-      </div>
-    </section>
-
-    <section class="about-me">
-      <h2>Sobre Mim</h2>
-      <p>Desde criança, sempre tive curiosidade por tecnologia. Adorava baixar joguinhos modificados e ficava fascinada em saber como era possível 'clonar' aplicativos e modificá-los.</p>
-      <p>Hoje, estou no 3º período de Ciência da Computação e me sinto realizada por explorar essa curiosidade através de códigos e soluções tecnológicas. Também sou apaixonada por música e línguas.</p>
-    </section>
-
-    <section class="localiza-impact">
-      <h2>Como Posso Contribuir com a Localiza Meoo</h2>
-      <canvas id="impact-graph" class="graph-container"></canvas>
-      <p>Explore o gráfico interativo para descobrir como cada área pode ser impactada.</p>
-    </section>
-
-    <section class="contact">
-  <h2>Contato</h2>
-  <div class="contact-info">
-    <a href="mailto:isamp1612@gmail.com">
-      <i class="fa fa-envelope"></i>Email: isamp1612@gmail.com
-    </a>
-    <a href="https://wa.me/31983862759" target="_blank">
-      <i class="fa fa-whatsapp"></i>WhatsApp: +55 31 98386-2759
-    </a>
-    <a href="https://br.linkedin.com/in/isabela-melo-a74193288" target="_blank">
-      <i class="fa fa-linkedin"></i>LinkedIn: linkedin.com/in/isabela-melo-a74193288
-    </a>
-  </div>
-</section>
-
-<footer>
-  <p>&copy; 2024 Isabela de Melo Pereira</p>
-</footer>
-
-
-    <footer>
-      <p>&copy; 2024 Isabela de Melo Pereira</p>
-    </footer>
-  </div>
-
-  <script src="script.js"></script>
-  <script src="charts.js"></script>
-  <script>
-    const video = document.getElementById('intro-video');
-    const videoEndScreen = document.getElementById('video-end-screen');
-
-    video.onended = function() {
-      video.style.display = 'none';
-      videoEndScreen.style.display = 'block';
-    };
-  </script>
+    <div class="container">
+        <h1>Compre seu produto de Halloween!</h1>
+        <p>Envie seu comprovante do PIX para a lista de compradores.</p>
+        <form id="buyerForm">
+            <input type="text" id="name" placeholder="Seu nome" required>
+            <button type="submit">Enviar</button>
+        </form>
+        <div id="buyersList"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
