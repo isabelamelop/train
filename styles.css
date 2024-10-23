@@ -67,3 +67,30 @@ header h1, header h2 {
     border: 1px solid #ddd;
     font-size: 16px;
 }
+/* Estilos para a caixa de confirmação */
+.confirmation-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+    color: #000; /* Cor do texto preto */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Para garantir que esteja acima de outros elementos */
+    font-family: 'Creepster', cursive; /* Usando a fonte Halloween que você escolheu */
+}
+
+/* Botão de fechar */
+.confirmation-box button {
+    background-color: #ff0000; /* Vermelho para destacar o botão */
+    color: white; /* Texto do botão em branco */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.confirmation-box button:hover {
+    background-color: #cc0000; /* Cor mais escura ao passar o mouse */
+}
