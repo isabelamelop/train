@@ -66,35 +66,8 @@ function purchaseTicket() {
     messageBox.innerHTML = Chave PIX: freakynight2024@gmail.com<br>Para finalizar a compra, envie o comprovante para o WhatsApp:<br><br><strong><a href="${whatsappLink}" target="_blank">Clique aqui para enviar</a></strong>;
 }
 
-// Função para validar o CPF (exemplo usando uma biblioteca)
-function isValidCPF(cpf) {
-  // Utilize uma biblioteca de validação de CPF aqui
-  // Exemplo usando a biblioteca 'cpf_cnpj':
-  return cpf_cnpj.validate(cpf);
-}
 
-// Função para atualizar o preço do ingresso e exibir informações do lote
-function updatePrice() {
-  const hoje = new Date();
-  let loteAtual;
-  for (let lote of lotes) {
-    if (hoje >= lote.inicio && hoje <= lote.fim) {
-      loteAtual = lote;
-      break;
-    }
-  }
 
-  const precoAtual = loteAtual ? loteAtual.preco : 60; // Preço padrão se não encontrar lote
-  document.getElementById("total-value").innerText = precoAtual;
-
-  // Exibir informações do lote atual (opcional)
-  const loteInfoElement = document.getElementById("lote-info");
-  if (loteAtual) {
-    loteInfoElement.textContent = `Lote atual: ${loteAtual.preco} - Válido até ${loteAtual.fim.toLocaleDateString()}`;
-  } else {
-    loteInfoElement.textContent = "Não há lotes disponíveis no momento.";
-  }
-}
 
 
 // Função para exibir informações sobre o evento
