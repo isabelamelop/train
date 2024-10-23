@@ -11,16 +11,18 @@ function updateTotal() {
 function updateGuestInfoFields(quantity) {
     const guestInfoDiv = document.getElementById("guest-info");
     guestInfoDiv.innerHTML = ""; // Limpa os campos anteriores
-    for (let i = 0; i < quantity; i++) {
-        guestInfoDiv.innerHTML += `
-            <div>
-                <label for="guest-name-${i}">Nome Completo do Convidado ${i + 1}:</label>
-                <input type="text" id="guest-name-${i}" class="guest-name" required>
-                <label for="guest-cpf-${i}">CPF do Convidado ${i + 1}:</label>
-                <input type="text" id="guest-cpf-${i}" class="guest-cpf" maxlength="11" required>
-                <br>
-            </div>
-        `;
+    if (quantity > 0) {
+        for (let i = 0; i < quantity; i++) {
+            guestInfoDiv.innerHTML += `
+                <div>
+                    <label for="guest-name-${i}">Nome Completo do Convidado ${i + 1}:</label>
+                    <input type="text" id="guest-name-${i}" class="guest-name" required>
+                    <label for="guest-cpf-${i}">CPF do Convidado ${i + 1}:</label>
+                    <input type="text" id="guest-cpf-${i}" class="guest-cpf" maxlength="11" required>
+                    <br>
+                </div>
+            `;
+        }
     }
 }
 
