@@ -3,58 +3,50 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f4f4f4;
+    background-color: #333; /* Fundo cinza escuro */
     margin: 0;
     padding: 20px;
+    background-image: url('background.jpg'); /* Adiciona uma imagem de fundo */
+    background-size: cover; /* Cobre toda a área de fundo */
+    background-attachment: fixed; /* Imagem fixa enquanto rola a página */
 }
 /* Estilo do container principal */
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com transparência */
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra mais escura */
 }
 /* Estilo do cabeçalho */
 header {
     text-align: center;
     margin-bottom: 20px;
+    color: #fff; /* Cor branca para o texto do cabeçalho */
 }
-/* Estilo dos títulos */
 h1 {
     font-family: 'Creepster', cursive;
     font-size: 2.5em;
-    color: #c0392b;
+    color: #e74c3c; /* Cor vermelha vibrante */
+    text-shadow: 2px 2px #000; /* Sombra para dar destaque */
 }
 h2 {
     font-size: 1.5em;
-    color: #7f8c8d;
+    color: #ecf0f1; /* Cor cinza claro */
 }
 h3 {
     margin-top: 20px;
+    color: #ecf0f1; /* Cor cinza claro */
 }
 /* Estilo dos carrosséis */
-.carousels {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-.carousel {
-    margin: 10px 0;
-}
-.carousel-items {
-    display: flex;
-    overflow-x: auto;
-}
 .carousel-item {
     min-width: 120px;
     margin-right: 10px;
     text-align: center;
-}
-.carousel-item img {
-    max-width: 100%;
-    height: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo preto com transparência */
+    color: #fff; /* Cor do texto branca */
+    padding: 10px;
     border-radius: 5px;
 }
 /* Estilo da seção de informações do ingresso */
@@ -66,7 +58,6 @@ h3 {
     padding: 10px;
     border-radius: 5px;
 }
-/* Estilo dos campos de nome e CPF */
 .guest-name, .guest-cpf {
     width: 100%;
     padding: 10px;
@@ -101,4 +92,21 @@ h3 {
 .message-box {
     margin-top: 10px;
     padding: 10px;
-    border[_{{{CITATION{{{_1{](https://github.com/ricardo-cas/pandas/tree/eefd8f3ed9250c15e029b7ae59a24ef9f7ffc4ab/GUIA_MARKDOWN.MD)
+    border: 1px solid #ccc;
+    background-color: #e8f8f5;
+    color: #2c3e50;
+}
+/* Estilo das informações do evento */
+.event-info {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+/* Estilo das políticas do evento */
+.event-policies {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
