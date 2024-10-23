@@ -1,32 +1,39 @@
-$(document).ready(function() {
-    let currentBarIndex = 0; // Índice do item atual do carrossel de bebidas
-    const barItems = $('#bar-carousel .carousel-item'); // Seleciona todos os itens do carrossel de bebidas
-    const totalBarItems = barItems.length; // Total de itens no carrossel de bebidas
+const beverageCarousel = document.getElementById('beverages-carousel');
+const foodCarousel = document.getElementById('food-carousel');
+let beverageIndex = 0;
+let foodIndex = 0;
 
-    let currentFoodIndex = 0; // Índice do item atual do carrossel de comidas
-    const foodItems = $('#food-carousel .carousel-item'); // Seleciona todos os itens do carrossel de comidas
-    const totalFoodItems = foodItems.length; // Total de itens no carrossel de comidas
+function rotateCarousel(carousel, index, isBeverage) {
+    const items = carousel.querySelectorAll('.carousel-item');
+    items.forEach((item, i) => {
+        item.style.transform = `translateX(${-100 * index}%)`;
+    });
 
-    // Função para atualizar a posição do carrossel de bebidas
-    function updateBarCarousel() {
-        const newTransform = `translateX(-${currentBarIndex * 100}%)`; // Calcula a nova posição
-        $('#bar-carousel .carousel-container').css('transform', newTransform); // Aplica a transformação
+    if (isBeverage) {
+        beverageIndex = (index + 1) % items.length;
+    } else {
+        foodIndex = (index + 1) % items.length;
     }
+}
 
-    // Função para atualizar a posição do carrossel de comidas
-    function updateFoodCarousel() {
-        const newTransform = `translateX(-${currentFoodIndex * 100}%)`; // Calcula a nova posição
-        $('#food-carousel .carousel-container').css('transform', newTransform); // Aplica a transformação
-    }
+setInterval(() => {
+    rotateCarousel(beverageCarousel, beverageIndex, true);
+    rotateCarousel(foodCarousel, foodIndex, false);
+}, 2000);
 
-    // Atualiza o carrossel de bebidas a cada 2 segundos
-    setInterval(function() {
-        currentBarIndex = (currentBarIndex + 1) % totalBarItems; // Incrementa o índice
-        updateBarCarousel(); // Atualiza a posição
-    }, 2000); // 2000 ms = 2 segundos
+// Função para gerar o QR Code
+function generateQRCode() {
+    const qrCodeCanvas = document.getElementById('qr-code');
+    const qr = new QRious({
+        element: qrCodeCanvas,
+        value: 'freakynight2024@gmail.com', // Chave Pix
+        size: 250, // Tamanho do QR Code
+    });
+    qrCodeCanvas.style.display = 'block'; // Exibir o QR Code
+}
 
-    // Atualiza o carrossel de comidas a cada 2 segundos
-    setInterval(function() {
-        currentFoodIndex = (currentFoodIndex + 1) % totalFoodItems; // Incrementa o índice
-        updateFoodCarousel(); // Atualiza a posição
-    }, 2000); // 2000 ms = 2
+// Evento do botão de compra
+document.querySelector('.purchase-button').addEventListener('click', () => {
+    alert('Obrigado pela compra!'); // Você pode adicionar um alerta ou uma mensagem de confirmação
+    generateQRCode(); // Gera o QR Code
+});
