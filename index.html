@@ -3,32 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halloween Freaky Night 2024</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Halloween Freaky Night 2024</title>
 </head>
 <body>
     <header>
         <h1>Halloween Freaky Night 2024</h1>
-        <p>O melhor Halloween Open Bar de Contagem</p>
+        <p>O melhor Halloween open bar de Contagem, MG!</p>
     </header>
 
     <main>
-        <section class="info-section">
-            <h2>Sobre a Festa</h2>
-            <p>Data: 16/11</p>
-            <p>Local: Contagem, MG (bairro Tropical)</p>
-            <p>Horário: 21h às 3h</p>
-            <h3>Open Bar</h3>
-            <p>Open Bar das 21h às 1h.</p>
-            <h3>Open Food</h3>
-            <p>Delícias para todos os gostos!</p>
-        </section>
-
-        <section class="ticket-section">
-            <h2>Ingressos</h2>
-            <div class="ticket-selector">
-                <label for="ticket-quantity">Quantidade de Ingressos:</label>
+        <section class="ticket-selection">
+            <h2>Selecionar Ingressos</h2>
+            <div class="ticket-controls">
                 <button id="decrement">-</button>
                 <input type="number" id="ticket-quantity" value="0" min="0" readonly>
                 <button id="increment">+</button>
@@ -36,36 +24,39 @@
             <button id="buy-tickets">Comprar Ingressos</button>
         </section>
 
-        <section class="carousel-section">
-            <h2>Open Bar e Open Food</h2>
-            <div class="carousel">
-                <div class="carousel-container">
-                    <div class="carousel-slide">
-                        <div class="carousel-item">
-                            <img src="https://example.com/drink1.jpg" alt="Bebida 1">
-                            <p>Beats Sense</p>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://example.com/drink2.jpg" alt="Bebida 2">
-                            <p>Beats GT</p>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://example.com/drink3.jpg" alt="Bebida 3">
-                            <p>Xeque Mate</p>
-                        </div>
-                    </div>
-                </div>
+        <section class="carousel">
+            <h2>Open Bar</h2>
+            <div class="carousel-container">
+                <div class="carousel-item"><img src="images/open_bar_1.jpg" alt="Beverage 1"></div>
+                <div class="carousel-item"><img src="images/open_bar_2.jpg" alt="Beverage 2"></div>
+                <div class="carousel-item"><img src="images/open_bar_3.jpg" alt="Beverage 3"></div>
                 <button class="prev">❮</button>
                 <button class="next">❯</button>
             </div>
         </section>
+
+        <section class="carousel">
+            <h2>Open Food</h2>
+            <div class="carousel-container">
+                <div class="carousel-item"><img src="images/open_food_1.jpg" alt="Food 1"></div>
+                <div class="carousel-item"><img src="images/open_food_2.jpg" alt="Food 2"></div>
+                <div class="carousel-item"><img src="images/open_food_3.jpg" alt="Food 3"></div>
+                <button class="prev">❮</button>
+                <button class="next">❯</button>
+            </div>
+        </section>
+
+        <section class="upload-images">
+            <h2>Adicionar Imagens</h2>
+            <input type="file" id="image-upload" accept="image/*" multiple>
+            <button id="upload-button">Upload</button>
+        </section>
     </main>
 
     <footer>
-        <p>Obs: Enviar comprovante para contato.</p>
+        <p>Para mais informações, entre em contato.</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
- 
