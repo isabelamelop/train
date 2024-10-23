@@ -1,5 +1,3 @@
-// script.js
-
 $(document).ready(function() {
     let currentIndex = 0; // Índice do item atual
     const items = $('.carousel-item'); // Seleciona todos os itens do carrossel
@@ -8,7 +6,7 @@ $(document).ready(function() {
     // Função para atualizar a posição do carrossel
     function updateCarousel() {
         const newTransform = `translateX(-${currentIndex * 100}%)`; // Calcula a nova posição
-        $('.carousel-slide').css('transform', newTransform); // Aplica a transformação
+        $('.carousel-container').css('transform', newTransform); // Aplica a transformação
     }
 
     // Evento de clique no botão "próximo"
@@ -24,21 +22,30 @@ $(document).ready(function() {
     });
 
     // Função para permitir a seleção da quantidade de ingressos
-    const ticketInput = $('#ticket-quantity'); // Seleciona o campo de entrada
-    const incrementButton = $('#increment'); // Seleciona o botão de incremento
-    const decrementButton = $('#decrement'); // Seleciona o botão de decremento
+    const ticketInput = $('#ticket-quantity');
 
-    // Evento de clique para incrementar a quantidade de ingressos
-    incrementButton.on('click', function() {
-        let currentValue = parseInt(ticketInput.val()); // Obtém o valor atual
+    // Evento para incrementar a quantidade de ingressos
+    $('#increment').on('click', function() {
+        let currentValue = parseInt(ticketInput.val(), 10);
         ticketInput.val(currentValue + 1); // Incrementa o valor
     });
 
-    // Evento de clique para decrementar a quantidade de ingressos
-    decrementButton.on('click', function() {
-        let currentValue = parseInt(ticketInput.val()); // Obtém o valor atual
+    // Evento para decrementar a quantidade de ingressos
+    $('#decrement').on('click', function() {
+        let currentValue = parseInt(ticketInput.val(), 10);
         if (currentValue > 0) {
-            ticketInput.val(currentValue - 1); // Decrementa o valor se maior que 0
+            ticketInput.val(currentValue - 1); // Decrementa o valor, se maior que 0
+        }
+    });
+
+    // Evento para comprar ingressos
+    $('#buy-tickets').on('click', function() {
+        const quantity = ticketInput.val();
+        if (quantity > 0) {
+            alert(`Você comprou ${quantity} ingresso(s)!`);
+            // Aqui você pode integrar com a API do formulário
+        } else {
+            alert('Por favor, selecione a quantidade de ingressos.');
         }
     });
 });
