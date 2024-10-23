@@ -55,6 +55,7 @@
 
             <label for="ticket-quantity">Quantidade de Ingressos:</label>
             <select id="ticket-quantity" class="ticket-quantity" onchange="updateTotal()">
+                <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -64,13 +65,15 @@
 
             <div id="guest-info"></div> <!-- Campos para nome e CPF serão inseridos aqui -->
 
-            <p><strong>Valor total:</strong> R$<span id="total-value">60</span></p>
+            <p><strong>Valor total:</strong> R$<span id="total-value">0</span></p>
             <button class="purchase-button" onclick="purchaseTicket()">Concluir Compra</button>
 
             <div id="message-box" class="message-box" style="display: none;"></div>
         </div>
 
-        <button class="info-button" onclick="showEventInfo()">Informações sobre o Evento</button>
+        <div style="margin-top: 20px;"> <!-- Adicionando espaço entre os botões -->
+            <button class="info-button" onclick="showEventInfo()">Informações sobre o Evento</button>
+        </div>
         <div id="event-info" class="event-info" style="display: none;">
             <h4>Detalhes do Evento</h4>
             <p>Horário: 21h às 3h</p>
