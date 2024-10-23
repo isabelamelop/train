@@ -31,12 +31,17 @@ h1 {
     color: #f39c12; /* Cor do título */
 }
 
-h2, h3 {
+h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+}
+
+h3, h4 {
     color: #f39c12; /* Cor dos subtítulos */
 }
 
-/* Estilo dos inputs */
-input[type="text"], input[type="number"] {
+/* Estilo dos inputs e selects */
+input[type="text"], select {
     width: 100%;
     padding: 10px;
     border: 2px solid #f39c12; /* Borda laranja */
@@ -47,7 +52,7 @@ input[type="text"], input[type="number"] {
 }
 
 /* Estilo do botão de compra */
-.purchase-button {
+.purchase-button, .info-button {
     background-color: #f39c12; /* Laranja */
     color: white;
     padding: 10px 20px;
@@ -58,35 +63,17 @@ input[type="text"], input[type="number"] {
     margin-top: 10px;
 }
 
-.purchase-button:hover {
-    background-color: #e67e22; /* Laranja mais escuro */
-}
-
-/* Estilo do botão de informações */
-.info-button {
-    background-color: #f39c12; /* Laranja */
-    color: white;
-    font-size: 16px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 15px;
-    transition: background-color 0.3s ease;
-}
-
-.info-button:hover {
+.purchase-button:hover, .info-button:hover {
     background-color: #e67e22; /* Laranja mais escuro */
 }
 
 /* Estilo da seção de informações do evento */
 .event-info, .event-policies {
-    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo branco com leve transparência */
     border: 1px solid #ccc; /* Borda cinza */
     padding: 15px; /* Preenchimento */
     border-radius: 5px; /* Bordas arredondadas */
-    margin-bottom: 20px; /* Margem inferior */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    margin-top: 20px; /* Margem superior */
 }
 
 /* Estilo das listas dentro das seções */
