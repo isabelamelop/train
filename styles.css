@@ -40,6 +40,18 @@ h3 {
     color: #ecf0f1; /* Cor cinza claro */
 }
 /* Estilo dos carrosséis */
+.carousels {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.carousel {
+    margin: 10px 0;
+}
+.carousel-items {
+    display: flex;
+    overflow-x: auto;
+}
 .carousel-item {
     min-width: 120px;
     margin-right: 10px;
@@ -48,6 +60,12 @@ h3 {
     color: #fff; /* Cor do texto branca */
     padding: 10px;
     border-radius: 5px;
+}
+.carousel-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 5px;
 }
 /* Estilo da seção de informações do ingresso */
 .ticket-info {
@@ -58,6 +76,7 @@ h3 {
     padding: 10px;
     border-radius: 5px;
 }
+/* Estilo dos campos de nome e CPF */
 .guest-name, .guest-cpf {
     width: 100%;
     padding: 10px;
