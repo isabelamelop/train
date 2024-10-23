@@ -17,28 +17,55 @@
             <strong>Horário:</strong> 21h às 3h</p>
         </header>
         
-        <section class="carousels">
-            <div class="carousel" id="beverages-carousel">
-                <h3>Cardápio Open Bar</h3>
-                <div class="carousel-items">
-                    <div class="carousel-item"><img src="images/IMG_8060.jpeg" alt="Beats Sense" /> Beats Sense</div>
-                    <div class="carousel-item"><img src="images/IMG_8062.jpeg" alt="Beats GT" /> Beats GT</div>
-                    <div class="carousel-item"><img src="images/IMG_8066.jpeg" alt="Xeque Mate" /> Xeque Mate</div> <!-- Certifique-se que IMG_8066.jpeg está correto -->
-                    <div class="carousel-item"><img src="images/IMG_8063.jpeg" alt="Ice de Limão" /> Ice de Limão</div>
-                    <div class="carousel-item"><img src="images/IMG_8064.jpeg" alt="Refrigerante" /> Refrigerante</div>
-                    <div class="carousel-item"><img src="images/IMG_8065.jpeg" alt="Água Mineral" /> Água Mineral</div>
-                    <div class="carousel-item">+ bebidas surpresas</div>
+        <section class="menu">
+            <h3>Cardápio Open Bar</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <img src="IMG_8060.jpeg" alt="Beats Sense" />
+                    <p>Beats Sense</p>
+                </div>
+                <div class="menu-item">
+                    <img src="IMG_8062.jpeg" alt="Beats GT" />
+                    <p>Beats GT</p>
+                </div>
+                <div class="menu-item">
+                    <img src="IMG_8066.jpeg" alt="Xeque Mate" />
+                    <p>Xeque Mate</p>
+                </div>
+                <div class="menu-item">
+                    <img src="IMG_8063.jpeg" alt="Ice de Limão" />
+                    <p>Ice de Limão</p>
+                </div>
+                <div class="menu-item">
+                    <img src="IMG_8064.jpeg" alt="Refrigerante" />
+                    <p>Refrigerante</p>
+                </div>
+                <div class="menu-item">
+                    <img src="IMG_8065.jpeg" alt="Água Mineral" />
+                    <p>Água Mineral</p>
+                </div>
+                <div class="menu-item">
+                    <img src="IMG_8066.jpeg" alt="Bebidas Surpresas" />
+                    <p>+ bebidas surpresas</p>
                 </div>
             </div>
 
-            <div class="carousel" id="food-carousel">
-                <h3>Cardápio Open Food</h3>
-                <div class="carousel-items">
-                    <div class="carousel-item">Coxinha de Frango</div>
-                    <div class="carousel-item">Bolinha de presunto e mussarela</div>
-                    <div class="carousel-item">Kibe de Carne</div>
-                    <div class="carousel-item">Pastel de Queijo com Milho</div>
-                    <div class="carousel-item">Bolinha de Alho Poró</div>
+            <h3>Cardápio Open Food</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <p>Coxinha de Frango</p>
+                </div>
+                <div class="menu-item">
+                    <p>Bolinha de presunto e mussarela</p>
+                </div>
+                <div class="menu-item">
+                    <p>Kibe de Carne</p>
+                </div>
+                <div class="menu-item">
+                    <p>Pastel de Queijo com Milho</p>
+                </div>
+                <div class="menu-item">
+                    <p>Bolinha de Alho Poró</p>
                 </div>
             </div>
         </section>
@@ -61,7 +88,7 @@
                 <option value="5">5</option>
             </select>
             <p><strong>Valor total:</strong> R$<span id="total-value">60</span></p>
-            <button class="purchase-button" onclick="purchaseTicket()">Comprar Ingresso</button>
+            <button class="purchase-button" onclick="purchaseTicket()">Concluir Compra</button>
 
             <!-- Caixa de mensagem -->
             <div id="message-box" class="message-box" style="display: none;"></div>
