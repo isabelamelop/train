@@ -57,14 +57,14 @@ h2 {
     min-width: 100%;
     transition: transform 0.5s ease;
     padding: 20px;
-    background-color: #e0e0e0; /* Cor de fundo dos itens do carrossel */
+    background-color: #e0e0e0;
     border-radius: 5px;
     text-align: center;
-    margin: 5px; /* Espaçamento entre os itens */
+    margin: 5px;
 }
 
 .ticket-info {
-    background-color: #e0f7fa; /* Cor de fundo da seção de ingressos */
+    background-color: #e0f7fa;
     padding: 20px;
     border-radius: 5px;
     margin-top: 20px;
@@ -83,7 +83,7 @@ h2 {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #00796b; /* Cor do botão */
+    background-color: #00796b;
     color: white;
     border: none;
     border-radius: 5px;
@@ -93,12 +93,12 @@ h2 {
 }
 
 .purchase-button:hover {
-    background-color: #004d40; /* Cor do botão ao passar o mouse */
+    background-color: #004d40;
 }
 
-#qr-code {
+#purchase-summary {
     margin-top: 20px;
-    display: block; /* Inicialmente escondido, será exibido após a compra */
-    border: 1px solid #00796b; /* Borda do QR Code */
+    border: 1px solid #00796b;
     border-radius: 5px;
+    padding: 10px;
 }
