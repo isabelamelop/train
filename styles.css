@@ -58,6 +58,7 @@ h3 {
   border-radius: 5px; /* Bordas arredondadas */
 }
 
+/* Estilo dos itens do carrossel */
 .carousel-items {
   display: flex;
   overflow-x: auto;
