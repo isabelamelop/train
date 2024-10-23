@@ -1,140 +1,104 @@
 /* Estilo do corpo */
 body {
-    font-family: Arial, sans-serif; /* Fonte padrão */
-    line-height: 1.6; /* Aumentar o espaço entre as linhas */
-    color: #333; /* Cor do texto */
-    background-color: #f4f4f4; /* Fundo da página */
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 20px;
 }
-
 /* Estilo do container principal */
 .container {
-    max-width: 800px; /* Largura máxima do container */
-    margin: 0 auto; /* Centralizar */
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #fff; /* Fundo do container */
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra do container */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
 /* Estilo do cabeçalho */
 header {
-    text-align: center; /* Centralizar texto */
-    margin-bottom: 20px; /* Margem abaixo do cabeçalho */
+    text-align: center;
+    margin-bottom: 20px;
 }
-
 /* Estilo dos títulos */
 h1 {
-    font-family: 'Creepster', cursive; /* Fonte do título */
-    font-size: 2.5em; /* Tamanho do título */
-    color: #c0392b; /* Cor do título */
+    font-family: 'Creepster', cursive;
+    font-size: 2.5em;
+    color: #c0392b;
 }
-
 h2 {
-    font-size: 1.5em; /* Tamanho do subtítulo */
-    color: #7f8c8d; /* Cor do subtítulo */
+    font-size: 1.5em;
+    color: #7f8c8d;
 }
-
 h3 {
-    margin-top: 20px; /* Margem superior */
+    margin-top: 20px;
 }
-
 /* Estilo dos carrosséis */
 .carousels {
-    display: flex; /* Usar flexbox */
-    flex-direction: column; /* Direção das colunas */
-    margin-bottom: 20px; /* Margem abaixo dos carrosséis */
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
-
 .carousel {
-    margin: 10px 0; /* Margens dos carrosséis */
+    margin: 10px 0;
 }
-
 .carousel-items {
-    display: flex; /* Flexbox para os itens */
-    overflow-x: auto; /* Rolagem horizontal */
+    display: flex;
+    overflow-x: auto;
 }
-
 .carousel-item {
-    min-width: 120px; /* Largura mínima dos itens */
-    margin-right: 10px; /* Margem entre itens */
-    text-align: center; /* Centralizar texto */
+    min-width: 120px;
+    margin-right: 10px;
+    text-align: center;
 }
-
 .carousel-item img {
-    max-width: 100%; /* Limitar a largura das imagens */
-    height: auto; /* Altura automática para manter proporção */
-    border-radius: 5px; /* Bordas arredondadas das imagens */
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
 }
-
 /* Estilo da seção de informações do ingresso */
 .ticket-info {
-    margin-top: 20px; /* Margem superior */
+    margin-top: 20px;
 }
-
 .ticket-quantity {
-    width: 100%; /* Largura total */
-    padding: 10px; /* Preenchimento */
-    border-radius: 5px; /* Bordas arredondadas */
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
 }
-
 /* Estilo dos campos de nome e CPF */
 .guest-name, .guest-cpf {
-    width: 100%; /* Largura total */
-    padding: 10px; /* Preenchimento */
-    border-radius: 5px; /* Bordas arredondadas */
-    border: 1px solid #ccc; /* Borda cinza */
-    margin-bottom: 10px; /* Margem inferior */
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
 }
-
 /* Estilo do botão de compra */
 .purchase-button {
-    background-color: #f39c12; /* Laranja */
-    color: white; /* Texto branco */
-    padding: 10px 20px; /* Preenchimento do botão */
-    border: none; /* Sem borda */
-    border-radius: 5px; /* Bordas arredondadas */
-    cursor: pointer; /* Cursor de mão */
-    transition: background-color 0.3s ease; /* Transição suave */
-}
-
-.purchase-button:hover {
-    background-color: #e67e22; /* Laranja mais escuro ao passar o mouse */
-}
-
-/* Estilo do botão de informações */
-.info-button {
-    background-color: #27ae60; /* Verde */
+    background-color: #f39c12;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px; /* Margem superior */
+    transition: background-color 0.3s ease;
 }
-
+.purchase-button:hover {
+    background-color: #e67e22;
+}
+/* Estilo do botão de informações */
+.info-button {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
 /* Estilo da mensagem */
 .message-box {
-    margin-top: 10px; /* Margem superior */
-    padding: 10px; /* Preenchimento */
-    border: 1px solid #ccc; /* Borda cinza */
-    background-color: #e8f8f5; /* Fundo claro */
-    color: #2c3e50; /* Cor do texto */
-}
-
-/* Estilo das informações do evento */
-.event-info {
-    margin-top: 20px; /* Margem superior */
-    padding: 10px; /* Preenchimento */
-    border: 1px solid #ccc; /* Borda cinza */
-    background-color: #f9f9f9; /* Fundo claro */
-}
-
-/* Estilo das políticas do evento */
-.event-policies {
-    margin-top: 20px; /* Margem superior */
-    padding: 10px; /* Preenchimento */
-    border: 1px solid #ccc; /* Borda cinza */
-    background-color: #f9f9f9; /* Fundo claro */
-}
+    margin-top: 10px;
+    padding: 10px;
+    border[_{{{CITATION{{{_1{](https://github.com/ricardo-cas/pandas/tree/eefd8f3ed9250c15e029b7ae59a24ef9f7ffc4ab/GUIA_MARKDOWN.MD)
