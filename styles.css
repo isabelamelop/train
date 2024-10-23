@@ -95,3 +95,37 @@ footer {
     padding: 10px;
     background-color: #222;
 }
+.ticket-selector {
+    display: flex;
+    align-items: center;
+    background-color: #444; /* Cor de fundo da caixa */
+    padding: 10px; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    margin: 10px 0; /* Margem superior e inferior */
+}
+
+.ticket-selector input {
+    width: 50px;
+    text-align: center;
+    margin: 0 10px;
+    padding: 5px; /* Espaçamento interno */
+    border: 2px solid orange; /* Borda laranja */
+    border-radius: 5px; /* Bordas arredondadas */
+    background-color: #222; /* Cor de fundo da caixa de entrada */
+    color: white; /* Cor do texto */
+}
+
+.ticket-selector button {
+    background-color: orange; /* Cor de fundo dos botões */
+    border: none; /* Sem borda */
+    color: white; /* Cor do texto */
+    padding: 10px; /* Espaçamento interno */
+    cursor: pointer; /* Cursor de mão */
+    font-size: 1.5em; /* Tamanho da fonte */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: background-color 0.3s; /* Efeito de transição */
+}
+
+.ticket-selector button:hover {
+    background-color: darkorange; /* Cor ao passar o mouse */
+}
