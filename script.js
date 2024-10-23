@@ -1,3 +1,12 @@
+function copyPixKey() {
+    const pixKey = 'freakynight2024@gmail.com';
+    navigator.clipboard.writeText(pixKey).then(() => {
+        console.log('Chave Pix copiada: ' + pixKey);
+    }).catch(() => {
+        console.error('Erro ao copiar a chave Pix.');
+    });
+}
+
 function updateTotal() {
     const quantity = document.getElementById('ticket-quantity').value;
     const pricePerTicket = 60; // Preço por ingresso
@@ -5,33 +14,34 @@ function updateTotal() {
     document.getElementById('total-value').innerText = totalValue.toFixed(2);
 }
 
-function showPurchasePopup() {
-    const totalValue = document.getElementById('total-value').innerText;
-    document.getElementById('popup-total-value').innerText = totalValue;
+function purchaseTicket() {
+    const quantity = document.getElementById('ticket-quantity').value;
+    const totalValue = (quantity * 60).toFixed(2); // Calcula o valor total
+    const pixKey = 'freakynight2024@gmail.com'; // Chave Pix
+    const whatsappLink = 'wa.me/+5531997746789'; // Link do WhatsApp
+    const message = `
+Para finalizar a compra de ${quantity} ingresso(s), envie o comprovante para o WhatsApp:
 
-    // Copiar a chave Pix automaticamente
-    const pixKey = document.getElementById('pix-key').innerText;
-    navigator.clipboard.writeText(pixKey).then(() => {
-        console.log('Chave Pix copiada: ' + pixKey);
-    }).catch(() => {
-        console.error('Erro ao copiar a chave Pix.');
-    });
+Chave Pix: ${pixKey}
+Valor Total: R$${totalValue}
 
-    document.getElementById('popup').style.display = 'block'; // Mostra o popup
-}
-
-function closePopup() {
-    document.getElementById('popup').style.display = 'none'; // Oculta o popup
-}
-
-function confirmPurchase() {
-    const totalValue = document.getElementById('total-value').innerText;
-    const pixKey = document.getElementById('pix-key').innerText;
-    const whatsappLink = 'https://wa.me/+5531997746789';
+Clique aqui: ${whatsappLink}
+`;
     
-    // Exibe uma mensagem de confirmação com as informações
-    alert(`Confirmação de Compra:\nChave Pix: ${pixKey}\nValor Total: R$${totalValue}\nEnvie o comprovante para o WhatsApp: ${whatsappLink}`);
+    // Exibe a mensagem em um prompt ou caixa de diálogo personalizada
+    const confirmationMessage = message.replace(/\n/g, "<br>");
+    const confirmBox = document.createElement("div");
+    confirmBox.style.position = "fixed";
+    confirmBox.style.top = "50%";
+    confirmBox.style.left = "50%";
+    confirmBox.style.transform = "translate(-50%, -50%)";
+    confirmBox.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
+    confirmBox.style.padding = "20px";
+    confirmBox.style.borderRadius = "10px";
+    confirmBox.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.3)";
+    confirmBox.innerHTML = confirmMessage + "<br><br><button onclick='this.parentElement.remove()'>Fechar</button>";
     
-    // Fechar o popup após a confirmação
-    closePopup();
+    document.body.appendChild(confirmBox);
+    
+    copyPixKey(); // Copia a chave Pix automaticamente
 }
