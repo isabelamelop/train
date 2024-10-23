@@ -30,14 +30,7 @@ Clique aqui: ${whatsappLink}
     
     // Exibe a mensagem em um prompt ou caixa de diálogo personalizada
     const confirmBox = document.createElement("div");
-    confirmBox.style.position = "fixed";
-    confirmBox.style.top = "50%";
-    confirmBox.style.left = "50%";
-    confirmBox.style.transform = "translate(-50%, -50%)";
-    confirmBox.style.backgroundColor = "rgba(255, 255, 255, 0.9)";
-    confirmBox.style.padding = "20px";
-    confirmBox.style.borderRadius = "10px";
-    confirmBox.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.3)";
+    confirmBox.className = "confirmation-box"; // Adiciona a classe para estilo
     confirmBox.innerHTML = message.replace(/\n/g, "<br>") + "<br><br><button onclick='this.parentElement.remove()'>Fechar</button>";
     
     document.body.appendChild(confirmBox);
