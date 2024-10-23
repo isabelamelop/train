@@ -1,12 +1,99 @@
-
-/* Estilos básicos para o layout */
+/* Estilo do corpo */
 body {
-    font-family: 'Creepster', cursive; /* Fonte temática de Halloween */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    line-height: 1.6; /* Aumentar o espaço entre as linhas */
+    color: #333; /* Cor do texto */
+    background-color: #f4f4f4; /* Fundo da página */
     margin: 0;
     padding: 20px;
-    background-color: #222; /* Cor de fundo mais escura para Halloween */
-    color: #fff; /* Texto em branco para contraste */
 }
+
+/* Estilo do container principal */
+.container {
+    max-width: 800px; /* Largura máxima do container */
+    margin: 0 auto; /* Centralizar */
+    padding: 20px;
+    background-color: white; /* Fundo do container */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra do container */
+}
+
+/* Estilo do cabeçalho */
+header {
+    text-align: center; /* Centralizar texto */
+    margin-bottom: 20px; /* Margem abaixo do cabeçalho */
+}
+
+/* Estilo dos títulos */
+h1 {
+    font-family: 'Creepster', cursive; /* Fonte do título */
+    font-size: 2.5em; /* Tamanho do título */
+    color: #c0392b; /* Cor do título */
+}
+
+h2 {
+    font-size: 1.5em; /* Tamanho do subtítulo */
+    color: #7f8c8d; /* Cor do subtítulo */
+}
+
+h3 {
+    margin-top: 20px; /* Margem superior */
+}
+
+/* Estilo dos carrosséis */
+.carousels {
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Direção das colunas */
+    margin-bottom: 20px; /* Margem abaixo dos carrosséis */
+}
+
+.carousel {
+    margin: 10px 0; /* Margens dos carrosséis */
+}
+
+.carousel-items {
+    display: flex; /* Flexbox para os itens */
+    overflow-x: auto; /* Rolagem horizontal */
+}
+
+.carousel-item {
+    min-width: 120px; /* Largura mínima dos itens */
+    margin-right: 10px; /* Margem entre itens */
+    text-align: center; /* Centralizar texto */
+}
+
+.carousel-item img {
+    max-width: 100%; /* Limitar a largura das imagens */
+    height: auto; /* Altura automática para manter proporção */
+    border-radius: 5px; /* Bordas arredondadas das imagens */
+}
+
+/* Estilo da seção de informações do ingresso */
+.ticket-info {
+    margin-top: 20px; /* Margem superior */
+}
+
+.ticket-quantity {
+    width: 100%; /* Largura total */
+    padding: 10px; /* Preenchimento */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Estilo do botão de compra */
+.purchase-button {
+    background-color: #27ae60; /* Verde */
+    color: white; /* Texto branco */
+    padding: 10px 20px; /* Preenchimento do botão */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de mão */
+    transition: background-color 0.3s ease; /* Transição suave */
+}
+
+.purchase-button:hover {
+    background-color: #219653; /* Verde mais escuro ao passar o mouse */
+}
+
 /* Estilo do botão de informações */
 .info-button {
     background-color: #f39c12; /* Laranja */
@@ -27,10 +114,10 @@ body {
 /* Estilo para a seção de informações do evento */
 .event-info, .event-policies {
     background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
-    border: 1px solid #ccc;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    border: 1px solid #ccc; /* Borda cinza */
+    padding: 15px; /* Preenchimento */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-bottom: 20px; /* Margem inferior */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
 }
 
@@ -41,99 +128,26 @@ body {
 
 /* Estilo para o título das políticas */
 .event-policies h3 {
-    margin-top: 0;
+    margin-top: 0; /* Sem margem superior */
 }
 
-/* Melhorar a legibilidade do texto */
-body {
-    font-family: Arial, sans-serif; /* Fonte padrão */
-    line-height: 1.6; /* Aumentar o espaço entre as linhas */
-    color: #333; /* Cor do texto */
-}
-}
-
-.event-policies h3 {
-    margin-top: 0;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: #333; /* Fundo mais escuro para o container */
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-}
-
-header h1, header h2 {
-    text-align: center;
-    color: #ffa500; /* Laranja para título */
-}
-
-h3, h4 {
-    color: #ffa500; /* Laranja para subtítulos */
-}
-
-.carousel {
-    margin-bottom: 20px;
-}
-
-.carousel-items {
-    display: flex;
-    overflow-x: auto;
-}
-
-.carousel-item {
-    min-width: 150px;
-    margin-right: 10px;
-    padding: 10px;
-    background-color: #555; /* Cor de fundo das opções do carrossel */
-    border-radius: 5px;
-    text-align: center;
-}
-
-.carousel-item img {
-    max-width: 100%;  /* Limita a largura máxima da imagem ao tamanho do contêiner */
-    height: auto;     /* Ajusta a altura automaticamente para manter a proporção */
-    border-radius: 5px; /* Adiciona bordas arredondadas para um efeito mais agradável */
-}
-
-.ticket-info {
-    margin-top: 20px;
-    border-top: 2px solid #eaeaea;
-    padding-top: 20px;
-}
-
-.purchase-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #dc3545; /* Vermelho para o botão de compra */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: center; /* Centraliza o texto */
-}
-
-.purchase-button:hover {
-    background-color: #c82333; /* Tom de vermelho mais escuro ao passar o mouse */
-}
-
-.ticket-quantity {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-}
+/* Estilo da caixa de mensagens */
 .message-box {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: rgba(255, 165, 0, 0.8); /* Laranja semitransparente */
-    border: 1px solid #ffa500; /* Borda laranja */
-    border-radius: 5px;
-    color: #000; /* Texto em preto para contraste */
+    background-color: #e74c3c; /* Fundo vermelho */
+    color: white; /* Texto branco */
+    padding: 15px; /* Preenchimento */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-top: 20px; /* Margem superior */
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .carousel-items {
+        flex-direction: column; /* Alinhar verticalmente em telas pequenas */
+    }
+
+    .carousel-item {
+        min-width: auto; /* Remover a largura mínima */
+        margin: 5px 0; /* Margem vertical */
+    }
 }
