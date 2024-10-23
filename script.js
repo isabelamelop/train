@@ -6,41 +6,42 @@ function updateTotal() {
     document.getElementById("total-value").innerText = totalValue;
 
     // Exibir campos de nome e CPF conforme a quantidade de ingressos
-    const nameFieldsContainer = document.getElementById("name-fields-container");
-    nameFieldsContainer.innerHTML = ''; // Limpar campos existentes
+    const nameCpfContainer = document.getElementById("name-cpf-container");
+    nameCpfContainer.innerHTML = ""; // Limpa o container
 
     for (let i = 0; i < ticketQuantity; i++) {
-        nameFieldsContainer.innerHTML += `
-            <label for="name${i + 1}">Nome Completo do Convidado ${i + 1}:</label>
-            <input type="text" id="name${i + 1}" class="name-input" required>
-            <label for="cpf${i + 1}">CPF do Convidado ${i + 1}:</label>
-            <input type="text" id="cpf${i + 1}" class="cpf-input" required>
-        `;
+        const nameInput = document.createElement("input");
+        nameInput.type = "text";
+        nameInput.placeholder = "Nome Completo";
+        nameInput.classList.add("name-input");
+
+        const cpfInput = document.createElement("input");
+        cpfInput.type = "text";
+        cpfInput.placeholder = "CPF (apenas números)";
+        cpfInput.classList.add("cpf-input");
+
+        nameCpfContainer.appendChild(nameInput);
+        nameCpfContainer.appendChild(cpfInput);
     }
 }
 
-// Função para verificar CPF
+// Função para validar o CPF
 function isValidCPF(cpf) {
-    cpf = cpf.replace(/[^\d]+/g, ''); // Remove caracteres não numéricos
-    if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false; // Verifica se é um número válido
+    cpf = cpf.replace(/[^\d]/g, ''); // Remove caracteres não numéricos
+    if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false; // Validação básica
 
     let sum = 0;
     let remainder;
-
-    for (let i = 1; i <= 9; i++) {
-        sum += parseInt(cpf[i - 1]) * (11 - i);
-    }
+    for (let i = 1; i <= 9; i++) sum += parseInt(cpf.charAt(i - 1)) * (11 - i);
     remainder = (sum * 10) % 11;
     if (remainder === 10 || remainder === 11) remainder = 0;
-    if (remainder !== parseInt(cpf[9])) return false;
+    if (remainder !== parseInt(cpf.charAt(9))) return false;
 
     sum = 0;
-    for (let i = 1; i <= 10; i++) {
-        sum += parseInt(cpf[i - 1]) * (12 - i);
-    }
+    for (let i = 1; i <= 10; i++) sum += parseInt(cpf.charAt(i - 1)) * (12 - i);
     remainder = (sum * 10) % 11;
     if (remainder === 10 || remainder === 11) remainder = 0;
-    if (remainder !== parseInt(cpf[10])) return false;
+    if (remainder !== parseInt(cpf.charAt(10))) return false;
 
     return true;
 }
@@ -49,42 +50,33 @@ function isValidCPF(cpf) {
 function purchaseTicket() {
     const ticketQuantity = document.getElementById("ticket-quantity").value;
     const totalValue = document.getElementById("total-value").innerText;
+    const nameInputs = document.getElementsByClassName("name-input");
+    const cpfInputs = document.getElementsByClassName("cpf-input");
 
-    let names = [];
-    let cpfs = [];
     let valid = true;
+    let message = "Olá, gostaria de finalizar a compra de ingressos.\n";
 
     for (let i = 0; i < ticketQuantity; i++) {
-        const name = document.getElementById(`name${i + 1}`).value;
-        const cpf = document.getElementById(`cpf${i + 1}`).value;
+        const name = nameInputs[i].value.trim();
+        const cpf = cpfInputs[i].value.trim();
 
-        if (!isValidCPF(cpf)) {
-            alert(`CPF do convidado ${i + 1} é inválido!`);
+        if (!name || !isValidCPF(cpf)) {
             valid = false;
+            alert("Por favor, preencha corretamente todos os campos de nome e CPF.");
             break;
         }
 
-        names.push(name);
-        cpfs.push(cpf);
+        message += `Nome ${i + 1}: ${name}\nCPF ${i + 1}: ${cpf}\n`;
     }
 
-    if (!valid) return; // Interrompe a execução se o CPF não for válido
+    if (!valid) return;
 
-    const whatsappLink = `https://wa.me/5531997746789?text=Olá, gostaria de finalizar a compra de ingressos.
-    \nNome(s): ${names.join(', ')}
-    \nCPF(s): ${cpfs.join(', ')}
-    \nChave Pix: freakynight2024@gmail.com
-    \nQuantidade de Ingressos: ${ticketQuantity}
-    \nValor Total: R$${totalValue}
-    \nInformações adicionais: Enviaremos o comprovante e o convite!`;
+    const whatsappLink = `https://wa.me/5531997746789?text=${encodeURIComponent(message)}%0A- Chave Pix: freakynight2024@gmail.com%0A- Quantidade de Ingressos: ${ticketQuantity}%0A- Valor total: R$${totalValue}`;
 
     // Atualiza o conteúdo da caixa de mensagem com quebra de linha
     document.getElementById("message-box").innerHTML = `
         Para finalizar a compra, envie o comprovante para o WhatsApp:
         <br><br>
-        - Chave Pix: freakynight2024@gmail.com<br>
-        - Quantidade de Ingressos: ${ticketQuantity}<br>
-        - Valor total: R$${totalValue}<br><br>
         <strong><a href="${whatsappLink}" target="_blank">Clique aqui para enviar</a></strong>
     `;
 
