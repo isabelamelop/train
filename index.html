@@ -5,59 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halloween Freaky Night 2024</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
         <h1>Halloween Freaky Night 2024</h1>
-        <h2>O melhor Halloween Open Bar de Contagem!</h2>
+        <p>O melhor Halloween open bar de Contagem</p>
     </header>
-    <main>
-        <section class="event-info">
-            <p><strong>Data:</strong> 16/11</p>
-            <p><strong>Local:</strong> Contagem, MG (bairro Tropical)</p>
-            <p><strong>Horário:</strong> 21h às 3h</p>
-            <p><strong>Open Bar:</strong> 21h às 1h (se inicia às 21h e se encerra minimamente às 1h)</p>
-            <p><strong>Open Food:</strong> Comida inclusa durante toda a festa.</p>
-            <h3>Cardápio Open Bar:</h3>
-            <ul>
-                <li>Beats Sense</li>
-                <li>Beats GT</li>
-                <li>Xeque Mate</li>
-                <li>Ice de Limão</li>
-                <li>Refrigerante</li>
-                <li>Água Mineral</li>
-                <li>+ bebidas surpresas</li>
-            </ul>
-            <h3>Cardápio Open Food:</h3>
-            <ul>
-                <li>Coxinha de Frango</li>
-                <li>Bolinha de presunto e mussarela</li>
-                <li>Kibe de Carne</li>
-                <li>Pastel de Queijo com Milho</li>
-                <li>Bolinha de Alho Poró</li>
-            </ul>
-        </section>
-        <section class="ticket-purchase">
-            <h3>Ingressos/Convites</h3>
-            <div class="ticket-option">
-                <label for="ticket-quantity">Quantidade de Ingressos:</label>
-                <input type="number" id="ticket-quantity" value="1" min="1" max="10">
+    
+    <section class="event-info">
+        <h2>Informações do Evento</h2>
+        <p><strong>Data:</strong> 16/11</p>
+        <p><strong>Local:</strong> Contagem, MG (bairro Tropical)</p>
+        <p><strong>Horário:</strong> 21h às 3h</p>
+        <p><strong>Open Bar:</strong> 21h às 1h</p>
+        <p><strong>Open Food:</strong> Coxinha de Frango, Kibe de Carne, entre outros.</p>
+    </section>
+
+    <section class="carousel">
+        <h2>Open Bar e Open Food</h2>
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <div class="carousel-item active">
+                    <img src="https://images.unsplash.com/photo-1559625377-f1b86fc6db5c" alt="Open Bar - Drinks">
+                    <h3>Drinks Refrescantes</h3>
+                    <p>Escolha entre uma variedade de coquetéis e bebidas.</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1583240760227-3cf445c10c5c" alt="Open Food - Comida">
+                    <h3>Coxinha de Frango</h3>
+                    <p>Deliciosas coxinhas, o aperitivo perfeito!</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.unsplash.com/photo-1551031750-0ed6bb8487f0" alt="Open Food - Kibe">
+                    <h3>Kibe de Carne</h3>
+                    <p>Experimente nosso saboroso kibe, feito com amor!</p>
+                </div>
             </div>
-            <div class="ticket-option">
-                <label for="name">Nome Completo:</label>
-                <input type="text" id="name" placeholder="Seu nome completo" required>
-            </div>
-            <div class="ticket-option">
-                <label for="receipt">Enviar Comprovante:</label>
-                <input type="file" id="receipt" accept=".jpg, .png, .pdf" required>
-            </div>
-            <button id="generate-qr">Gerar QR Code</button>
-            <div id="qr-code" class="hidden"></div>
-        </section>
-    </main>
+            <button class="carousel-button prev">❮</button>
+            <button class="carousel-button next">❯</button>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2024 Halloween Freaky Night. Todos os direitos reservados.</p>
+        <p>Para dúvidas, entre em contato: freakynight2024@gmail.com</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
