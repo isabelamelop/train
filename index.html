@@ -5,110 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halloween Freaky Night 2024</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
-    <style>
-        /* Estilos básicos para o layout */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #222; /* Cor de fundo mais escura para Halloween */
-            color: #fff; /* Texto em branco para contraste */
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #333; /* Fundo mais escuro para o container */
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            padding: 20px;
-        }
-        header h1, header h2 {
-            text-align: center;
-            color: #ffa500; /* Laranja para título */
-        }
-        .carousel {
-            margin-bottom: 20px;
-        }
-        .carousel h3 {
-            text-align: center;
-            color: #ffa500; /* Laranja para o subtítulo do carrossel */
-        }
-        .carousel-items {
-            display: flex;
-            overflow-x: auto;
-            scroll-behavior: smooth; /* Faz o scroll ser suave */
-        }
-        .carousel-item {
-            min-width: 150px;
-            margin-right: 10px;
-            padding: 10px;
-            background-color: #555; /* Cor de fundo das opções do carrossel */
-            border-radius: 5px;
-            text-align: center;
-        }
-        .ticket-info {
-            margin-top: 20px;
-            border-top: 2px solid #eaeaea;
-            padding-top: 20px;
-        }
-        .purchase-button {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #28a745; /* Verde para o botão */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        .purchase-button:hover {
-            background-color: #218838; /* Tom de verde mais escuro ao passar o mouse */
-        }
-        .whatsapp-number {
-            color: #00ff00; /* Verde para o número do WhatsApp */
-            font-weight: bold;
-        }
-        .ticket-quantity {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 16px;
-        }
-        /* Estilos para o popup */
-        .popup {
-            display: none; /* Esconder o popup inicialmente */
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 20px;
-            z-index: 1000;
-            text-align: center;
-        }
-        .popup-content {
-            background: #444;
-            border-radius: 8px;
-            padding: 20px;
-            display: inline-block;
-            margin-top: 20%;
-        }
-        .close-popup {
-            background-color: #ff3b30; /* Vermelho para o botão de fechar */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -148,7 +46,6 @@
 
         <div class="ticket-info">
             <h3>Ingressos</h3>
-            <p>A entrada na festa será mediante conferência do nome completo na lista + documento físico com foto ou e-documentos (CNH Digital, e-identidade, Título de Eleitor com biometria cadastrada).</p>
             <h4>Lotes e Valores</h4>
             <ul>
                 <li>Pré Lote (apenas 18 e 19/10): R$50</li>
@@ -156,8 +53,6 @@
                 <li>2° Lote (até 30/10): R$75</li>
                 <li>3° Lote (até 07/11): R$80</li>
             </ul>
-            <p><strong>Chave Pix:</strong> <span id="pix-key">freakynight2024@gmail.com</span> <button onclick="copyPixKey()">Copiar Chave</button></p>
-            <p><strong>Valor total:</strong> R$<span id="total-value">60</span></p>
             <label for="ticket-quantity">Quantidade de Ingressos:</label>
             <select id="ticket-quantity" class="ticket-quantity" onchange="updateTotal()">
                 <option value="1">1</option>
@@ -166,16 +61,20 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-            <p><strong>Obs:</strong> só venderemos e adicionaremos na lista, compras individuais, cada convidado deverá se responsabilizar por enviar o seu comprovante + nome completo + n° documento/cpf pelo privado no contato: <span class="whatsapp-number">(31) 99774-6789</span> <a href="https://wa.me/+5531997746789">Whatsapp</a>.</p>
-            <button class="purchase-button" onclick="purchaseTicket()">Comprar Ingresso</button>
-            <canvas id="qr-code" style="display: none;"></canvas>
+            <p><strong>Valor total:</strong> R$<span id="total-value">60</span></p>
+            <button class="purchase-button" onclick="showPurchasePopup()">Comprar Ingresso</button>
         </div>
     </div>
 
-    <!-- Popup para confirmação da compra -->
-    <div class="popup" id="purchase-popup">
+    <div id="popup" class="popup">
         <div class="popup-content">
-            <h3>Confirmação de Compra</h3>
-            <p>Por favor, insira a chave Pix e confirme o valor total:</p>
-            <input type="text" id="input-pix-key" placeholder="Chave Pix" />
-            <p><strong>Valor Total: R$<span id="popup-total-value">60</span></strong></p
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h3>Informações para Compra</h3>
+            <p>Chave Pix: <strong id="pix-key">freakynight2024@gmail.com</strong></p>
+            <p>Valor Total: R$<span id="popup-total-value"></span></p>
+            <p>Envie o comprovante para <a href="https://wa.me/+5531997746789">WhatsApp</a>.</p>
+            <button onclick="confirmPurchase()">Confirmar Compra</button>
+        </div>
+    </div>
+</body>
+</html>
