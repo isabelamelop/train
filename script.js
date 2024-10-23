@@ -1,19 +1,44 @@
-document.getElementById('generate-qr').addEventListener('click', function() {
-    const quantity = parseInt(document.getElementById('ticket-quantity').value);
-    const qrCodeDiv = document.getElementById('qr-code');
+// script.js
 
-    // Substitua este URL pelo URL real do seu QR Code gerado com base no valor
-    const priceMapping = {
-        1: 'https://example.com/qrcode-1',
-        2: 'https://example.com/qrcode-2',
-        3: 'https://example.com/qrcode-3',
-        4: 'https://example.com/qrcode-4',
-        // Adicione mais conforme necessário
-    };
+$(document).ready(function() {
+    let currentIndex = 0; // Índice do item atual
+    const items = $('.carousel-item'); // Seleciona todos os itens do carrossel
+    const totalItems = items.length; // Total de itens no carrossel
 
-    const qrCodeUrl = priceMapping[quantity] || 'https://example.com/default-qrcode';
+    // Função para atualizar a posição do carrossel
+    function updateCarousel() {
+        const newTransform = `translateX(-${currentIndex * 100}%)`; // Calcula a nova posição
+        $('.carousel-slide').css('transform', newTransform); // Aplica a transformação
+    }
 
-    qrCodeDiv.innerHTML = `<h3>QR Code para ${quantity} ingresso(s)</h3>
-                           <img src="${qrCodeUrl}" alt="QR Code" style="max-width: 100%; height: auto;">`;
-    qrCodeDiv.classList.remove('hidden');
+    // Evento de clique no botão "próximo"
+    $('.next').on('click', function() {
+        currentIndex = (currentIndex + 1) % totalItems; // Incrementa o índice
+        updateCarousel(); // Atualiza a posição
+    });
+
+    // Evento de clique no botão "anterior"
+    $('.prev').on('click', function() {
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems; // Decrementa o índice
+        updateCarousel(); // Atualiza a posição
+    });
+
+    // Função para permitir a seleção da quantidade de ingressos
+    const ticketInput = $('#ticket-quantity'); // Seleciona o campo de entrada
+    const incrementButton = $('#increment'); // Seleciona o botão de incremento
+    const decrementButton = $('#decrement'); // Seleciona o botão de decremento
+
+    // Evento de clique para incrementar a quantidade de ingressos
+    incrementButton.on('click', function() {
+        let currentValue = parseInt(ticketInput.val()); // Obtém o valor atual
+        ticketInput.val(currentValue + 1); // Incrementa o valor
+    });
+
+    // Evento de clique para decrementar a quantidade de ingressos
+    decrementButton.on('click', function() {
+        let currentValue = parseInt(ticketInput.val()); // Obtém o valor atual
+        if (currentValue > 0) {
+            ticketInput.val(currentValue - 1); // Decrementa o valor se maior que 0
+        }
+    });
 });
