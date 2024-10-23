@@ -2,8 +2,8 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #fff; /* Changed text color to white for better contrast */
-    background-color: #000; /* Set background color to black */
+    color: #fff; /* Text color for better contrast */
+    background-color: #000; /* Background color */
     margin: 0;
     padding: 20px;
 }
@@ -13,7 +13,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff; /* Maintained white background for container */
+    background-color: #fff; /* Maintained white background */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -62,11 +62,11 @@ h3 {
     min-width: 120px;
     margin: 10px; /* Adicione margem para todos os lados */
     text-align: center;
-    background-color: #f0f0f0; /* Cor de fundo cinza claro */
+    background-color: #f0f0f0; /* Light gray background */
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease; /* Aplica uma transição suave a todas as propriedades */
+    transition: all 0.3s ease; /* Smooth transitions */
 
     /* Efeitos de hover */
     &:hover {
@@ -95,7 +95,7 @@ h3 {
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-bottom: 10px;
-    color: #000; /* Set text color to black for better readability */
+    color: #000; /* Text color for better readability */
 }
 
 /* Estilo do botão de compra */
@@ -124,26 +124,4 @@ h3 {
     margin-top: 10px;
 }
 
-/* Estilo da mensagem */
-.message-box {
-    margin-top: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #e8f8f5;
-    color: #2c3e50;
-}
-
-/* Estilo das informações do evento */
-.event-info {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-}
-
-/* Estilo das políticas do evento */
-.event-policies {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-}
+/* Estilo
