@@ -1,71 +1,31 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halloween Freaky Night 2024</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>HALLOWEEN FREAKY NIGHT 2024</h1>
-            <h2>O melhor Halloween open bar de Contagem</h2>
-            <p>Contagem, MG (bairro Tropical) - mesmo lugar da de 2023, para quem foi (:<br>
-            <strong>Data:</strong> 16/11<br>
-            <strong>Horário:</strong> 21h às 3h</p>
-        </header>
+<div class="ticket-info">
+    <h3>Ingressos</h3>
+    <h4>Lotes e Valores</h4>
+    <ul>
+        <li>Pré Lote (apenas 18 e 19/10): R$50</li>
+        <li>1° Lote (até 24/10): R$60</li>
+        <li>2° Lote (até 30/10): R$75</li>
+        <li>3° Lote (até 07/11): R$80</li>
+    </ul>
+    <label for="ticket-quantity">Quantidade de Ingressos:</label>
+    <select id="ticket-quantity" class="ticket-quantity" onchange="updateTotal()">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <p><strong>Valor total:</strong> R$<span id="total-value">60</span></p>
 
-        <!-- Botão de Informações sobre o Evento -->
-        <button class="info-button" onclick="showEventInfo()">Informações sobre o Evento</button>
-        <div id="event-info" class="event-info" style="display:none;">
-            <p><strong>Horário:</strong> 21h às 3h</p>
-            <p><strong>Open Bar:</strong> 21h às 1h (Se inicia às 21h e se encerra minimamente às 1h, ou até que as bebidas acabem).</p>
-            <p><strong>Shot de Licor 43:</strong> Para quem vier fantasiado.</p>
-            <p><strong>Beer Pong com Vodka:</strong> Às 00h.</p>
-            <p><strong>Obs:</strong> Cada convidado é responsável por enviar o comprovante de compra + nome completo + CPF para confirmar sua presença na festa.</p>
-        </div>
+    <!-- Adicionar campos para nome completo e CPF -->
+    <label for="full-name">Nome completo:</label>
+    <input type="text" id="full-name" placeholder="Insira seu nome completo" required>
+    
+    <label for="cpf">CPF:</label>
+    <input type="text" id="cpf" placeholder="Insira seu CPF" required>
 
-        <!-- Seção de Políticas do Evento -->
-        <div id="event-policies" class="event-policies">
-            <h3>Políticas do Evento</h3>
-            <ul>
-                <li>É obrigatório apresentar documento de identificação na entrada.</li>
-                <li>Proibido a entrada com bebidas e comidas de fora.</li>
-                <li>Respeite os demais convidados e a equipe de segurança.</li>
-                <li>Não será permitido comportamento agressivo ou que cause desconforto aos outros.</li>
-                <li>Em caso de emergência, siga as orientações da equipe de segurança.</li>
-                <li>A festa é privada e somente convidados terão acesso ao local.</li>
-                <li>Qualquer dano ao espaço ou a propriedade será de responsabilidade do convidado.</li>
-            </ul>
-        </div>
+    <button class="purchase-button" onclick="purchaseTicket()">Concluir Compra</button>
 
-        <div class="ticket-info">
-            <h3>Ingressos</h3>
-            <h4>Lotes e Valores</h4>
-            <ul>
-                <li>Pré Lote (apenas 18 e 19/10): R$50</li>
-                <li>1° Lote (até 24/10): R$60</li>
-                <li>2° Lote (até 30/10): R$75</li>
-                <li>3° Lote (até 07/11): R$80</li>
-            </ul>
-            <label for="ticket-quantity">Quantidade de Ingressos:</label>
-            <select id="ticket-quantity" class="ticket-quantity" onchange="updateTotal()">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <p><strong>Valor total:</strong> R$<span id="total-value">60</span></p>
-            <button class="purchase-button" onclick="purchaseTicket()">Concluir Compra</button>
-
-            <!-- Caixa de mensagem -->
-            <div id="message-box" class="message-box" style="display: none;"></div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <!-- Caixa de mensagem -->
+    <div id="message-box" class="message-box" style="display: none;"></div>
+</div>
