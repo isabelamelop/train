@@ -24,10 +24,10 @@ function getTicketPrice() {
 // Função para atualizar o valor total
 function updateTotal() {
     const ticketQuantity = document.getElementById("ticket-quantity").value;
-    const ticketPrice = getTicketPrice();
+    const ticketPrice = getTicketPrice(); // Obter o preço com base na data
     const totalValue = ticketQuantity * ticketPrice;
     document.getElementById("total-value").innerText = totalValue;
-    updateBuyerFields(ticketQuantity);
+    updateBuyerFields(ticketQuantity); // Atualiza os campos de comprador
 }
 
 // Função para atualizar os campos de comprador
@@ -44,6 +44,7 @@ function isValidName(name) {
 
 // Função para validar CPF (aceita formatos com e sem símbolos)
 function isValidCPF(cpf) {
+    // Remove pontos, traços e espaços do CPF
     const cleanCPF = cpf.replace(/[.\-]/g, '');
     return cleanCPF.length === 11; // Simples validação
 }
@@ -57,6 +58,7 @@ function purchaseTicket() {
     const guestCPF2 = quantity == 2 ? document.getElementById("guest-cpf2").value : '';
     const messageBox = document.getElementById("message-box");
 
+    // Validação do nome completo
     if (!isValidName(guestName1)) {
         messageBox.style.display = "block";
         messageBox.innerText = "Por favor, insira o Nome Completo (nome e sobrenome).";
@@ -69,6 +71,7 @@ function purchaseTicket() {
         return;
     }
     
+    // Validação do CPF
     if (!isValidCPF(guestCPF1)) {
         messageBox.style.display = "block";
         messageBox.innerText = "CPF 1 inválido. Por favor, digite um CPF válido.";
@@ -81,6 +84,7 @@ function purchaseTicket() {
         return;
     }
 
+    // Se os CPFs e os nomes forem válidos
     const totalValue = document.getElementById("total-value").innerText;
     const whatsappLink = `https://wa.me/5531997746789?text=Olá, gostaria de finalizar a compra do(s) ingresso(s).%0A%0A*Nome Completo 1:* ${guestName1}%0A*CPF 1:* ${guestCPF1}%0A${quantity == 2 ? `%0A*Nome Completo 2:* ${guestName2}%0A*CPF 2:* ${guestCPF2}%0A` : ''}%0A*Quantidade de Ingressos:* ${quantity}%0A%0A*Valor Total:* R$${totalValue}%0A%0AVou enviar o comprovante.`;
 
