@@ -1,55 +1,51 @@
 /* Estilo do corpo */
 body {
-    font-family: 'Oswald', sans-serif; /* Fonte padrão moderna */
+    font-family: Arial, sans-serif; /* Fonte padrão */
     line-height: 1.6; /* Aumentar o espaço entre as linhas */
-    color: #fff; /* Cor do texto */
-    background-color: #222; /* Fundo escuro */
+    color: #333; /* Cor do texto */
+    background-color: #000; /* Fundo da página preto */
     margin: 0;
     padding: 20px;
-}
-
-/* Variáveis para espaçamento */
-:root {
-    --spacing: 20px; /* Espaçamento padrão */
 }
 
 /* Estilo do container principal */
 .container {
     max-width: 800px; /* Largura máxima do container */
     margin: 0 auto; /* Centralizar */
-    padding: var(--spacing); /* Preenchimento do container */
-    background-color: #333; /* Fundo do container */
+    padding: 20px;
+    background-color: #fff; /* Fundo do container */
     border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra do container */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra do container */
 }
 
 /* Estilo do cabeçalho */
 header {
     text-align: center; /* Centralizar texto */
-    margin-bottom: var(--spacing); /* Margem abaixo do cabeçalho */
+    margin-bottom: 20px; /* Margem abaixo do cabeçalho */
 }
 
 /* Estilo dos títulos */
 h1 {
     font-family: 'Creepster', cursive; /* Fonte do título */
     font-size: 2.5em; /* Tamanho do título */
-    color: #f39c12; /* Cor do título amarelo */
+    color: #f39c12; /* Cor do título laranja */
 }
 
 h2 {
     font-size: 1.5em; /* Tamanho do subtítulo */
-    color: #f1c40f; /* Cor do subtítulo amarelo claro */
+    color: #7f8c8d; /* Cor do subtítulo */
 }
 
 h3 {
-    margin-top: var(--spacing); /* Margem superior */
+    margin-top: 20px; /* Margem superior */
+    color: #f39c12; /* Cor dos subtítulos das seções */
 }
 
 /* Estilo dos carrosséis */
 .carousels {
     display: flex; /* Usar flexbox */
     flex-direction: column; /* Direção das colunas */
-    margin-bottom: var(--spacing); /* Margem abaixo dos carrosséis */
+    margin-bottom: 20px; /* Margem abaixo dos carrosséis */
 }
 
 .carousel {
@@ -65,7 +61,6 @@ h3 {
     min-width: 120px; /* Largura mínima dos itens */
     margin-right: 10px; /* Margem entre itens */
     text-align: center; /* Centralizar texto */
-    color: #ecf0f1; /* Cor do texto das imagens */
 }
 
 .carousel-item img {
@@ -76,7 +71,7 @@ h3 {
 
 /* Estilo da seção de informações do ingresso */
 .ticket-info {
-    margin-top: var(--spacing); /* Margem superior */
+    margin-top: 20px; /* Margem superior */
 }
 
 /* Estilo dos campos de nome e CPF */
@@ -84,9 +79,7 @@ h3 {
     width: 100%; /* Largura total */
     padding: 10px; /* Preenchimento */
     border-radius: 5px; /* Bordas arredondadas */
-    border: 1px solid #f39c12; /* Borda amarela */
-    background-color: #444; /* Fundo dos campos */
-    color: #fff; /* Texto branco */
+    border: 1px solid #f39c12; /* Borda laranja */
     margin-bottom: 10px; /* Margem inferior */
 }
 
@@ -98,71 +91,46 @@ h3 {
     border: none; /* Sem borda */
     border-radius: 5px; /* Bordas arredondadas */
     cursor: pointer; /* Cursor de mão */
-    transition: background-color 0.3s, transform 0.2s; /* Transição suave */
+    transition: background-color 0.3s ease; /* Transição suave */
 }
 
 .purchase-button:hover {
-    background-color: #e67e22; /* Laranja mais escuro ao passar o mouse */
-    transform: scale(1.05); /* Aumenta levemente o botão ao passar o mouse */
+    background-color: #e67e22; /* Laranja escuro ao passar o mouse */
+}
+
+/* Estilo da caixa de mensagem */
+.message-box {
+    background-color: #e74c3c; /* Vermelho */
+    color: white; /* Texto branco */
+    padding: 10px; /* Preenchimento */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-top: 10px; /* Margem superior */
 }
 
 /* Estilo do botão de informações */
 .info-button {
-    background-color: #27ae60; /* Verde */
-    color: white;
-    font-size: 16px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 15px;
-    transition: background-color 0.3s, transform 0.2s; /* Transição suave */
-}
-
-.info-button:hover {
-    background-color: #219653; /* Verde mais escuro */
-    transform: scale(1.05); /* Aumenta levemente o botão ao passar o mouse */
-}
-
-/* Estilo para a seção de informações do evento */
-.event-info, .event-policies {
-    background-color: rgba(255, 255, 255, 0.1); /* Fundo branco com leve transparência */
-    border: 1px solid #f39c12; /* Borda amarela */
-    padding: 15px; /* Preenchimento */
-    border-radius: 5px; /* Bordas arredondadas */
-    margin-bottom: var(--spacing); /* Margem inferior */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra para destaque */
-}
-
-/* Estilo das listas dentro das seções */
-.event-info p, .event-policies ul {
-    margin: 10px 0; /* Margem entre os parágrafos e itens */
-    color: #fff; /* Texto branco */
-}
-
-/* Estilo para o título das políticas */
-.event-policies h3 {
-    margin-top: 0; /* Sem margem superior */
-    color: #f39c12; /* Título em amarelo */
-}
-
-/* Estilo da caixa de mensagens */
-.message-box {
-    background-color: #e74c3c; /* Fundo vermelho */
+    background-color: #f39c12; /* Laranja */
     color: white; /* Texto branco */
-    padding: 15px; /* Preenchimento */
+    padding: 10px; /* Preenchimento */
+    border: none; /* Sem borda */
     border-radius: 5px; /* Bordas arredondadas */
-    margin-top: var(--spacing); /* Margem superior */
+    cursor: pointer; /* Cursor de mão */
 }
 
-/* Responsividade */
-@media (max-width: 600px) {
-    .carousel-items {
-        flex-direction: column; /* Alinhar verticalmente em telas pequenas */
-    }
+/* Estilo das informações do evento */
+.event-info {
+    background-color: #333; /* Fundo escuro */
+    color: white; /* Texto branco */
+    padding: 10px; /* Preenchimento */
+    margin-top: 10px; /* Margem superior */
+    border-radius: 5px; /* Bordas arredondadas */
+}
 
-    .carousel-item {
-        min-width: auto; /* Remover a largura mínima */
-        margin: 5px 0; /* Margem vertical */
-    }
+/* Estilo das políticas do evento */
+.event-policies {
+    margin-top: 20px; /* Margem superior */
+    padding: 10px; /* Preenchimento */
+    background-color: #333; /* Fundo escuro */
+    color: white; /* Texto branco */
+    border-radius: 5px; /* Bordas arredondadas */
 }
