@@ -87,13 +87,13 @@ h3 {
 .purchase-button {
     background-color: #f39c12; /* Laranja */
     color: white; /* Texto branco */
-    padding: 10px 20px; /* Preenchimento do botão */
+    padding: 10px 20px; /* Preenchimento */
     border: none; /* Sem borda */
     border-radius: 5px; /* Bordas arredondadas */
     cursor: pointer; /* Cursor de mão */
-    transition: background-color 0.3s ease; /* Transição suave */
 }
 
+/* Estilo do botão ao passar o mouse */
 .purchase-button:hover {
     background-color: #e67e22; /* Laranja escuro ao passar o mouse */
 }
