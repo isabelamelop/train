@@ -9,16 +9,16 @@
 <body>
     <header>
         <h1>Halloween Freaky Night 2024</h1>
-        <p>O melhor Halloween Open Bar de Contagem</p>
-        <p>Data: 16/11 | Local: Contagem, MG (bairro Tropical)</p>
-        <p>Horário: 21h às 3h</p>
+        <h2>O melhor Halloween Open Bar de Contagem!</h2>
     </header>
-
     <main>
         <section class="event-info">
-            <h2>Informações da Festa</h2>
-            <h3>Open Bar</h3>
-            <p>21h às 1h (até as bebidas acabarem)</p>
+            <p><strong>Data:</strong> 16/11</p>
+            <p><strong>Local:</strong> Contagem, MG (bairro Tropical)</p>
+            <p><strong>Horário:</strong> 21h às 3h</p>
+            <p><strong>Open Bar:</strong> 21h às 1h (se inicia às 21h e se encerra minimamente às 1h)</p>
+            <p><strong>Open Food:</strong> Comida inclusa durante toda a festa.</p>
+            <h3>Cardápio Open Bar:</h3>
             <ul>
                 <li>Beats Sense</li>
                 <li>Beats GT</li>
@@ -26,10 +26,9 @@
                 <li>Ice de Limão</li>
                 <li>Refrigerante</li>
                 <li>Água Mineral</li>
-                <li>Bebidas Surpresas</li>
+                <li>+ bebidas surpresas</li>
             </ul>
-
-            <h3>Open Food</h3>
+            <h3>Cardápio Open Food:</h3>
             <ul>
                 <li>Coxinha de Frango</li>
                 <li>Bolinha de presunto e mussarela</li>
@@ -38,56 +37,27 @@
                 <li>Bolinha de Alho Poró</li>
             </ul>
         </section>
-
         <section class="ticket-purchase">
-            <h2>Ingressos/Convites</h2>
-            <form id="ticket-form">
-                <div class="ticket-option">
-                    <input type="checkbox" id="ticket1" name="quantity" value="1">
-                    <label for="ticket1">1 Ingresso - R$ 60</label>
-                </div>
-                <div class="ticket-option">
-                    <input type="checkbox" id="ticket2" name="quantity" value="2">
-                    <label for="ticket2">2 Ingressos - R$ 120</label>
-                </div>
-                <div class="ticket-option">
-                    <input type="checkbox" id="ticket3" name="quantity" value="3">
-                    <label for="ticket3">3 Ingressos - R$ 180</label>
-                </div>
-                <div class="ticket-option">
-                    <input type="checkbox" id="ticket4" name="quantity" value="4">
-                    <label for="ticket4">4 Ingressos - R$ 240</label>
-                </div>
-                <button type="submit">Gerar QR Code</button>
-            </form>
-
-            <div id="qr-code" class="hidden">
-                <h3>QR Code do Pagamento:</h3>
-                <img id="qr-image" alt="QR Code" />
-                <p id="price-info"></p>
+            <h3>Ingressos/Convites</h3>
+            <div class="ticket-option">
+                <label for="ticket-quantity">Quantidade de Ingressos:</label>
+                <input type="number" id="ticket-quantity" value="1" min="1" max="10">
             </div>
-        </section>
-
-        <section class="upload-info">
-            <h2>Envio de Comprovante</h2>
-            <form id="upload-form">
-                <label for="name">Seu Nome:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="receipt">Comprovante de Pagamento:</label>
-                <input type="file" id="receipt" name="receipt" accept="image/*" required>
-                
-                <button type="submit">Enviar Comprovante</button>
-            </form>
-            <div id="form-response"></div>
+            <div class="ticket-option">
+                <label for="name">Nome Completo:</label>
+                <input type="text" id="name" placeholder="Seu nome completo" required>
+            </div>
+            <div class="ticket-option">
+                <label for="receipt">Enviar Comprovante:</label>
+                <input type="file" id="receipt" accept=".jpg, .png, .pdf" required>
+            </div>
+            <button id="generate-qr">Gerar QR Code</button>
+            <div id="qr-code" class="hidden"></div>
         </section>
     </main>
-
     <footer>
-        <p>Obs: Enviar comprovante para o contato: (31) 997746789 - Carlos</p>
-        <p>Chave PIX: freakynight2024@gmail.com</p>
+        <p>&copy; 2024 Halloween Freaky Night. Todos os direitos reservados.</p>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
