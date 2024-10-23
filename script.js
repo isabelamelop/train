@@ -12,14 +12,12 @@ function purchaseTicket() {
     const totalValue = document.getElementById("total-value").innerText;
 
     const whatsappLink = `https://wa.me/5531997746789?text=Olá, gostaria de finalizar a compra de ingressos.
-    \nChave Pix: freakynight2024@gmail.com
-    \nQuantidade de Ingressos: ${ticketQuantity}
-    \nValor Total: R$${totalValue}
-    \nInformações adicionais: Nome completo e CPF.`;
+     Vou te mandar o comprovante da compra!
+    \nInformações adicionais: Nome completo e CPF:\n`;
 
     // Atualiza o conteúdo da caixa de mensagem com quebra de linha
     document.getElementById("message-box").innerHTML = `
-        Para finalizar a compra, envie o comprovante para o WhatsApp com as seguintes informações:
+        Para finalizar a compra, envie o comprovante para o WhatsApp:
         <br><br>
         - Chave Pix: freakynight2024@gmail.com<br>
         - Quantidade de Ingressos: ${ticketQuantity}<br>
