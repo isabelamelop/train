@@ -84,13 +84,3 @@ function purchaseTicket() {
     document.getElementById("message-box").style.display = 'block';
     document.getElementById("message-box").scrollIntoView({ behavior: 'smooth' });
 }
-
-// Função para exibir informações sobre o evento
-function showEventInfo() {
-    const eventInfo = document.getElementById("event-info");
-    if (eventInfo.style.display === "none") {
-        eventInfo.style.display = "block";
-    } else {
-        eventInfo.style.display = "none";
-    }
-}
