@@ -1,127 +1,148 @@
-/* Estilo do corpo */
+/* Estilo do corpo */ 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #fff; /* Text color for better contrast */
-    background-color: #000; /* Background color */
-    margin: 0;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #fff; /* Mudou a cor do texto para branco para melhor contraste */
+  background-color: #000; /* Cor de fundo preta */
+  margin: 0;
+  padding: 20px;
 }
 
 /* Estilo do container principal */
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff; /* Maintained white background */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff; /* Mantido o fundo branco para o container */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo do cabeçalho */
 header {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 /* Estilo dos títulos */
 h1 {
-    font-family: 'Creepster', cursive;
-    font-size: 2.5em;
-    color: #c0392b; /* Maintained original color for title */
+  font-family: 'Creepster', cursive;
+  font-size: 2.5em;
+  color: #c0392b; /* Mantido a cor original do título */
 }
 
 h2 {
-    font-size: 1.5em;
-    color: #7f8c8d; /* Maintained original color for subtitle */
+  font-size: 1.5em;
+  color: #7f8c8d; /* Mantido a cor original do subtítulo */
 }
 
 h3 {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 /* Estilo dos carrosséis */
 .carousels {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .carousel {
-    margin: 10px 0;
+  margin: 10px 0;
+}
+
+/* Novo estilo para o fundo cinza das informações do carrossel */
+.carousel-info-background {
+  background-color: #dcdcdc; /* Cor cinza */
+  padding: 10px; /* Espaçamento interno */
+  border-radius: 5px; /* Bordas arredondadas */
 }
 
 .carousel-items {
-    display: flex;
-    overflow-x: auto;
-    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
-    justify-content: center; /* Centraliza os itens horizontalmente */
+  display: flex;
+  overflow-x: auto;
 }
 
 .carousel-item {
-    min-width: 120px;
-    margin: 10px; /* Adicione margem para todos os lados */
-    text-align: center;
-    background-color: #f0f0f0; /* Light gray background */
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease; /* Smooth transitions */
+  min-width: 120px;
+  margin-right: 10px;
+  text-align: center;
+}
 
-    /* Efeitos de hover */
-    &:hover {
-        background-color: #e0e0e0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transform: translateY(-5px);
-    }
+.carousel-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
 }
 
 /* Estilo da seção de informações do ingresso */
 .ticket-info {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .ticket-quantity {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 /* Estilo dos campos de nome e CPF */
 .guest-name,
 .guest-cpf {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    color: #000; /* Text color for better readability */
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  color: #000; /* Cor do texto alterada para preto para melhor legibilidade */
 }
 
 /* Estilo do botão de compra */
 .purchase-button {
-    background-color: #f39c12;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color: #f39c12;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .purchase-button:hover {
-    background-color: #e67e22;
+  background-color: #e67e22;
 }
 
 /* Estilo do botão de informações */
 .info-button {
-    background-color: #27ae60;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
+  background-color: #27ae60;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
 }
 
-/* Estilo
+/* Estilo da mensagem */
+.message-box {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #e8f8f5;
+  color: #2c3e50;
+}
+
+/* Estilo das informações do evento */
+.event-info {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+/* Estilo das políticas do evento */
+.event-policies {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
