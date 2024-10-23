@@ -1,53 +1,32 @@
 $(document).ready(function() {
-    let currentIndex = 0; // Índice do item atual
-    const items = $('.carousel-item'); // Seleciona todos os itens do carrossel
-    const totalItems = items.length; // Total de itens no carrossel
+    let currentBarIndex = 0; // Índice do item atual do carrossel de bebidas
+    const barItems = $('#bar-carousel .carousel-item'); // Seleciona todos os itens do carrossel de bebidas
+    const totalBarItems = barItems.length; // Total de itens no carrossel de bebidas
 
-    // Função para atualizar a posição do carrossel
-    function updateCarousel() {
-        const newTransform = `translateX(-${currentIndex * 100}%)`; // Calcula a nova posição
-        $('.carousel-container').css('transform', newTransform); // Aplica a transformação
+    let currentFoodIndex = 0; // Índice do item atual do carrossel de comidas
+    const foodItems = $('#food-carousel .carousel-item'); // Seleciona todos os itens do carrossel de comidas
+    const totalFoodItems = foodItems.length; // Total de itens no carrossel de comidas
+
+    // Função para atualizar a posição do carrossel de bebidas
+    function updateBarCarousel() {
+        const newTransform = `translateX(-${currentBarIndex * 100}%)`; // Calcula a nova posição
+        $('#bar-carousel .carousel-container').css('transform', newTransform); // Aplica a transformação
     }
 
-    // Evento de clique no botão "próximo"
-    $('.next').on('click', function() {
-        currentIndex = (currentIndex + 1) % totalItems; // Incrementa o índice
-        updateCarousel(); // Atualiza a posição
-    });
+    // Função para atualizar a posição do carrossel de comidas
+    function updateFoodCarousel() {
+        const newTransform = `translateX(-${currentFoodIndex * 100}%)`; // Calcula a nova posição
+        $('#food-carousel .carousel-container').css('transform', newTransform); // Aplica a transformação
+    }
 
-    // Evento de clique no botão "anterior"
-    $('.prev').on('click', function() {
-        currentIndex = (currentIndex - 1 + totalItems) % totalItems; // Decrementa o índice
-        updateCarousel(); // Atualiza a posição
-    });
+    // Atualiza o carrossel de bebidas a cada 2 segundos
+    setInterval(function() {
+        currentBarIndex = (currentBarIndex + 1) % totalBarItems; // Incrementa o índice
+        updateBarCarousel(); // Atualiza a posição
+    }, 2000); // 2000 ms = 2 segundos
 
-    // Função para permitir a seleção da quantidade de ingressos
-    const ticketInput = $('#ticket-quantity');
-    const ticketPrice = 50; // Preço do ingresso
-
-    // Evento para incrementar a quantidade de ingressos
-    $('#increment').on('click', function() {
-        let currentValue = parseInt(ticketInput.val(), 10);
-        ticketInput.val(currentValue + 1); // Incrementa o valor
-    });
-
-    // Evento para decrementar a quantidade de ingressos
-    $('#decrement').on('click', function() {
-        let currentValue = parseInt(ticketInput.val(), 10);
-        if (currentValue > 0) {
-            ticketInput.val(currentValue - 1); // Decrementa o valor, se maior que 0
-        }
-    });
-
-    // Evento para comprar ingressos
-    $('#buy-tickets').on('click', function() {
-        const quantity = parseInt(ticketInput.val(), 10);
-        if (quantity > 0) {
-            const totalAmount = quantity * ticketPrice; // Calcula o valor total
-            const pixKey = "chave_pix@dominio.com"; // Substitua pela sua chave Pix
-            alert(`Valor total: R$ ${totalAmount.toFixed(2)}\n\nChave Pix para pagamento: ${pixKey}`);
-        } else {
-            alert('Por favor, selecione a quantidade de ingressos.');
-        }
-    });
-});
+    // Atualiza o carrossel de comidas a cada 2 segundos
+    setInterval(function() {
+        currentFoodIndex = (currentFoodIndex + 1) % totalFoodItems; // Incrementa o índice
+        updateFoodCarousel(); // Atualiza a posição
+    }, 2000); // 2000 ms = 2
