@@ -1,22 +1,19 @@
-document.getElementById("ticket-form").addEventListener("submit", function(event) {
-    event.preventDefault();
+document.getElementById('generate-qr').addEventListener('click', function() {
+    const quantity = parseInt(document.getElementById('ticket-quantity').value);
+    const qrCodeDiv = document.getElementById('qr-code');
 
-    const quantity = document.getElementById("quantity").value;
-    const prices = {
-        "1": 60,
-        "2": 120,
-        "3": 180,
-        "4": 240,
+    // Substitua este URL pelo URL real do seu QR Code gerado com base no valor
+    const priceMapping = {
+        1: 'https://example.com/qrcode-1',
+        2: 'https://example.com/qrcode-2',
+        3: 'https://example.com/qrcode-3',
+        4: 'https://example.com/qrcode-4',
+        // Adicione mais conforme necessário
     };
-    
-    // Determine o preço com base na quantidade de ingressos
-    const totalPrice = prices[quantity];
 
-    // Lógica para exibir o QR Code de acordo com a quantidade
-    const qrCodeImage = `https://api.qrserver.com/v1/create-qr-code/?data=PIX Link para ${totalPrice}&size=200x200`;
-    
-    // Exibir QR Code e preço
-    document.getElementById("qr-image").src = qrCodeImage;
-    document.getElementById("price-info").innerText = `Total: R$ ${totalPrice}`;
-    document.getElementById("qr-code").classList.remove("hidden");
+    const qrCodeUrl = priceMapping[quantity] || 'https://example.com/default-qrcode';
+
+    qrCodeDiv.innerHTML = `<h3>QR Code para ${quantity} ingresso(s)</h3>
+                           <img src="${qrCodeUrl}" alt="QR Code" style="max-width: 100%; height: auto;">`;
+    qrCodeDiv.classList.remove('hidden');
 });
