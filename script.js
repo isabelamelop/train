@@ -20,7 +20,7 @@ function updateBuyerFields(quantity) {
 // Função para validar nome completo (nome e sobrenome)
 function isValidName(name) {
     const nameParts = name.trim().split(" ");
-    return nameParts.length >= 2; // Verifica se o nome tem pelo menos duas palavras (nome e sobrenome)
+    return nameParts.length >= 2 && nameParts[1] !== ""; // Verifica se há pelo menos duas palavras e a segunda não está vazia
 }
 
 // Função para concluir a compra
@@ -33,20 +33,32 @@ function purchaseTicket() {
     const messageBox = document.getElementById("message-box");
 
     // Validação do nome completo
-    if (!isValidName(guestName1) || (quantity == 2 && !isValidName(guestName2))) {
+    if (!isValidName(guestName1)) {
         messageBox.style.display = "block";
-        messageBox.innerText = "Por favor, insira o nome completo (nome e sobrenome).";
+        messageBox.innerText = "Por favor, insira o Nome Completo 1 (nome e sobrenome).";
+        return;
+    }
+    
+    if (quantity == 2 && !isValidName(guestName2)) {
+        messageBox.style.display = "block";
+        messageBox.innerText = "Por favor, insira o Nome Completo 2 (nome e sobrenome).";
         return;
     }
     
     // Validação do CPF
-    if (!isValidCPF(guestCPF1) || (quantity == 2 && !isValidCPF(guestCPF2))) {
+    if (!isValidCPF(guestCPF1)) {
         messageBox.style.display = "block";
-        messageBox.innerText = "CPF inválido. Por favor, digite um CPF válido.";
+        messageBox.innerText = "CPF 1 inválido. Por favor, digite um CPF válido.";
         return;
     }
-    
-   // Se o CPF e o nome forem válidos
+
+    if (quantity == 2 && !isValidCPF(guestCPF2)) {
+        messageBox.style.display = "block";
+        messageBox.innerText = "CPF 2 inválido. Por favor, digite um CPF válido.";
+        return;
+    }
+
+    // Se os CPFs e os nomes forem válidos
     const totalValue = document.getElementById("total-value").innerText;
     const whatsappLink = `https://wa.me/5531997746789?text=Olá, gostaria de finalizar a compra do(s) ingresso(s).%0A%0A*Nome Completo 1:* ${guestName1}%0A*CPF 1:* ${guestCPF1}%0A${quantity == 2 ? `%0A*Nome Completo 2:* ${guestName2}%0A*CPF 2:* ${guestCPF2}%0A` : ''}%0A*Quantidade de Ingressos:* ${quantity}%0A%0A*Valor Total:* R$${totalValue}%0A%0AVou enviar o comprovante.`;
 
