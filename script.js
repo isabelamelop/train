@@ -14,6 +14,7 @@ function updateTotal() {
     document.getElementById('total-value').innerText = totalValue.toFixed(2);
 }
 
+
 function purchaseTicket() {
     const quantity = document.getElementById('ticket-quantity').value;
     const pricePerTicket = 60; // Preço por ingresso
