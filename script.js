@@ -1,27 +1,30 @@
-// script.js
+// Data atual para verificação de lotes
+const today = new Date('2024-10-23');
 
-// Função para obter o valor do lote baseado na data atual
-function getCurrentLote() {
-    const today = new Date("2024-10-23");
-    let price = 60; // Valor padrão do 1° lote
+// Função para calcular o preço do ingresso com base na data atual
+function getTicketPrice() {
+    const preSaleEnd = new Date('2024-10-19');
+    const firstLotEnd = new Date('2024-10-24');
+    const secondLotEnd = new Date('2024-10-30');
+    const thirdLotEnd = new Date('2024-11-07');
 
-    if (today >= new Date("2024-10-18") && today <= new Date("2024-10-19")) {
-        price = 50; // Pré-lote
-    } else if (today >= new Date("2024-10-20") && today <= new Date("2024-10-24")) {
-        price = 60; // 1° lote
-    } else if (today >= new Date("2024-10-25") && today <= new Date("2024-10-30")) {
-        price = 75; // 2° lote
-    } else if (today >= new Date("2024-10-31") && today <= new Date("2024-11-07")) {
-        price = 80; // 3° lote
+    if (today <= preSaleEnd) {
+        return 50; // Pré Lote
+    } else if (today < firstLotEnd) {
+        return 60; // 1° Lote
+    } else if (today < secondLotEnd) {
+        return 75; // 2° Lote
+    } else if (today < thirdLotEnd) {
+        return 80; // 3° Lote
+    } else {
+        return 0; // Lote esgotado
     }
-
-    return price;
 }
 
-// Função para calcular o total e atualizar a exibição
+// Função para atualizar o valor total
 function updateTotal() {
     const ticketQuantity = document.getElementById("ticket-quantity").value;
-    const ticketPrice = getCurrentLote(); // Obtém o preço atual do lote
+    const ticketPrice = getTicketPrice(); // Obter o preço com base na data
     const totalValue = ticketQuantity * ticketPrice;
     document.getElementById("total-value").innerText = totalValue;
     updateBuyerFields(ticketQuantity); // Atualiza os campos de comprador
@@ -33,16 +36,15 @@ function updateBuyerFields(quantity) {
     buyer2Fields.style.display = quantity == 2 ? "block" : "none";
 }
 
-// Função para validar nome completo (nome e sobrenome)
+// Função para validar nome completo
 function isValidName(name) {
     const nameParts = name.trim().split(" ");
-    return nameParts.length >= 2 && nameParts[1] !== ""; // Verifica se há pelo menos duas palavras e a segunda não está vazia
+    return nameParts.length >= 2 && nameParts[1] !== "";
 }
 
-// Função para validar CPF
+// Função para validar CPF (exemplo simples)
 function isValidCPF(cpf) {
-    // Implementação simples de validação de CPF (só para fins de exemplo)
-    return cpf.length === 14; // Exemplo: CPF deve ter 14 caracteres no formato XXX.XXX.XXX-XX
+    return cpf.length === 11; // Simples validação
 }
 
 // Função para concluir a compra
@@ -93,3 +95,6 @@ function showEventInfo() {
     const eventInfo = document.getElementById("event-info");
     eventInfo.style.display = eventInfo.style.display === "none" ? "block" : "none";
 }
+
+// Atualiza o preço total ao carregar a página
+updateTotal();
