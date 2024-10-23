@@ -18,7 +18,7 @@ function purchaseTicket() {
     const quantity = document.getElementById('ticket-quantity').value;
     const totalValue = (quantity * 60).toFixed(2); // Calcula o valor total
     const pixKey = 'freakynight2024@gmail.com'; // Chave Pix
-    const whatsappLink = 'wa.me/+5531997746789'; // Link do WhatsApp
+    const whatsappLink = 'https://wa.me/+5531997746789'; // Link do WhatsApp
     const message = `
 Para finalizar a compra de ${quantity} ingresso(s), envie o comprovante para o WhatsApp:
 
@@ -29,7 +29,6 @@ Clique aqui: ${whatsappLink}
 `;
     
     // Exibe a mensagem em um prompt ou caixa de diálogo personalizada
-    const confirmationMessage = message.replace(/\n/g, "<br>");
     const confirmBox = document.createElement("div");
     confirmBox.style.position = "fixed";
     confirmBox.style.top = "50%";
@@ -39,7 +38,7 @@ Clique aqui: ${whatsappLink}
     confirmBox.style.padding = "20px";
     confirmBox.style.borderRadius = "10px";
     confirmBox.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.3)";
-    confirmBox.innerHTML = confirmMessage + "<br><br><button onclick='this.parentElement.remove()'>Fechar</button>";
+    confirmBox.innerHTML = message.replace(/\n/g, "<br>") + "<br><br><button onclick='this.parentElement.remove()'>Fechar</button>";
     
     document.body.appendChild(confirmBox);
     
