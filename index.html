@@ -5,17 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halloween Freaky Night 2024</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <style>
+        /* Estilos básicos para o layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        header h1, header h2 {
+            text-align: center;
+        }
+        .carousel {
+            margin-bottom: 20px;
+        }
+        .carousel h3 {
+            text-align: center;
+        }
+        .carousel-items {
+            display: flex;
+            overflow-x: auto;
+        }
+        .carousel-item {
+            min-width: 150px;
+            margin-right: 10px;
+            padding: 10px;
+            background-color: #eaeaea;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .ticket-info {
+            margin-top: 20px;
+            border-top: 2px solid #eaeaea;
+            padding-top: 20px;
+        }
+        .purchase-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .purchase-button:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Halloween Freaky Night 2024</h1>
-            <h2>O melhor Halloween Open Bar de Contagem</h2>
-            <p>Contagem, MG (bairro Tropical) - 21h às 3h</p>
+            <h1>HALLOWEEN FREAKY NIGHT 2024</h1>
+            <h2>O melhor Halloween open bar de Contagem</h2>
+            <p>Contagem, MG (bairro Tropical) - mesmo lugar da de 2023, para quem foi (:<br>
+            <strong>Data:</strong> 16/11<br>
+            <strong>Horário:</strong> 21h às 3h</p>
         </header>
-
-        <div class="carousels">
-            <div class="carousel">
+        
+        <section class="carousels">
+            <div class="carousel" id="beverages-carousel">
                 <h3>Cardápio Open Bar</h3>
                 <div class="carousel-items">
                     <div class="carousel-item">Beats Sense</div>
@@ -24,41 +84,54 @@
                     <div class="carousel-item">Ice de Limão</div>
                     <div class="carousel-item">Refrigerante</div>
                     <div class="carousel-item">Água Mineral</div>
-                    <div class="carousel-item">+ Bebidas Surpresas</div>
+                    <div class="carousel-item">+ bebidas surpresas</div>
                 </div>
             </div>
 
-            <div class="carousel">
+            <div class="carousel" id="food-carousel">
                 <h3>Cardápio Open Food</h3>
                 <div class="carousel-items">
                     <div class="carousel-item">Coxinha de Frango</div>
-                    <div class="carousel-item">Bolinha de Presunto e Mussarela</div>
+                    <div class="carousel-item">Bolinha de presunto e mussarela</div>
                     <div class="carousel-item">Kibe de Carne</div>
                     <div class="carousel-item">Pastel de Queijo com Milho</div>
                     <div class="carousel-item">Bolinha de Alho Poró</div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <div class="ticket-info">
             <h3>Ingressos/Convites</h3>
+            <p>A entrada na festa será mediante conferência do nome completo na lista + documento físico com foto ou e-documentos (CNH Digital, e-identidade, Título de Eleitor com biometria cadastrada).</p>
+            <h4>Lotes e Valores</h4>
             <ul>
-                <li>A entrada na festa será mediante conferência do nome completo na lista + documento físico com foto ou e-documentos.</li>
-                <li>Valor do ingresso: <span id="ticket-price">R$50</span></li>
+                <li>Pré Lote (apenas 18 e 19/10): R$50</li>
+                <li>1° Lote (até 24/10): R$60</li>
+                <li>2° Lote (até 30/10): R$75</li>
+                <li>3° Lote (até 07/11): R$80</li>
             </ul>
-            <label for="quantity">Quantidade:</label>
-            <input type="number" id="quantity" value="1" min="1">
-            <button class="purchase-button" onclick="purchaseTickets()">Comprar Ingressos</button>
-        </div>
-
-        <div id="purchase-summary" style="display: none;">
-            <h3>Resumo da Compra</h3>
-            <p>Valor Total: <span id="total-amount"></span></p>
-            <p>Chave Pix: <span id="pix-key">freakynight2024@gmail.com</span> <button onclick="copyPix()">Copiar Chave</button></p>
-            <p>Envie seu comprovante para: <a href="https://wa.me/+5531997746789">wa.me/+5531997746789</a></p>
+            <p><strong>Chave pix:</strong> <span id="pix-key">freakynight2024@gmail.com</span> <button onclick="copyPixKey()">Copiar Chave</button></p>
+            <p><strong>Valor total:</strong> <span id="total-value">R$<span id="ticket-price">60</span></span></p>
+            <p><strong>Obs:</strong> só venderemos e adicionaremos na lista, compras individuais, cada convidado deverá se responsabilizar por enviar o seu comprovante + nome completo + n° documento/cpf pelo privado no contato: <a href="https://wa.me/+5531997746789">Whatsapp</a>.</p>
+            <p>A festa é privada, então, para convidar e adicionar pessoas ao grupo, favor solicitar no privado de algum dos adms o link de entrada. (só aceitaremos pix e enviaremos comprovante de compra e o convite, de pessoas adicionadas ao grupo)</p>
+            <button class="purchase-button" onclick="purchaseTicket()">Comprar Ingresso</button>
+            <canvas id="qr-code" style="display: none;"></canvas>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function copyPixKey() {
+            const pixKey = document.getElementById('pix-key').innerText;
+            navigator.clipboard.writeText(pixKey).then(() => {
+                alert('Chave Pix copiada: ' + pixKey);
+            }, () => {
+                alert('Erro ao copiar a chave Pix.');
+            });
+        }
+
+        function purchaseTicket() {
+            alert('Instruções de compra: Envie o comprovante para WhatsApp.');
+        }
+    </script>
 </body>
 </html>
