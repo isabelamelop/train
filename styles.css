@@ -2,8 +2,8 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #fff; /* Mudou a cor do texto para branco para melhor contraste */
-  background-color: #000; /* Cor de fundo preta */
+  color: #000; /* Mudado para preto para melhor legibilidade */
+  background-color: #dcdcdc; /* Cor de fundo alterada para cinza claro */
   margin: 0;
   padding: 20px;
 }
@@ -13,7 +13,7 @@ body {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff; /* Mantido o fundo branco para o container */
+  background-color: #fff; /* Mantido fundo branco para o container */
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -28,12 +28,12 @@ header {
 h1 {
   font-family: 'Creepster', cursive;
   font-size: 2.5em;
-  color: #c0392b; /* Mantido a cor original do título */
+  color: #c0392b; /* Mantido original color for title */
 }
 
 h2 {
   font-size: 1.5em;
-  color: #7f8c8d; /* Mantido a cor original do subtítulo */
+  color: #7f8c8d; /* Mantido original color for subtitle */
 }
 
 h3 {
@@ -51,14 +51,6 @@ h3 {
   margin: 10px 0;
 }
 
-/* Novo estilo para o fundo cinza das informações do carrossel */
-.carousel-info-background {
-  background-color: #dcdcdc; /* Cor cinza */
-  padding: 10px; /* Espaçamento interno */
-  border-radius: 5px; /* Bordas arredondadas */
-}
-
-/* Estilo dos itens do carrossel */
 .carousel-items {
   display: flex;
   overflow-x: auto;
@@ -81,12 +73,6 @@ h3 {
   margin-top: 20px;
 }
 
-.ticket-quantity {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-}
-
 /* Estilo dos campos de nome e CPF */
 .guest-name,
 .guest-cpf {
@@ -95,7 +81,7 @@ h3 {
   border-radius: 5px;
   border: 1px solid #ccc;
   margin-bottom: 10px;
-  color: #000; /* Cor do texto alterada para preto para melhor legibilidade */
+  color: #000; /* Cor do texto mantida em preto para melhor legibilidade */
 }
 
 /* Estilo do botão de compra */
@@ -146,4 +132,12 @@ h3 {
   margin-top: 20px;
   padding: 10px;
   border: 1px solid #ccc;
+  background-color: #f9f9f9;
+}
+
+/* Estilo do quadrado cinza no fundo das informações do carrossel */
+.carousel {
+  background-color: #d3d3d3; /* Cinza claro */
+  padding: 10px; /* Adicionado padding */
+  border-radius: 5px; /* Bordas arredondadas */
 }
