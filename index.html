@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halloween Freaky Night 2024</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js" defer></script>
-    <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>HALLOWEEN FREAKY NIGHT 2024</h1>
             <h2>O melhor Halloween open bar de Contagem</h2>
-            <p>Contagem, MG (bairro Tropical) - mesmo lugar da de 2023, para quem foi (:<br>
+            <p>Contagem, MG (bairro Tropical) - mesmo local do evento de 2023, para quem participou.<br>
             <strong>Data:</strong> 16/11<br>
             <strong>Horário:</strong> 21h às 3h</p>
         </header>
@@ -36,7 +35,7 @@
                 <h3>Cardápio Open Food</h3>
                 <div class="carousel-items">
                     <div class="carousel-item">Coxinha de Frango</div>
-                    <div class="carousel-item">Bolinha de presunto e mussarela</div>
+                    <div class="carousel-item">Bolinha de Presunto e Mussarela</div>
                     <div class="carousel-item">Kibe de Carne</div>
                     <div class="carousel-item">Pastel de Queijo com Milho</div>
                     <div class="carousel-item">Bolinha de Alho Poró</div>
@@ -46,6 +45,7 @@
 
         <div class="ticket-info">
             <h3>Ingressos</h3>
+            <p>A entrada na festa será mediante conferência do nome completo na lista + documento físico com foto ou e-documentos (CNH Digital, e-identidade, Título de Eleitor com biometria cadastrada).</p>
             <h4>Lotes e Valores</h4>
             <ul>
                 <li>Pré Lote (apenas 18 e 19/10): R$50</li>
@@ -53,6 +53,7 @@
                 <li>2° Lote (até 30/10): R$75</li>
                 <li>3° Lote (até 07/11): R$80</li>
             </ul>
+            <p><strong>Valor total:</strong> R$<span id="total-value">60</span></p>
             <label for="ticket-quantity">Quantidade de Ingressos:</label>
             <select id="ticket-quantity" class="ticket-quantity" onchange="updateTotal()">
                 <option value="1">1</option>
@@ -61,20 +62,11 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-            <p><strong>Valor total:</strong> R$<span id="total-value">60</span></p>
-            <button class="purchase-button" onclick="showPurchasePopup()">Comprar Ingresso</button>
+            <button class="purchase-button" onclick="purchaseTicket()">Comprar Ingresso</button>
+            <canvas id="qr-code" style="display: none;"></canvas>
         </div>
     </div>
 
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <span class="close" onclick="closePopup()">&times;</span>
-            <h3>Informações para Compra</h3>
-            <p>Chave Pix: <strong id="pix-key">freakynight2024@gmail.com</strong></p>
-            <p>Valor Total: R$<span id="popup-total-value"></span></p>
-            <p>Envie o comprovante para <a href="https://wa.me/+5531997746789">WhatsApp</a>.</p>
-            <button onclick="confirmPurchase()">Confirmar Compra</button>
-        </div>
-    </div>
+    <script src="script.js"></script>
 </body>
 </html>
