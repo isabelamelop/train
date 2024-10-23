@@ -3,19 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halloween QR Code</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Halloween Freaky Night 2024</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Certifique-se de que o caminho está correto -->
 </head>
 <body>
-    <div class="container">
-        <h1>Compre seu produto de Halloween!</h1>
-        <p>Envie seu comprovante do PIX para a lista de compradores.</p>
-        <form id="buyerForm">
-            <input type="text" id="name" placeholder="Seu nome" required>
-            <button type="submit">Enviar</button>
+    <header>
+        <h1>Halloween Freaky Night 2024</h1>
+        <p>O melhor Halloween open bar de Contagem!</p>
+    </header>
+
+    <section class="event-details">
+        <h2>Informações do Evento</h2>
+        <p><strong>Data:</strong> 16/11</p>
+        <p><strong>Horário:</strong> 21h às 3h</p>
+        <p><strong>Local:</strong> Contagem, MG (bairro Tropical)</p>
+        <h3>Cardápio Open Bar</h3>
+        <ul>
+            <li>Beats Sense</li>
+            <li>Beats GT</li>
+            <li>Xeque Mate</li>
+            <li>Ice de Limão</li>
+            <li>Refrigerante</li>
+            <li>Água Mineral</li>
+            <li>+ Bebidas Surpresas</li>
+        </ul>
+        <h3>Cardápio Open Food</h3>
+        <ul>
+            <li>Coxinha de Frango</li>
+            <li>Bolinha de Presunto e Mussarela</li>
+            <li>Kibe de Carne</li>
+            <li>Pastel de Queijo com Milho</li>
+            <li>Bolinha de Alho Poró</li>
+        </ul>
+    </section>
+
+    <section class="tickets">
+        <h2>Ingressos</h2>
+        <form id="ticket-form">
+            <label for="quantity">Quantidade de Ingressos:</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" required>
+            <button type="submit">Comprar Ingressos</button>
         </form>
-        <div id="buyersList"></div>
-    </div>
+        <div id="qr-code" class="hidden">
+            <h3>QR Code</h3>
+            <img id="qr-image" src="" alt="QR Code">
+            <p id="price-info"></p>
+        </div>
+    </section>
+
+    <section class="contact-info">
+        <h2>Informações de Contato</h2>
+        <p>Chave PIX: <strong>freakynight2024@gmail.com</strong></p>
+        <p>Envie o comprovante e seu nome completo para: <strong>(31) 997746789 - Carlos</strong></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Halloween Freaky Night. Todos os direitos reservados.</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
