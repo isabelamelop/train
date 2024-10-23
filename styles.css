@@ -86,7 +86,7 @@ h3 {
 
 /* Estilo do botão de compra */
 .purchase-button {
-  background-color: #f39c12;
+  background-color: #000000;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -101,7 +101,7 @@ h3 {
 
 /* Estilo do botão de informações */
 .info-button {
-  background-color: #27ae60;
+  background-color: #FF0000;
   color: white;
   padding: 10px 20px;
   border: none;
