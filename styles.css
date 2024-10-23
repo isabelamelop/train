@@ -3,7 +3,7 @@ body {
     font-family: Arial, sans-serif; /* Fonte padrão */
     line-height: 1.6; /* Aumentar o espaço entre as linhas */
     color: #333; /* Cor do texto */
-    background-color: #000; /* Fundo da página preto */
+    background-color: #f4f4f4; /* Fundo da página */
     margin: 0;
     padding: 20px;
 }
@@ -15,7 +15,7 @@ body {
     padding: 20px;
     background-color: #fff; /* Fundo do container */
     border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra do container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra do container */
 }
 
 /* Estilo do cabeçalho */
@@ -28,7 +28,7 @@ header {
 h1 {
     font-family: 'Creepster', cursive; /* Fonte do título */
     font-size: 2.5em; /* Tamanho do título */
-    color: #f39c12; /* Cor do título laranja */
+    color: #c0392b; /* Cor do título */
 }
 
 h2 {
@@ -38,7 +38,6 @@ h2 {
 
 h3 {
     margin-top: 20px; /* Margem superior */
-    color: #f39c12; /* Cor dos subtítulos das seções */
 }
 
 /* Estilo dos carrosséis */
@@ -74,12 +73,18 @@ h3 {
     margin-top: 20px; /* Margem superior */
 }
 
+.ticket-quantity {
+    width: 100%; /* Largura total */
+    padding: 10px; /* Preenchimento */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
 /* Estilo dos campos de nome e CPF */
 .guest-name, .guest-cpf {
     width: 100%; /* Largura total */
     padding: 10px; /* Preenchimento */
     border-radius: 5px; /* Bordas arredondadas */
-    border: 1px solid #f39c12; /* Borda laranja */
+    border: 1px solid #ccc; /* Borda cinza */
     margin-bottom: 10px; /* Margem inferior */
 }
 
@@ -87,50 +92,49 @@ h3 {
 .purchase-button {
     background-color: #f39c12; /* Laranja */
     color: white; /* Texto branco */
-    padding: 10px 20px; /* Preenchimento */
+    padding: 10px 20px; /* Preenchimento do botão */
     border: none; /* Sem borda */
     border-radius: 5px; /* Bordas arredondadas */
     cursor: pointer; /* Cursor de mão */
+    transition: background-color 0.3s ease; /* Transição suave */
 }
 
-/* Estilo do botão ao passar o mouse */
 .purchase-button:hover {
-    background-color: #e67e22; /* Laranja escuro ao passar o mouse */
-}
-
-/* Estilo da caixa de mensagem */
-.message-box {
-    background-color: #e74c3c; /* Vermelho */
-    color: white; /* Texto branco */
-    padding: 10px; /* Preenchimento */
-    border-radius: 5px; /* Bordas arredondadas */
-    margin-top: 10px; /* Margem superior */
+    background-color: #e67e22; /* Laranja mais escuro ao passar o mouse */
 }
 
 /* Estilo do botão de informações */
 .info-button {
-    background-color: #f39c12; /* Laranja */
-    color: white; /* Texto branco */
+    background-color: #27ae60; /* Verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px; /* Margem superior */
+}
+
+/* Estilo da mensagem */
+.message-box {
+    margin-top: 10px; /* Margem superior */
     padding: 10px; /* Preenchimento */
-    border: none; /* Sem borda */
-    border-radius: 5px; /* Bordas arredondadas */
-    cursor: pointer; /* Cursor de mão */
+    border: 1px solid #ccc; /* Borda cinza */
+    background-color: #e8f8f5; /* Fundo claro */
+    color: #2c3e50; /* Cor do texto */
 }
 
 /* Estilo das informações do evento */
 .event-info {
-    background-color: #333; /* Fundo escuro */
-    color: white; /* Texto branco */
+    margin-top: 20px; /* Margem superior */
     padding: 10px; /* Preenchimento */
-    margin-top: 10px; /* Margem superior */
-    border-radius: 5px; /* Bordas arredondadas */
+    border: 1px solid #ccc; /* Borda cinza */
+    background-color: #f9f9f9; /* Fundo claro */
 }
 
 /* Estilo das políticas do evento */
 .event-policies {
     margin-top: 20px; /* Margem superior */
     padding: 10px; /* Preenchimento */
-    background-color: #333; /* Fundo escuro */
-    color: white; /* Texto branco */
-    border-radius: 5px; /* Bordas arredondadas */
+    border: 1px solid #ccc; /* Borda cinza */
+    background-color: #f9f9f9; /* Fundo claro */
 }
