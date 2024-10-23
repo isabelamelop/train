@@ -1,60 +1,86 @@
 // Função para calcular o total e atualizar a exibição
 function updateTotal() {
     const ticketQuantity = document.getElementById("ticket-quantity").value;
-    const ticketPrice = calculateTicketPrice(ticketQuantity);
+    const ticketPrice = 60; // Supondo que o preço inicial seja 60, ajuste conforme necessário
     const totalValue = ticketQuantity * ticketPrice;
     document.getElementById("total-value").innerText = totalValue;
-
-    // Atualizar informações do convidado
-    document.getElementById("guest-info").innerHTML = `
-        <label for="guest-name">Nome:</label>
-        <input type="text" id="guest-name" placeholder="Digite seu nome" required>
-        <label for="guest-cpf">CPF:</label>
-        <input type="text" id="guest-cpf" placeholder="Digite seu CPF" required>
-    `;
+    updateGuestInfoFields(ticketQuantity); // Atualiza os campos de nome e CPF
 }
 
-// Função para calcular o preço do ingresso baseado no lote
-function calculateTicketPrice(quantity) {
-    const currentDate = new Date();
-    const dateString = currentDate.toLocaleDateString("pt-BR", {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-    });
-    
-    // Preço dos ingressos conforme o lote
-    if (currentDate < new Date('2024-10-20')) {
-        return 50; // Pré Lote
-    } else if (currentDate < new Date('2024-10-25')) {
-        return 60; // 1° Lote
-    } else if (currentDate < new Date('2024-10-31')) {
-        return 75; // 2° Lote
-    } else if (currentDate < new Date('2024-11-08')) {
-        return 80; // 3° Lote
-    } else {
-        return 80; // Após o último lote
+// Função para atualizar campos de nome e CPF com base na quantidade de ingressos
+function updateGuestInfoFields(quantity) {
+    const guestInfoDiv = document.getElementById("guest-info");
+    guestInfoDiv.innerHTML = ""; // Limpa os campos anteriores
+    for (let i = 0; i < quantity; i++) {
+        guestInfoDiv.innerHTML += `
+            <div>
+                <label for="guest-name-${i}">Nome Completo do Convidado ${i + 1}:</label>
+                <input type="text" id="guest-name-${i}" class="guest-name" required>
+                <label for="guest-cpf-${i}">CPF do Convidado ${i + 1}:</label>
+                <input type="text" id="guest-cpf-${i}" class="guest-cpf" maxlength="11" required>
+                <br>
+            </div>
+        `;
     }
 }
 
-// Função para concluir a compra
+// Função para validar CPF
+function isValidCPF(cpf) {
+    // Verifica se o CPF tem 11 dígitos
+    if (cpf.length !== 11 || isNaN(cpf)) {
+        return false;
+    }
+
+    // Lógica básica de validação (pode ser expandida com verificação de dígitos)
+    const firstDigit = parseInt(cpf[9]);
+    const secondDigit = parseInt(cpf[10]);
+    let sum1 = 0, sum2 = 0;
+
+    for (let i = 0; i < 9; i++) {
+        sum1 += parseInt(cpf[i]) * (10 - i);
+        sum2 += parseInt(cpf[i]) * (11 - i);
+    }
+
+    sum1 = (sum1 * 10) % 11;
+    sum2 = (sum2 * 10) % 11;
+
+    return (sum1 === firstDigit && sum2 === secondDigit);
+}
+
+// Função para exibir o link do WhatsApp com informações formatadas
 function purchaseTicket() {
-    const guestName = document.getElementById("guest-name").value;
-    const guestCpf = document.getElementById("guest-cpf").value;
+    const ticketQuantity = document.getElementById("ticket-quantity").value;
     const totalValue = document.getElementById("total-value").innerText;
 
-    if (!guestName || !guestCpf) {
-        alert("Por favor, preencha todos os campos!");
-        return;
+    const guestNames = [];
+    const guestCps = [];
+    let isValid = true;
+
+    for (let i = 0; i < ticketQuantity; i++) {
+        const name = document.getElementById(`guest-name-${i}`).value;
+        const cpf = document.getElementById(`guest-cpf-${i}`).value;
+
+        if (!isValidCPF(cpf)) {
+            isValid = false; // Se algum CPF for inválido, torna o total inválido
+            break;
+        }
+
+        guestNames.push(encodeURIComponent(name));
+        guestCps.push(encodeURIComponent(cpf));
     }
 
-    document.getElementById("message-box").innerText = 
-        `Compra concluída! Nome: ${guestName}, CPF: ${guestCpf}, Total: R$${totalValue}`;
-    document.getElementById("message-box").style.display = "block";
+    if (isValid) {
+        const message = `Olá, gostaria de comprar ${ticketQuantity} ingressos. ` +
+            `Nomes: ${guestNames.join(', ')}, CPFs: ${guestCps.join(', ')}, Total: R$ ${totalValue}`;
+        const whatsappLink = `https://api.whatsapp.com/send?phone=5599999999999&text=${message}`;
+        window.open(whatsappLink, '_blank'); // Abre o WhatsApp
+    } else {
+        document.getElementById("message-box").innerText = "Por favor, verifique se todos os CPFs são válidos.";
+    }
 }
 
-// Função para mostrar informações do evento
-function showEventInfo() {
-    const eventInfo = document.getElementById("event-info");
-    eventInfo.style.display = eventInfo.style.display === "none" ? "block" : "none";
-}
+// Adiciona evento ao botão de compra
+document.querySelector('.purchase-button').addEventListener('click', purchaseTicket);
+
+// Inicializa o total
+updateTotal();
