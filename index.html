@@ -2,94 +2,26 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halloween Freaky Night 2024</title>
+    <title>Compra de Ingressos</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>HALLOWEEN FREAKY NIGHT 2024</h1>
-            <h2>O melhor Halloween open bar de Contagem</h2>
-            <p>Contagem, MG (bairro Tropical) - mesmo lugar da de 2023, para quem foi (:<br>
-            <strong>Data:</strong> 16/11<br>
-            <strong>Horário:</strong> 21h às 3h</p>
+            <h1>Compra de Ingressos para a Festa de Halloween</h1>
         </header>
+        <label for="ticket-quantity">Quantidade de Ingressos:</label>
+        <input type="number" id="ticket-quantity" onchange="updateTotal()" min="1" max="10" />
         
-        <section class="carousels">
-            <div class="carousel" id="beverages-carousel">
-                <h3>Cardápio Open Bar</h3>
-                <div class="carousel-items">
-                    <div class="carousel-item"><img src="IMG_8060.jpeg" alt="Beats Sense" /> Beats Sense</div>
-                    <div class="carousel-item"><img src="IMG_8062.jpeg" alt="Beats GT" /> Beats GT</div>
-                    <div class="carousel-item"><img src="IMG_8066.jpeg" alt="Xeque Mate" /> Xeque Mate</div>
-                    <div class="carousel-item"><img src="IMG_8063.jpeg" alt="Ice de Limão" /> Ice de Limão</div>
-                    <div class="carousel-item"><img src="IMG_8064.jpeg" alt="Refrigerante" /> Refrigerante</div>
-                    <div class="carousel-item"><img src="IMG_8065.jpeg" alt="Água Mineral" /> Água Mineral</div>
-                    <div class="carousel-item">+ bebidas surpresas</div>
-                </div>
-            </div>
-
-            <div class="carousel" id="food-carousel">
-                <h3>Cardápio Open Food</h3>
-                <div class="carousel-items">
-                    <div class="carousel-item">Coxinha de Frango</div>
-                    <div class="carousel-item">Bolinha de presunto e mussarela</div>
-                    <div class="carousel-item">Kibe de Carne</div>
-                    <div class="carousel-item">Pastel de Queijo com Milho</div>
-                    <div class="carousel-item">Bolinha de Alho Poró</div>
-                </div>
-            </div>
-        </section>
-
-        <div class="ticket-info">
-            <h3>Ingressos</h3>
-            <h4>Lotes e Valores</h4>
-            <ul>
-                <li>Pré Lote (apenas 18 e 19/10): R$50</li>
-                <li>1° Lote (até 24/10): R$60</li>
-                <li>2° Lote (até 30/10): R$75</li>
-                <li>3° Lote (até 07/11): R$80</li>
-            </ul>
-
-            <label for="ticket-quantity">Quantidade de Ingressos:</label>
-            <select id="ticket-quantity" class="ticket-quantity" onchange="updateTotal()">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-
-            <div id="guest-info"></div> <!-- Campos para nome e CPF serão inseridos aqui -->
-
-            <p><strong>Valor total:</strong> R$<span id="total-value">60</span></p>
-            <button class="purchase-button" onclick="purchaseTicket()">Concluir Compra</button>
-
-            <div id="message-box" class="message-box" style="display: none;"></div>
-        </div>
-
-        <button class="info-button" onclick="showEventInfo()">Informações sobre o Evento</button>
-        <div id="event-info" class="event-info" style="display: none;">
-            <h4>Detalhes do Evento</h4>
-            <p>Horário: 21h às 3h</p>
-            <p>Open Bar - 21h às 1h (se inicia às 21h e se encerra minimamente às 1h, ou até às bebidas acabarem).</p>
-            <p>Shot de Licor 43 para quem vier fantasiado.</p>
-            <p>Beer Pong com Vodka (00h).</p>
-        </div>
-
-        <div id="event-policies" class="event-policies">
-            <h3>Políticas do Evento</h3>
-            <ul>
-                <li>Ingressos individuais apenas.</li>
-                <li>A festa é privada, para convidar e adicionar pessoas ao grupo, solicite o link de entrada aos admins.</li>
-                <li>Apenas pagamentos via PIX, e enviaremos o comprovante e convite por mensagem.</li>
-            </ul>
-        </div>
+        <div id="name-cpf-container"></div>
+        
+        <div>Total: R$<span id="total-value">0</span></div>
+        
+        <button class="purchase-button" onclick="purchaseTicket()">Concluir Compra</button>
+        
+        <div id="message-box" style="display: none;"></div>
     </div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
