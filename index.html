@@ -7,20 +7,6 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
 </head>
-    <button class="info-button" onclick="showEventInfo()">Informações sobre o Evento</button>
-
-<!-- Caixa de informações do evento (inicialmente oculta) -->
-<div id="event-info" class="event-info" style="display: none;">
-    <h3>Informações sobre o Evento</h3>
-    <p><strong>Horário:</strong> 21h às 3h</p>
-    <p><strong>Open Bar:</strong> das 21h até no mínimo 1h (ou até as bebidas acabarem)</p>
-    <p><strong>Bônus:</strong> Shot de Licor 43 para quem vier fantasiado</p>
-    <p><strong>Atividades:</strong> Beer Pong com Vodka a partir da 00h</p>
-    <p><strong>Importante:</strong> Somente vendas e confirmações individuais. Cada convidado deverá enviar o comprovante de pagamento + nome completo + CPF diretamente pelo WhatsApp no número (31) 99774-6789 - Carlos.</p>
-    <p>Após a compra, você receberá uma mensagem automática deste número para confirmar sua presença.</p>
-    <p><strong>Atenção:</strong> A festa é privada. Para convidar e adicionar pessoas ao grupo, solicite o link de entrada diretamente a um dos administradores.</p>
-    <p><strong>Forma de Pagamento:</strong> Somente via Pix. O comprovante e o convite serão enviados apenas para pessoas que forem adicionadas ao grupo.</p>
-</div>
 <body>
     <div class="container">
         <header>
@@ -30,7 +16,20 @@
             <strong>Data:</strong> 16/11<br>
             <strong>Horário:</strong> 21h às 3h</p>
         </header>
-        
+
+        <!-- Botão para exibir informações sobre o evento -->
+        <button class="info-button" onclick="showEventInfo()">Informações sobre o Evento</button>
+
+        <!-- Seção de informações sobre o evento -->
+        <div id="event-info" class="event-info" style="display: none;">
+            <h3>Informações sobre o Evento</h3>
+            <p><strong>Horário:</strong> 21h às 3h</p>
+            <p><strong>Open Bar:</strong> 21h às 1h (se inicia às 21h e se encerra minimamente às 1h, ou até as bebidas acabarem)</p>
+            <p><strong>Shot especial:</strong> Shot de Licor 43 para quem vier fantasiado</p>
+            <p><strong>Atividades:</strong> Beer Pong com Vodka (00h)</p>
+            <p><strong>Observações:</strong> Só venderemos e adicionaremos na lista compras individuais. Cada convidado deverá enviar o comprovante de pagamento + nome completo + CPF para o contato: (31) 99774-6789 - Carlos. A festa é privada, então para convidar e adicionar pessoas ao grupo, solicite o link de entrada no privado com algum dos administradores. Aceitaremos apenas pagamentos via PIX.</p>
+        </div>
+
         <section class="carousels">
             <div class="carousel" id="beverages-carousel">
                 <h3>Cardápio Open Bar</h3>
@@ -85,3 +84,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+                    
