@@ -49,19 +49,8 @@ function isValidCPF(cpf) {
     return cleanCPF.length === 11; // Simples validação
 }
 
-// Função fictícia para verificar se o CPF existe
-async function checkCPFExists(cpf) {
-    // Simulação de chamada a uma API que verifica a existência do CPF
-    const response = await fetch(`https://api.exemplo.com/verificar-cpf?cpf=${cpf}`);
-    if (!response.ok) {
-        throw new Error("Erro ao verificar CPF.");
-    }
-    const data = await response.json();
-    return data.exists; // Supondo que a resposta tenha um campo "exists"
-}
-
 // Função para concluir a compra
-async function purchaseTicket() {
+function purchaseTicket() {
     const quantity = document.getElementById("ticket-quantity").value;
     const guestName1 = document.getElementById("guest-name1").value;
     const guestCPF1 = document.getElementById("guest-cpf1").value;
@@ -92,29 +81,6 @@ async function purchaseTicket() {
     if (quantity == 2 && !isValidCPF(guestCPF2)) {
         messageBox.style.display = "block";
         messageBox.innerText = "CPF 2 inválido. Por favor, digite um CPF válido.";
-        return;
-    }
-
-    // Verificar se o CPF existe
-    try {
-        const cpfExists1 = await checkCPFExists(guestCPF1);
-        if (!cpfExists1) {
-            messageBox.style.display = "block";
-            messageBox.innerText = "CPF 1 não encontrado. Por favor, verifique e tente novamente.";
-            return;
-        }
-
-        if (quantity == 2) {
-            const cpfExists2 = await checkCPFExists(guestCPF2);
-            if (!cpfExists2) {
-                messageBox.style.display = "block";
-                messageBox.innerText = "CPF 2 não encontrado. Por favor, verifique e tente novamente.";
-                return;
-            }
-        }
-    } catch (error) {
-        messageBox.style.display = "block";
-        messageBox.innerText = "Erro ao verificar CPF. Tente novamente mais tarde.";
         return;
     }
 
