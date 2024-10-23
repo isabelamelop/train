@@ -42,9 +42,11 @@ function isValidName(name) {
     return nameParts.length >= 2 && nameParts[1] !== "";
 }
 
-// Função para validar CPF (exemplo simples)
+// Função para validar CPF (aceita formatos com e sem símbolos)
 function isValidCPF(cpf) {
-    return cpf.length === 11; // Simples validação
+    // Remove pontos, traços e espaços do CPF
+    const cleanCPF = cpf.replace(/[.\-]/g, '');
+    return cleanCPF.length === 11; // Simples validação
 }
 
 // Função para concluir a compra
@@ -59,13 +61,13 @@ function purchaseTicket() {
     // Validação do nome completo
     if (!isValidName(guestName1)) {
         messageBox.style.display = "block";
-        messageBox.innerText = "Por favor, insira o Nome Completo 1 (nome e sobrenome).";
+        messageBox.innerText = "Por favor, insira o Nome Completo (nome e sobrenome).";
         return;
     }
     
     if (quantity == 2 && !isValidName(guestName2)) {
         messageBox.style.display = "block";
-        messageBox.innerText = "Por favor, insira o Nome Completo 2 (nome e sobrenome).";
+        messageBox.innerText = "Por favor, insira o Nome Completo (nome e sobrenome).";
         return;
     }
     
