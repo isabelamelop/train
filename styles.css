@@ -1,66 +1,105 @@
 body {
     font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #f1f1f1;
     margin: 0;
     padding: 0;
-    background-color: #1c1c1c; /* Fundo escuro */
-    color: #f9f9f9; /* Texto claro */
 }
 
 header {
-    background: url('https://example.com/halloween-background.jpg') no-repeat center center/cover;
-    padding: 50px 20px;
+    background: linear-gradient(45deg, #ff3d00, #ffcc00);
+    padding: 20px;
     text-align: center;
-    border-bottom: 5px solid #ff5722; /* Laranja Halloween */
 }
 
 h1 {
-    font-size: 3em;
-    margin: 0;
-    color: #ff5722; /* Laranja */
+    font-size: 2.5em;
 }
 
-h2 {
-    color: #ff5722;
-    border-bottom: 2px solid #ff5722;
+h2, h3 {
+    color: #ffcc00;
 }
 
-.event-details, .tickets, .contact-info {
+main {
     padding: 20px;
-    background-color: #2c2c2c; /* Fundo escuro para seções */
+}
+
+.event-info {
+    margin-bottom: 20px;
+}
+
+.ticket-purchase, .upload-info {
+    background-color: #333;
+    padding: 15px;
     border-radius: 10px;
-    margin: 20px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
     margin: 10px 0;
 }
 
+.ticket-option {
+    margin: 10px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+}
+
+input[type="checkbox"] + label {
+    display: block;
+    background: #444;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="checkbox"]:checked + label {
+    background: #ffcc00;
+    color: #000;
+}
+
+input[type="checkbox"]:checked + label:hover {
+    background: #ffd700; /* Cor ao passar o mouse */
+}
+
 button {
-    padding: 15px 30px;
-    background-color: #ff5722; /* Laranja */
+    background-color: #ff3d00;
     color: white;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
 }
 
 button:hover {
-    background-color: #e64a19; /* Tom mais escuro de laranja */
+    background-color: #ffcc00;
+}
+
+#qr-code {
+    text-align: center;
+    margin-top: 15px;
 }
 
 .hidden {
-    display: none; /* Oculta o QR Code inicialmente */
+    display: none;
 }
 
 footer {
     text-align: center;
-    padding: 20px;
-    background-color: #111;
-    color: #bbb;
+    margin-top: 20px;
+    padding: 10px;
+    background: #222;
+}
+
+/* Keyframes para animação */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.ticket-purchase, .upload-info {
+    animation: fadeIn 1s ease-in-out;
 }
