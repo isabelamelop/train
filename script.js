@@ -25,7 +25,7 @@ function purchaseTicket() {
     document.getElementById("message-ticket-quantity").textContent = ticketQuantity;
 
     // Gerar o link do WhatsApp com as informações para envio
-    var whatsappLink = `https://wa.me/5531997746789?text=Olá, gostaria de finalizar a compra de ingressos.
+    var whatsappLink = `https://wa.me/5531997746789?text=Olá, gostaria de finalizar a compra de ingressos. Nome completo: \n Documento de identificaçao: \n
     \nChave Pix: freakynight2024@gmail.com
     \nQuantidade de Ingressos: ${ticketQuantity}
     \nValor Total: R$${totalValue}
