@@ -1,39 +1,104 @@
+/* Estilo do corpo */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
+    color: #fff; /* Cor do texto */
+    background-color: #222; /* Fundo escuro */
     margin: 0;
     padding: 20px;
 }
 
+/* Estilo do container principal */
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: #333; /* Fundo do container */
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra do container */
 }
 
+/* Estilo do cabeçalho */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo dos títulos */
+h1 {
+    font-family: 'Creepster', cursive; /* Fonte do título */
+    font-size: 2.5em; /* Tamanho do título */
+    color: #f39c12; /* Cor do título */
+}
+
+h2, h3 {
+    color: #f39c12; /* Cor dos subtítulos */
+}
+
+/* Estilo dos inputs */
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #f39c12; /* Borda laranja */
+    border-radius: 5px;
+    margin: 5px 0;
+    background-color: #444; /* Fundo dos inputs */
+    color: #fff; /* Texto branco */
+}
+
+/* Estilo do botão de compra */
 .purchase-button {
-    background-color: #27ae60;
+    background-color: #f39c12; /* Laranja */
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
 .purchase-button:hover {
-    background-color: #219653;
+    background-color: #e67e22; /* Laranja mais escuro */
 }
 
-.message-box {
-    background-color: #e74c3c;
+/* Estilo do botão de informações */
+.info-button {
+    background-color: #f39c12; /* Laranja */
     color: white;
-    padding: 15px;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
     border-radius: 5px;
-    margin-top: 20px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.info-button:hover {
+    background-color: #e67e22; /* Laranja mais escuro */
+}
+
+/* Estilo da seção de informações do evento */
+.event-info, .event-policies {
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+    border: 1px solid #ccc; /* Borda cinza */
+    padding: 15px; /* Preenchimento */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-bottom: 20px; /* Margem inferior */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+}
+
+/* Estilo das listas dentro das seções */
+.event-info p, .event-policies ul {
+    margin: 10px 0; /* Margem entre os parágrafos e itens */
+}
+
+/* Estilo da caixa de mensagens */
+.message-box {
+    background-color: #e74c3c; /* Fundo vermelho */
+    color: white; /* Texto branco */
+    padding: 15px; /* Preenchimento */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-top: 20px; /* Margem superior */
 }
