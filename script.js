@@ -23,6 +23,7 @@ $(document).ready(function() {
 
     // Função para permitir a seleção da quantidade de ingressos
     const ticketInput = $('#ticket-quantity');
+    const ticketPrice = 50; // Preço do ingresso
 
     // Evento para incrementar a quantidade de ingressos
     $('#increment').on('click', function() {
@@ -40,10 +41,11 @@ $(document).ready(function() {
 
     // Evento para comprar ingressos
     $('#buy-tickets').on('click', function() {
-        const quantity = ticketInput.val();
+        const quantity = parseInt(ticketInput.val(), 10);
         if (quantity > 0) {
-            alert(`Você comprou ${quantity} ingresso(s)!`);
-            // Aqui você pode integrar com a API do formulário
+            const totalAmount = quantity * ticketPrice; // Calcula o valor total
+            const pixKey = "chave_pix@dominio.com"; // Substitua pela sua chave Pix
+            alert(`Valor total: R$ ${totalAmount.toFixed(2)}\n\nChave Pix para pagamento: ${pixKey}`);
         } else {
             alert('Por favor, selecione a quantidade de ingressos.');
         }
