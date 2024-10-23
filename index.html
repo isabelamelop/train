@@ -44,27 +44,28 @@
             </div>
         </section>
 
-        <div class="ticket-info">
-            <h3>Ingressos</h3>
-            <h4>Lotes e Valores</h4>
-            <ul>
-                <li>Pré Lote (apenas 18 e 19/10): R$50</li>
-                <li>1° Lote (até 24/10): R$60</li>
-                <li>2° Lote (até 30/10): R$75</li>
-                <li>3° Lote (até 07/11): R$80</li>
-            </ul>
-            <label for="ticket-quantity">Quantidade de Ingressos:</label>
-            <select id="ticket-quantity" class="ticket-quantity" onchange="updateTotal()">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <p><strong>Valor total:</strong> R$<span id="total-value">60</span></p>
-            <button class="purchase-button" onclick="purchaseTicket()">Comprar Ingresso</button>
-            <canvas id="qr-code" style="display: none;"></canvas>
-        </div>
+      <div class="ticket-info">
+    <h3>Ingressos</h3>
+    <h4>Lotes e Valores</h4>
+    <ul>
+        <li>Pré Lote (apenas 18 e 19/10): R$50</li>
+        <li>1° Lote (até 24/10): R$60</li>
+        <li>2° Lote (até 30/10): R$75</li>
+        <li>3° Lote (até 07/11): R$80</li>
+    </ul>
+    <label for="ticket-quantity">Quantidade de Ingressos:</label>
+    <select id="ticket-quantity" class="ticket-quantity" onchange="updateTotal()">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <p><strong>Valor total:</strong> R$<span id="total-value">60</span></p>
+    <button class="purchase-button" onclick="purchaseTicket()">Comprar Ingresso</button>
+
+    <div id="message-box" class="message-box"></div> <!-- Caixa de mensagem -->
+</div>
     </div>
 
     <script src="script.js"></script>
