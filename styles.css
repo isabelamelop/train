@@ -1,11 +1,13 @@
+
 /* Estilos básicos para o layout */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Creepster', cursive; /* Fonte temática de Halloween */
     margin: 0;
     padding: 20px;
     background-color: #222; /* Cor de fundo mais escura para Halloween */
     color: #fff; /* Texto em branco para contraste */
 }
+
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -14,23 +16,25 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     padding: 20px;
 }
+
 header h1, header h2 {
     text-align: center;
-    font-family: 'Creepster', cursive; /* Fonte de Halloween */
-    color: orange; /* Cor laranja para o título */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: #ffa500; /* Laranja para título */
 }
+
+h3, h4 {
+    color: #ffa500; /* Laranja para subtítulos */
+}
+
 .carousel {
     margin-bottom: 20px;
 }
-.carousel h3 {
-    text-align: center;
-    color: orange; /* Laranja para o subtítulo do carrossel */
-}
+
 .carousel-items {
     display: flex;
     overflow-x: auto;
 }
+
 .carousel-item {
     min-width: 150px;
     margin-right: 10px;
@@ -39,26 +43,36 @@ header h1, header h2 {
     border-radius: 5px;
     text-align: center;
 }
+
+.carousel-item img {
+    max-width: 100%;  /* Limita a largura máxima da imagem ao tamanho do contêiner */
+    height: auto;     /* Ajusta a altura automaticamente para manter a proporção */
+    border-radius: 5px; /* Adiciona bordas arredondadas para um efeito mais agradável */
+}
+
 .ticket-info {
     margin-top: 20px;
     border-top: 2px solid #eaeaea;
     padding-top: 20px;
 }
+
 .purchase-button {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #e74c3c; /* Vermelho para o botão */
+    background-color: #dc3545; /* Vermelho para o botão de compra */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    font-family: 'Creepster', cursive; /* Adiciona a mesma fonte ao botão */
+    text-align: center; /* Centraliza o texto */
 }
+
 .purchase-button:hover {
-    background-color: #c0392b; /* Tom de vermelho mais escuro ao passar o mouse */
+    background-color: #c82333; /* Tom de vermelho mais escuro ao passar o mouse */
 }
+
 .ticket-quantity {
     width: 100%;
     padding: 10px;
@@ -67,30 +81,12 @@ header h1, header h2 {
     border: 1px solid #ddd;
     font-size: 16px;
 }
-/* Estilos para a caixa de confirmação */
-.confirmation-box {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
-    color: #000; /* Cor do texto preto */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    z-index: 1000; /* Para garantir que esteja acima de outros elementos */
-    font-family: 'Creepster', cursive; /* Usando a fonte Halloween que você escolheu */
-}
 
-/* Botão de fechar */
-.confirmation-box button {
-    background-color: #ff0000; /* Vermelho para destacar o botão */
-    color: white; /* Texto do botão em branco */
-    border: none;
-    padding: 10px 15px;
+.message-box {
+    display: none; /* Oculta a mensagem inicialmente */
+    background-color: #444; /* Fundo mais escuro para a mensagem */
+    color: #fff; /* Texto em branco */
+    padding: 20px;
     border-radius: 5px;
-    cursor: pointer;
-}
-.confirmation-box button:hover {
-    background-color: #cc0000; /* Cor mais escura ao passar o mouse */
+    margin-top: 20px;
 }
