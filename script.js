@@ -16,14 +16,14 @@ function getTicketPrice() {
     return 0; // Se não estiver em nenhum lote
 }
 
-// Função para atualizar o total e exibir campos de convidados
+// Função para calcular o total e atualizar a exibição
 function updateTotal() {
     const ticketQuantity = document.getElementById("ticket-quantity").value;
-    const ticketPrice = getTicketPrice();
+    const ticketPrice = getTicketPrice(); // Obtém o preço baseado na data atual
     const totalValue = ticketQuantity * ticketPrice;
     document.getElementById("total-value").innerText = totalValue;
 
-    updateGuestInfoFields(ticketQuantity); // Atualiza os campos de nome e CPF
+    updateGuestInfoFields(ticketQuantity); // Atualiza os campos de convidados
 }
 
 // Função para atualizar campos de nome e CPF
@@ -71,40 +71,51 @@ function isValidCPF(cpf) {
 // Função para exibir o link do WhatsApp com informações formatadas
 function purchaseTicket() {
     const ticketQuantity = document.getElementById("ticket-quantity").value;
-    if (ticketQuantity <= 0) {
-        alert("Selecione pelo menos 1 ingresso.");
+    const totalValue = document.getElementById("total-value").innerText;
+
+    // Coleta informações do convidado principal
+    const fullName = document.getElementById("full-name").value;
+    const cpf = document.getElementById("cpf").value;
+
+    if (fullName === "" || cpf === "") {
+        alert("Por favor, preencha seu nome completo e CPF.");
         return;
     }
 
-    const totalValue = document.getElementById("total-value").innerText;
-    let message = `Para finalizar a compra, envie o comprovante para o WhatsApp:\n\n`;
-    message += `- Chave Pix: freakynight2024@gmail.com\n`;
-    message += `- Quantidade de Ingressos: ${ticketQuantity}\n`;
-    message += `- Valor total: R$${totalValue}\n`;
+    // Mensagem inicial
+    let message = `Olá, gostaria de finalizar a compra de ingressos.%0A
+    - Nome completo: ${fullName}%0A
+    - CPF: ${cpf}%0A
+    - Quantidade de Ingressos: ${ticketQuantity}%0A
+    - Valor Total: R$${totalValue}%0A`;
 
     // Validar CPF e coletar informações dos convidados
     for (let i = 0; i < ticketQuantity; i++) {
-        const cpfInput = document.getElementById(`guest-cpf-${i}`);
-        if (!isValidCPF(cpfInput.value)) {
+        const cpfInput = document.getElementById(`guest-cpf-${i}`).value;
+        const nameInput = document.getElementById(`guest-name-${i}`).value;
+
+        if (!isValidCPF(cpfInput)) {
             alert(`O CPF do convidado ${i + 1} é inválido.`);
             return;
         }
-        const nameInput = document.getElementById(`guest-name-${i}`).value;
-        message += `- Nome do Convidado ${i + 1}: ${nameInput}\n`;
-        message += `- CPF do Convidado ${i + 1}: ${cpfInput.value}\n`; // Inclui CPF na mensagem
+
+        message += `- Nome do Convidado ${i + 1}: ${nameInput}%0A`;
+        message += `- CPF do Convidado ${i + 1}: ${cpfInput}%0A`;
     }
 
     const whatsappLink = `https://wa.me/5531997746789?text=${encodeURIComponent(message)}`;
     
     // Atualiza o conteúdo da caixa de mensagem com quebra de linha
-    document.getElementById("message-box").style.display = 'block';
     document.getElementById("message-box").innerHTML = `
-        Para finalizar a compra, envie o comprovante para o WhatsApp:
-        <br><br>
-        - Chave Pix: freakynight2024@gmail.com<br>
+        Para finalizar a compra, envie o comprovante para o WhatsApp:<br><br>
+        - Nome completo: ${fullName}<br>
+        - CPF: ${cpf}<br>
         - Quantidade de Ingressos: ${ticketQuantity}<br>
         - Valor total: R$${totalValue}<br><br>
-        ${message.replace(/\n/g, '<br>')}  <!-- Adiciona quebras de linha HTML -->
-        <a href="${whatsappLink}" target="_blank">Clique aqui para enviar mensagem</a>
+        <strong><a href="${whatsappLink}" target="_blank">Clique aqui para enviar</a></strong>
     `;
+
+    // Exibe a caixa de mensagem e rola até ela
+    document.getElementById("message-box").style.display = 'block';
+    document.getElementById("message-box").scrollIntoView({ behavior: 'smooth' });
 }
