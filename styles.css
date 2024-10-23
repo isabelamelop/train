@@ -26,11 +26,30 @@ body {
 
 /* Estilo para a seção de informações do evento */
 .event-info, .event-policies {
-    background-color: #ffffff; /* Branco */
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
     border: 1px solid #ccc;
     padding: 15px;
     border-radius: 5px;
     margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+}
+
+/* Estilo das listas dentro das seções */
+.event-info p, .event-policies ul {
+    margin: 10px 0; /* Margem entre os parágrafos e itens */
+}
+
+/* Estilo para o título das políticas */
+.event-policies h3 {
+    margin-top: 0;
+}
+
+/* Melhorar a legibilidade do texto */
+body {
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    line-height: 1.6; /* Aumentar o espaço entre as linhas */
+    color: #333; /* Cor do texto */
+}
 }
 
 .event-policies h3 {
