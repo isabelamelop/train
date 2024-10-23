@@ -3,6 +3,9 @@ function updateTotal() {
     const quantity = document.getElementById('ticket-quantity').value;
     const totalValue = quantity * 60; // R$60 por ingresso
     document.getElementById('total-value').textContent = totalValue;
+
+    // Exibir campos de entrada apenas se a quantidade for maior que 0
+    addGuestFields();
 }
 
 // Adicionar campos de nome e CPF
@@ -11,17 +14,20 @@ function addGuestFields() {
     const guestInfoDiv = document.getElementById('guest-info');
     guestInfoDiv.innerHTML = ''; // Limpar campos existentes
 
-    for (let i = 1; i <= quantity; i++) {
-        guestInfoDiv.innerHTML += `
-            <h4>Convidado ${i}</h4>
-            <input type="text" class="guest-name" id="guest-name-${i}" placeholder="Nome Completo" required />
-            <input type="text" class="guest-cpf" id="guest-cpf-${i}" placeholder="CPF" required />
-        `;
+    // Mostrar campos somente se a quantidade for maior que 0
+    if (quantity > 0) {
+        for (let i = 1; i <= quantity; i++) {
+            guestInfoDiv.innerHTML += `
+                <h4>Convidado ${i}</h4>
+                <input type="text" class="guest-name" id="guest-name-${i}" placeholder="Nome Completo" required />
+                <input type="text" class="guest-cpf" id="guest-cpf-${i}" placeholder="CPF" required />
+            `;
+        }
     }
 }
 
 // Chamar addGuestFields quando a quantidade mudar
-document.getElementById('ticket-quantity').addEventListener('change', addGuestFields);
+document.getElementById('ticket-quantity').addEventListener('change', updateTotal);
 
 // Função para validar os campos e concluir a compra
 function purchaseTicket() {
@@ -57,3 +63,6 @@ function showEventInfo() {
     const eventInfoDiv = document.getElementById('event-info');
     eventInfoDiv.style.display = eventInfoDiv.style.display === 'none' ? 'block' : 'none';
 }
+
+// Chamar addGuestFields inicialmente para garantir que os campos estejam vazios
+addGuestFields();
