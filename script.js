@@ -86,7 +86,7 @@ function purchaseTicket() {
 
     // Se os CPFs e os nomes forem válidos
     const totalValue = document.getElementById("total-value").innerText;
-    const whatsappLink = `https://wa.me/5531997746789?text=Olá, gostaria de finalizar a compra do(s) ingresso(s).%0A%0A*Nome Completo 1:* ${guestName1}%0A*CPF 1:* ${guestCPF1}%0A${quantity == 2 ? `%0A*Nome Completo 2:* ${guestName2}%0A*CPF 2:* ${guestCPF2}%0A` : ''}%0A*Quantidade de Ingressos:* ${quantity}%0A%0A*Valor Total:* R$${totalValue}%0A%0AVou enviar o comprovante.`;
+    const whatsappLink = `https://wa.me/5531997746789?text=Olá, gostaria de finalizar a compra do(s) ingresso(s).%0A%0A*Nome Completo:* ${guestName1}%0A*CPF:* ${guestCPF1}%0A${quantity == 2 ? `%0A*Nome Completo:* ${guestName2}%0A*CPF:* ${guestCPF2}%0A` : ''}%0A*Quantidade de Ingressos:* ${quantity}%0A%0A*Valor Total:* R$${totalValue}%0A%0AVou enviar o comprovante.`;
 
     messageBox.style.display = "block";
     messageBox.innerHTML = `Chave PIX: freakynight2024@gmail.com<br>Para finalizar a compra, envie o comprovante para o WhatsApp:<br><br><strong><a href="${whatsappLink}" target="_blank">Clique aqui para enviar</a></strong>`;
