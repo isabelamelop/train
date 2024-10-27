@@ -1,5 +1,5 @@
 // Data atual para verificação de lotes
-const today = new Date('2024-10-27');
+const today = new Date('2024-10-24');
 
 // Função para calcular o preço do ingresso com base na data atual
 function getTicketPrice() {
