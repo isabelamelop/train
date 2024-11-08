@@ -61,13 +61,13 @@ function purchaseTicket() {
     // Validação do nome completo
     if (!isValidName(guestName1)) {
         messageBox.style.display = "block";
-        messageBox.innerText = "Por favor, insira o Nome Completo (nome e sobrenome).";
+        messageBox.innerText = "Por favor, insira o nome completo (nome e sobrenome).";
         return;
     }
     
     if (quantity == 2 && !isValidName(guestName2)) {
         messageBox.style.display = "block";
-        messageBox.innerText = "Por favor, insira o Nome Completo (nome e sobrenome).";
+        messageBox.innerText = "Por favor, insira o nome completo (nome e sobrenome).";
         return;
     }
     
