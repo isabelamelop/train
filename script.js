@@ -15,7 +15,7 @@ function getTicketPrice() {
     } else if (today < secondLotEnd) {
         return 75; // 2° Lote
     } else if (today < thirdLotEnd) {
-        return 80; // 3° Lote
+        return 65; // 3° Lote
     } else {
         return 0; // Lote esgotado
     }
