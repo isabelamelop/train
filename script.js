@@ -9,11 +9,11 @@ function getTicketPrice() {
     const thirdLotEnd = new Date('2024-11-07');
 
     if (today <= preSaleEnd) {
-        return 50; // Pré Lote
+        return 10; // Pré Lote
     } else if (today < firstLotEnd) {
-        return 60; // 1° Lote
+        return 10; // 1° Lote
     } else if (today < secondLotEnd) {
-        return 75; // 2° Lote
+        return 10; // 2° Lote
     } else if (today < thirdLotEnd) {
         return 65; // 3° Lote
     } else {
