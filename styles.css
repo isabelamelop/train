@@ -76,7 +76,7 @@ h3 {
 /* Estilo dos campos de nome e CPF */
 .guest-name,
 .guest-cpf {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
