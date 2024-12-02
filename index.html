@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estética Petts</title>
-    <link rel="icon" href="IMG_9663.jpeg" type="image/jpeg"> <!-- Usando a logo como favicon -->
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -12,51 +11,25 @@
             padding: 0;
             background-color: #f5f5dc; /* Fundo bege */
             color: #333;
-            overflow-x: hidden;
         }
         header {
             background: rgba(173, 216, 230, 0.8);
             padding: 20px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .logo {
-            max-width: 150px;
-            margin-bottom: 10px;
-        }
-        section {
-            padding: 20px;
-            margin: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        section:hover {
-            transform: scale(1.02);
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: rgba(173, 216, 230, 0.8);
-        }
-        .pdf-viewer {
-            width: 100%;
-            height: 600px;
-            border: none;
-            border-radius: 15px;
         }
         .form-container {
-            margin-top: 20px;
+            margin: 20px auto;
             padding: 20px;
             background: #f9f9f9;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
         }
-        .form-container input, .form-container select, .form-container button {
+        .form-container input, .form-container select, .form-container button, .form-container label {
+            display: block;
             width: 100%;
+            margin-bottom: 10px;
             padding: 10px;
-            margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
@@ -69,100 +42,117 @@
         .form-container button:hover {
             background: #0056b3;
         }
-        .error {
-            color: red;
-            margin-top: 10px;
-        }
-        .service-details {
-            display: none; /* Oculta os detalhes inicialmente */
-            margin-top: 10px;
+        .additional-services {
+            display: none;
+            margin-top: 20px;
+            background: #e9ecef;
             padding: 10px;
-            border: 1px solid #ccc;
             border-radius: 5px;
-            background: #f0f8ff;
-        }
-        .hidden {
-            display: none; /* Classe para ocultar elementos */
-        }
-        @media (max-width: 600px) {
-            section {
-                margin: 10px;
-                padding: 15px;
-            }
-            .form-container {
-                padding: 15px;
-            }
         }
     </style>
 </head>
 <body>
-
 <header>
     <h1>Bem-vindo ao Estética Petts!</h1>
-    <img src="IMG_9663.jpeg" alt="Logo Estética Petts" class="logo"> <!-- Logo da empresa -->
 </header>
-
-<section>
-    <h2>Tabela de Valores</h2>
-    <iframe src="TABELA DE VALORES, ESTÉTICA PETS_20241202_140123_0000.pdf" class="pdf-viewer"></iframe>
-</section>
 
 <section class="form-container">
     <h2>Formulário de Agendamento</h2>
-    
+
     <h3>Dados do Animal</h3>
     <input type="text" id="nome-animal" placeholder="Nome do animal" required>
     <input type="text" id="raca-animal" placeholder="Raça" required>
     <input type="text" id="idade-animal" placeholder="Idade" required>
-    
+
     <label>Sexo:</label>
     <label><input type="radio" name="sexo" value="M" required> M</label>
-    <label><input type="radio" name="sexo" value="F " required> F</label>
+    <label><input type="radio" name="sexo" value="F" required> F</label>
     <label><input type="radio" name="sexo" value="SRD"> SRD</label>
-    
+
     <h3>Dados do Dono</h3>
     <input type="text" id="nome-dono" placeholder="Nome do dono" required>
     <input type="tel" id="telefone" placeholder="Telefone" required>
     <input type="text" id="endereco" placeholder="Endereço" required>
-    
+
     <label for="servico">Escolha o Serviço:</label>
     <select id="servico" required>
         <option value="">Selecione um serviço</option>
         <option value="banho_simples">Banho Simples</option>
-        <option value="pacote_ouro">Pacote Ouro</option>
+        <option value="pacote_bronze">Pacote Bronze</option>
         <option value="pacote_prata">Pacote Prata</option>
+        <option value="pacote_ouro">Pacote Ouro</option>
     </select>
-    
+
+    <div id="adicionais" class="additional-services">
+        <h3>Serviços Adicionais</h3>
+        <div id="adicionais-bronze" style="display: none;">
+            <label><input type="checkbox" value="Higiênica de patinhas"> Higiênica de patinhas (R$ 5,00)</label>
+            <label><input type="checkbox" value="Tosa na tesoura"> Tosa na tesoura (R$ 6,00)</label>
+            <label><input type="checkbox" value="Banho a seco"> Banho a seco (R$ 20,00)</label>
+            <label><input type="checkbox" value="Desembolo"> Desembolo (R$ 40,00)</label>
+            <label><input type="checkbox" value="Cronograma capilar"> Cronograma capilar (R$ 90,00)</label>
+        </div>
+        <div id="adicionais-prata" style="display: none;">
+            <label><input type="checkbox" value="Higiênica de patinhas"> Higiênica de patinhas (R$ 5,00)</label>
+            <label><input type="checkbox" value="Banho a seco"> Banho a seco (R$ 20,00)</label>
+            <label><input type="checkbox" value="Desembolo"> Desembolo (R$ 40,00)</label>
+            <label><input type="checkbox" value="Cronograma capilar"> Cronograma capilar (R$ 60,00)</label>
+        </div>
+        <div id="adicionais-ouro" style="display: none;">
+            <label><input type="checkbox" value="Banho a seco"> Banho a seco (R$ 20,00)</label>
+            <label><input type="checkbox" value="Desembolo"> Desembolo (R$ 40,00)</label>
+        </div>
+    </div>
+
     <button id="agendar">Agendar</button>
-    <div class="error" id="error-message"></div>
 </section>
 
 <script>
-    document.getElementById('agendar').addEventListener('click', function() {
+    const servicoSelect = document.getElementById('servico');
+    const adicionaisBronze = document.getElementById('adicionais-bronze');
+    const adicionaisPrata = document.getElementById('adicionais-prata');
+    const adicionaisOuro = document.getElementById('adicionais-ouro');
+    const adicionaisContainer = document.getElementById('adicionais');
+
+    servicoSelect.addEventListener('change', () => {
+        adicionaisBronze.style.display = 'none';
+        adicionaisPrata.style.display = 'none';
+        adicionaisOuro.style.display = 'none';
+
+        if (servicoSelect.value === 'pacote_bronze') {
+            adicionaisBronze.style.display = 'block';
+        } else if (servicoSelect.value === 'pacote_prata') {
+            adicionaisPrata.style.display = 'block';
+        } else if (servicoSelect.value === 'pacote_ouro') {
+            adicionaisOuro.style.display = 'block';
+        }
+
+        adicionaisContainer.style.display = servicoSelect.value ? 'block' : 'none';
+    });
+
+    document.getElementById('agendar').addEventListener('click', () => {
         const nomeAnimal = document.getElementById('nome-animal').value;
         const racaAnimal = document.getElementById('raca-animal').value;
         const idadeAnimal = document.getElementById('idade-animal').value;
-        const sexoAnimal = document.querySelector('input[name="sexo"]:checked') ? document.querySelector('input[name="sexo"]:checked').value : '';
+        const sexo = document.querySelector('input[name="sexo"]:checked')?.value || 'Não especificado';
         const nomeDono = document.getElementById('nome-dono').value;
         const telefone = document.getElementById('telefone').value;
         const endereco = document.getElementById('endereco').value;
-        const servico = document.getElementById('servico').value;
+        const servico = servicoSelect.options[servicoSelect.selectedIndex]?.text || 'Nenhum';
 
-        if (!nomeAnimal || !racaAnimal || !idadeAnimal || !sexoAnimal || !nomeDono || !telefone || !endereco || !servico) {
-            document.getElementById('error-message').innerText = 'Por favor, preencha todos os campos.';
-            return;
-        }
+        const adicionaisSelecionados = Array.from(adicionaisContainer.querySelectorAll('input[type="checkbox"]:checked'))
+            .map(checkbox => checkbox.value)
+            .join(', ');
 
-        const mensagem = `Dados do Animal:\nNome do animal: ${nomeAnimal}\nRaça: ${racaAnimal}\nIdade: ${idadeAnimal}\nSexo: ${sexoAnimal}\n\nDados do Dono:\nNome do dono: ${nomeDono}\nTelefone: ${telefone}\nEndereço: ${endereco}\n\nServiço: ${servico}`;
-        const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(mensagem)}`;
-        
-        window.open(whatsappUrl, '_blank');
+        const mensagem = `*Agendamento Pet*\n\n🐾 *Animal*: ${nomeAnimal}\n📋 *Raça*: ${racaAnimal}\n🗓️ *Idade*: ${idadeAnimal}\n🚻 *Sexo*: ${sexo}\n\n👤 *Dono*: ${nomeDono}\n📞 *Telefone*: ${telefone}\n🏠 *Endereço*: ${endereco}\n\n📌 *Serviço*: ${servico}\n➕ *Adicionais*: ${adicionaisSelecionados || 'Nenhum'}`;
+
+        const url = `https://wa.me/5537998455418?text=${encodeURIComponent(mensagem)}`;
+        window.open(url, '_blank');
     });
 </script>
 
 <footer>
-    <p>&copy; 2023 Estética Petts. Todos os direitos reservados.</p>
+    <p>&copy; 2024 Estética Petts. Todos os direitos reservados.</p>
 </footer>
-
 </body>
 </html>
