@@ -81,6 +81,9 @@
             border-radius: 5px;
             background: #f0f8ff;
         }
+        .hidden {
+            display: none; /* Classe para ocultar elementos */
+        }
         @media (max-width: 600px) {
             section {
                 margin: 10px;
@@ -110,7 +113,7 @@
     <input type="text" id="raca" placeholder="Raça do Pet" required>
     
     <label for="servico">Escolha o Serviço:</label>
-    <select id="servico" required>
+    <select id="servico " required>
         <option value="">Selecione um serviço</option>
         <option value="banho_simples">Banho Simples</option>
         <option value="pacote_ouro">Pacote Ouro</option>
@@ -121,71 +124,20 @@
 
     <div id="detalhes-servico" class="service-details"></div>
 
-    <h3>Serviços Adicionais:</h3>
-    <label><input type="checkbox" value="higienica"> Higienização de Patinhas - R$ 5,00</label>
-    <label><input type="checkbox" value="tosa_tesoura"> Tosa na Tesoura (aparar pelos) - R$ 6,00</label>
-    <label><input type="checkbox" value="carding"> Carding (remoção de sub pelos) - R$ 15,00</label>
-    <label><input type="checkbox" value="mascara_hidratacao"> Máscara Hidratação - R$ 35,00</label>
-    <label><input type="checkbox" value="desembolo"> Desembolo - R$ 40,00</label>
+    <div id="servico-detalhes" class="hidden">
+        <h3>Detalhes do Serviço:</h3>
+        <div id="detalhes-porte" class="hidden"></div>
+        <h3>Serviços Adicionais:</h3>
+        <div id="servicos-adicionais" class="hidden">
+            <label><input type="checkbox" value="higienica"> Higienização de Patinhas - R$ 5,00</label>
+            <label><input type="checkbox" value="tosa_tesoura"> Tosa na Tesoura (aparar pelos) - R$ 6,00</label>
+            <label><input type="checkbox" value="carding"> Carding (remoção de sub pelos) - R$ 15,00</label>
+            <label><input type="checkbox" value="mascara_hidratacao"> Máscara Hidratação - R$ 35,00</label>
+            <label><input type="checkbox" value="desembolo"> Desembolo - R$ 40,00</label>
+        </div>
+    </div>
 
-    <h3>Detalhes do Banho Simples:</h3>
-    <label for="porte_banho">Porte:</label>
-    <select id="porte_banho">
-        <option value="porte_p_curto">Porte P, Pelo Curto - R$ 40,00</option>
-        <option value="porte_p_grande">Porte P, Pelo Grande - R$ 50,00</option>
-        <option value="porte_m_curto">Porte M, Pelo Curto - R$ 60,00</option>
-        <option value="porte_m_grande">Porte M, Pelo Grande - R$ 70,00</option>
-        <option value="porte_g">Porte G - R$ 100,00</option>
-    </select>
-
-    <h3>Detalhes do Pacote Ouro:</h3>
-    <label for="porte_ouro">Porte:</label>
-    <select id="porte_ouro">
-        <option value="porte_p_ouro_curto">Porte P, Pelo Curto - R$ 195,00</option>
-        <option value="porte_p_ouro_grande">Porte P, Pelo Grande - R$ 215,00</option>
-        <option value="porte_m_ouro_curto">Porte M, Pelo Curto - R$ 275,00</option>
-        <option value="porte_m_ouro_grande">Porte M, Pelo Grande - R$ 295,00</option>
-        <option value="porte_g_ouro">Porte G - R$ 415,00</option>
-    </select>
-    <label><input type="checkbox" value="banho_seco_ouro"> Banho a Seco - R$ 20,00</label>
-    <label><input type="checkbox" value="desembolo_ouro"> Desembolo - R$ 40,00</label>
-
-    <h3>Detalhes do Pacote Prata:</h3>
-    <label for="porte_prata">Porte:</label>
-    <select id="porte_prata">
-        <option value="porte_p_prata_curto">Porte P, Pelo Curto - R$ 170,00</option>
-        <option value="porte_p_prata_grande">Porte P, Pelo Grande - R$ 190,00</option>
-        <option value="porte_m_prata_curto">Porte M, Pelo Curto - R$ 250,00</option>
-        <option value="porte_m_prata_grande">Porte M, Pelo Grande - R$ 270,00</option>
-        <option value="porte_g_prata">Porte G - R$ 390,00</option>
-    </select>
-    <label><input type="checkbox" value="higienica_prata"> Higienização de Patinhas - R$ 5,00</label>
-    <label><input type="checkbox" value="banho_seco_prata"> Banho a Seco - R$ 20,00</label>
-    <label><input type="checkbox" value="desembolo_prata"> Desembolo - R$ 40,00</label>
-    <label><input type="checkbox" value="cronograma_capilar"> Cronograma Capilar - R$ 60,00</label>
-
-    <h3>Detalhes do Pacote Bronze:</h3>
-    <label for="porte_bronze">Porte:</label>
-    <select id="porte_bronze">
-        <option value="porte_p_bronze_curto">Porte P, Pelo Curto - R$ 140 ,00</option>
-        <option value="porte_p_bronze_grande">Porte P, Pelo Grande - R$ 160,00</option>
-        <option value="porte_m_bronze_curto">Porte M, Pelo Curto - R$ 220,00</option>
-        <option value="porte_m_bronze_grande">Porte M, Pelo Grande - R$ 240,00</option>
-        <option value="porte_g_bronze">Porte G - R$ 360,00</option>
-    </select>
-    <label><input type="checkbox" value="higienica_bronze"> Higienização de Patinhas - R$ 5,00</label>
-    <label><input type="checkbox" value="tosa_tesoura_bronze"> Tosa na Tesoura (aparar pelos) - R$ 6,00</label>
-    <label><input type="checkbox" value="banho_seco_bronze"> Banho a Seco - R$ 20,00</label>
-    <label><input type="checkbox" value="desembolo_bronze"> Desembolo - R$ 40,00</label>
-    <label><input type="checkbox" value="cronograma_capilar_bronze"> Cronograma Capilar - R$ 90,00</label>
-
-    <h3>Detalhes da Tosa Artística:</h3>
-    <p>Transforme o visual do seu pet com uma tosa personalizada feita com tesoura/máquina. Escolha entre estilos que realcem a aparência do seu doguinho. Preço: a partir de R$ 80,00 (varia com base no estilo escolhido).</p>
-    <label><input type="checkbox" value="taxi_dog"> Táxi Dog - R$ 5,00</label>
-    <label><input type="checkbox" value="mascara_hidratacao_tosa"> Máscara Hidratação - R$ 35,00</label>
-    <label><input type="checkbox" value="desembolo_tosa"> Desembolo - R$ 40,00</label>
-
-    <button type="submit">Agendar</button>
+    <button type="submit" id="agendar">Agendar</button>
     <div class="error" id="error-message"></div>
 </section>
 
@@ -196,30 +148,94 @@
 <script>
     const servicoSelect = document.getElementById('servico');
     const detalhesServico = document.getElementById('detalhes-servico');
+    const servicoDetalhes = document.getElementById('servico-detalhes');
+    const detalhesPorte = document.getElementById('detalhes-porte');
+    const servicosAdicionais = document.getElementById('servicos-adicionais');
+    const agendarButton = document.getElementById('agendar');
 
     servicoSelect.addEventListener('change', function() {
         let detalhes = '';
+        let porteOptions = '';
         switch (this.value) {
             case 'banho_simples':
                 detalhes = '<h4>Detalhes do Banho Simples:</h4><p>Escolha o porte e o tipo de pelo.</p>';
+                porteOptions = `
+                    <label for="porte_banho">Porte:</label>
+                    <select id="porte_banho">
+                        <option value="porte_p_curto">Porte P, Pelo Curto - R$ 40,00</option>
+                        <option value="porte_p_grande">Porte P, Pelo Grande - R$ 50,00</option>
+                        <option value="porte_m_curto">Porte M, Pelo Curto - R$ 60,00</option>
+                        <option value="porte_m_grande">Porte M, Pelo Grande - R$ 70,00</option>
+                        <option value="porte_g">Porte G - R$ 100,00</option>
+                    </select>`;
                 break;
             case 'pacote_ouro':
                 detalhes = '<h4>Detalhes do Pacote Ouro:</h4><p>Inclui serviços premium para o seu pet.</p>';
+                porteOptions = `
+                    <label for="porte_ouro">Porte:</label>
+                    <select id="porte_ouro">
+                        <option value="porte_p_ouro_curto">Porte P, Pelo Curto - R$ 195,00</option>
+                        <option value="porte_p_ouro_grande">Porte P, Pelo Grande - R$ 215,00</option>
+                        <option value="porte_m_ouro_curto">Porte M, Pelo Curto - R$ 275,00</option>
+                        <option value="porte_m_ouro_grande">Porte M, Pelo Grande - R$ 295,00</option>
+                        <option value="porte_g_ouro">Porte G - R$ 415,00</option>
+                    </select>`;
                 break;
             case 'pacote_prata':
                 detalhes = '<h4>Detalhes do Pacote Prata:</h4><p>Um pacote intermediário com ótimos serviços.</p>';
+                porteOptions = `
+                    <label for="porte_prata">Porte:</label>
+                    <select id="porte_prata">
+                        <option value="porte_p_prata_curto">Porte P, Pelo Curto - R$ 170,00</option>
+                        <option value="porte_p_prata_grande">Porte P, Pelo Grande - R$ 190,00</option>
+                        <option value="porte_m_prata_curto">Porte M, Pelo Curto - R$ 250,00</option>
+                        <option value="porte_m_prata_grande">Porte M, Pelo Grande - R$ 270,00</option>
+                        <option value="porte_g_prata">Porte G - R$ 390,00</option>
+                    </select>`;
                 break;
             case 'pacote_bronze':
                 detalhes = '<h4>Detalhes do Pacote Bronze:</h4><p>Serviços básicos para o seu pet.</p>';
+                porteOptions = `
+                    <label for="porte_bronze">Porte:</label>
+                    <select id="porte_bronze">
+                        <option value="porte_p_bronze_curto">Porte P, Pelo Curto - R$ 140,00</option>
+                        <option value="porte_p_bronze_grande">Porte P, Pelo Grande - R$ 160,00</option>
+                        <option value="porte_m_bronze_curto">Porte M, Pelo Curto - R$ 220,00</option>
+                        <option value="porte_m_bronze_grande">Porte M, Pelo Grande - R$ 240,00</option>
+                        <option value="porte_g_bronze">Porte G - R$ 360,00</option>
+                    </select>`;
                 break;
             case 'tosa_artistica':
                 detalhes = '<h4>Detalhes da Tosa Artística:</h4><p>Transforme o visual do seu pet com uma tosa personalizada.</p>';
+                porteOptions = ''; // Não há opções de porte para Tosa Artística
                 break;
             default:
                 detalhes = '';
+                porteOptions = '';
         }
         detalhesServico.innerHTML = detalhes;
+        detalhesPorte.innerHTML = porteOptions;
         detalhesServico.style.display = detalhes ? 'block' : 'none';
+        detalhesPorte.style.display = porteOptions ? 'block' : 'none';
+        servicoDetalhes.style.display = detalhes || porteOptions ? 'block' : 'none';
+        servicosAdicionais.style.display = (this.value !== 'tosa_artistica') ? 'block' : 'none';
+    });
+
+    agendarButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Previne o comportamento padrão do botão
+        const nome = document.getElementById('nome').value;
+        const raca = document.getElementById('raca').value;
+        const servico = servicoSelect.value;
+
+        if (!nome || !raca || !servico) {
+            document.getElementById('error-message').innerText = 'Por favor, preencha todos os campos obrigatórios.';
+            return;
+        }
+
+        // Redireciona para o WhatsApp com as informações do agendamento
+        const mensagem = `Olá! Gostaria de agendar um serviço para meu pet.\nNome: ${nome}\nRaça: ${raca}\nServiço: ${servico}`;
+        const whatsappUrl = `https://wa.me/5537998455418?text=${encodeURIComponent(mensagem)}`;
+        window.location.href = whatsappUrl; // Redireciona para o WhatsApp
     });
 </script>
 
