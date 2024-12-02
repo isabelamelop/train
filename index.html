@@ -3,99 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adicionar Agendamento</title>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
+    <title>Estética Petts - Formulário de Agendamento</title>
+    <link rel="icon" href="IMG_9663.jpeg" type="image/jpeg"> <!-- Usando a logo como favicon -->
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
+            padding: 0;
+            background-color: #f5f5dc; /* Fundo bege */
             color: #333;
+            text-align: center;
         }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: #fff;
+        header {
+            background: rgba(173, 216, 230, 0.8);
             padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-        img.logo {
-            display: block;
-            margin: 0 auto 20px;
-            max-width: 100%;
-            height: auto;
+        .logo {
+            max-width: 150px;
+            margin-bottom: 10px;
         }
-        label {
-            display: block;
-            margin: 10px 0 5px;
+        .form-container {
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
         }
-        input, select {
+        iframe {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #28a745;
-            color: white;
+            height: 7427px; /* Altura do formulário do Google */
             border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            border-radius: 15px;
         }
-        button:hover {
-            background-color: #218838;
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(173, 216, 230, 0.8);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="IMG_9663.jpeg" alt="Logo do Site" class="logo">
-        <h1>Adicionar Agendamento</h1>
-        <form id="agendamentoForm">
-            <label for="nome_animal">Nome do Animal:</label>
-            <input type="text" id="nome_animal" required>
 
-            <label for="raca_animal">Raça do Animal:</label>
-            <input type="text" id="raca_animal" required>
+<header>
+    <h1>Bem-vindo ao Estética Petts!</h1>
+    <img src="IMG_9663.jpeg" alt="Logo Estética Petts" class="logo"> <!-- Logo da empresa -->
+</header>
 
-            <label for="idade_animal">Idade do Animal:</label>
-            <input type="number" id="idade_animal" required>
+<section class="form-container">
+    <h2>Formulário de Agendamento</h2>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfFwgoKtpRFDKI9nFQVCFfUVmxl6PBbyUdkx43609l3yt8HRw/viewform?embedded=true" marginheight="0" marginwidth="0">Carregando…</iframe>
+</section>
 
-            <label for="sexo">Sexo:</label>
-            <select id="sexo" required>
-                <option value="M">Macho</option>
-                <option value="F">Fêmea</option>
-            </select>
+<footer>
+    <p>&copy; 2023 Estética Petts. Todos os direitos reservados.</p>
+</footer>
 
-            <label for="nome_dono">Nome do Dono:</label>
-            <input type="text" id="nome_dono" required>
-
-            <label for="telefone">Telefone:</label>
-            <input type="text" id="telefone" required>
-
-            <label for="endereco">Endereço:</label>
-            <input type="text" id="endereco" required>
-
-            <label for="servico">Serviço:</label>
-            <input type="text" id="servico" required>
-
-            <label for="data_agendamento">Data do Agendamento:</label>
-            <input type="datetime-local" id="data_agendamento" required>
-
-            <button type="submit">Adicionar Agendamento</button>
-        </form>
-    </div>
-
-    <script src="path/to/your/firebase-config.js"></script>
-    <script src="path/to/your/script.js"></script>
 </body>
 </html>
