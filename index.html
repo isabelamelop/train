@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estética Petts</title>
+    <link rel="icon" href="IMG_9663.jpeg" type="image/jpeg"> <!-- Usando a logo como favicon -->
     <style>
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f0f0f0, #d9d9d9);
+            background-color: #f5f5dc; /* Fundo bege */
             color: #333;
             overflow-x: hidden;
         }
@@ -24,7 +25,7 @@
             margin-bottom: 10px;
         }
         section {
-            padding: 40px;
+            padding: 20px;
             margin: 20px;
             background: white;
             border-radius: 15px;
@@ -52,7 +53,7 @@
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        .form-container input, .form-container button {
+        .form-container input, .form-container select, .form-container button {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
@@ -72,12 +73,30 @@
             color: red;
             margin-top: 10px;
         }
+        .service-details {
+            display: none; /* Oculta os detalhes inicialmente */
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #f0f8ff;
+        }
+        @media (max-width: 600px) {
+            section {
+                margin: 10px;
+                padding: 15px;
+            }
+            .form-container {
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Bem-vindo ao Estética Petts!</h1>
+    <img src="IMG_9663.jpeg" alt="Logo Estética Petts" class="logo"> <!-- Logo da empresa -->
 </header>
 
 <section>
@@ -89,33 +108,120 @@
     <h2>Formulário de Agendamento</h2>
     <input type="text" id="nome" placeholder="Nome do Pet" required>
     <input type="text" id="raca" placeholder="Raça do Pet" required>
-    <input type="text" id="servico" placeholder="Serviço Desejado" required>
-    <input type="text" id="data" placeholder="Data do Agendamento" required>
-    <button id="enviar">Enviar para WhatsApp</button>
+    
+    <label for="servico">Escolha o Serviço:</label>
+    <select id="servico" required>
+        <option value="">Selecione um serviço</option>
+        <option value="banho_simples">Banho Simples</option>
+        <option value="pacote_ouro">Pacote Ouro</option>
+        <option value="pacote_prata">Pacote Prata</option>
+        <option value="pacote_bronze">Pacote Bronze</option>
+        <option value="tosa_artistica">Tosa Artística</option>
+    </select>
+
+    <div id="detalhes-servico" class="service-details"></div>
+
+    <h3>Serviços Adicionais:</h3>
+    <label><input type="checkbox" value="higienica"> Higienização de Patinhas - R$ 5,00</label>
+    <label><input type="checkbox" value="tosa_tesoura"> Tosa na Tesoura (aparar pelos) - R$ 6,00</label>
+    <label><input type="checkbox" value="carding"> Carding (remoção de sub pelos) - R$ 15,00</label>
+    <label><input type="checkbox" value="mascara_hidratacao"> Máscara Hidratação - R$ 35,00</label>
+    <label><input type="checkbox" value="desembolo"> Desembolo - R$ 40,00</label>
+
+    <h3>Detalhes do Banho Simples:</h3>
+    <label for="porte_banho">Porte:</label>
+    <select id="porte_banho">
+        <option value="porte_p_curto">Porte P, Pelo Curto - R$ 40,00</option>
+        <option value="porte_p_grande">Porte P, Pelo Grande - R$ 50,00</option>
+        <option value="porte_m_curto">Porte M, Pelo Curto - R$ 60,00</option>
+        <option value="porte_m_grande">Porte M, Pelo Grande - R$ 70,00</option>
+        <option value="porte_g">Porte G - R$ 100,00</option>
+    </select>
+
+    <h3>Detalhes do Pacote Ouro:</h3>
+    <label for="porte_ouro">Porte:</label>
+    <select id="porte_ouro">
+        <option value="porte_p_ouro_curto">Porte P, Pelo Curto - R$ 195,00</option>
+        <option value="porte_p_ouro_grande">Porte P, Pelo Grande - R$ 215,00</option>
+        <option value="porte_m_ouro_curto">Porte M, Pelo Curto - R$ 275,00</option>
+        <option value="porte_m_ouro_grande">Porte M, Pelo Grande - R$ 295,00</option>
+        <option value="porte_g_ouro">Porte G - R$ 415,00</option>
+    </select>
+    <label><input type="checkbox" value="banho_seco_ouro"> Banho a Seco - R$ 20,00</label>
+    <label><input type="checkbox" value="desembolo_ouro"> Desembolo - R$ 40,00</label>
+
+    <h3>Detalhes do Pacote Prata:</h3>
+    <label for="porte_prata">Porte:</label>
+    <select id="porte_prata">
+        <option value="porte_p_prata_curto">Porte P, Pelo Curto - R$ 170,00</option>
+        <option value="porte_p_prata_grande">Porte P, Pelo Grande - R$ 190,00</option>
+        <option value="porte_m_prata_curto">Porte M, Pelo Curto - R$ 250,00</option>
+        <option value="porte_m_prata_grande">Porte M, Pelo Grande - R$ 270,00</option>
+        <option value="porte_g_prata">Porte G - R$ 390,00</option>
+    </select>
+    <label><input type="checkbox" value="higienica_prata"> Higienização de Patinhas - R$ 5,00</label>
+    <label><input type="checkbox" value="banho_seco_prata"> Banho a Seco - R$ 20,00</label>
+    <label><input type="checkbox" value="desembolo_prata"> Desembolo - R$ 40,00</label>
+    <label><input type="checkbox" value="cronograma_capilar"> Cronograma Capilar - R$ 60,00</label>
+
+    <h3>Detalhes do Pacote Bronze:</h3>
+    <label for="porte_bronze">Porte:</label>
+    <select id="porte_bronze">
+        <option value="porte_p_bronze_curto">Porte P, Pelo Curto - R$ 140 ,00</option>
+        <option value="porte_p_bronze_grande">Porte P, Pelo Grande - R$ 160,00</option>
+        <option value="porte_m_bronze_curto">Porte M, Pelo Curto - R$ 220,00</option>
+        <option value="porte_m_bronze_grande">Porte M, Pelo Grande - R$ 240,00</option>
+        <option value="porte_g_bronze">Porte G - R$ 360,00</option>
+    </select>
+    <label><input type="checkbox" value="higienica_bronze"> Higienização de Patinhas - R$ 5,00</label>
+    <label><input type="checkbox" value="tosa_tesoura_bronze"> Tosa na Tesoura (aparar pelos) - R$ 6,00</label>
+    <label><input type="checkbox" value="banho_seco_bronze"> Banho a Seco - R$ 20,00</label>
+    <label><input type="checkbox" value="desembolo_bronze"> Desembolo - R$ 40,00</label>
+    <label><input type="checkbox" value="cronograma_capilar_bronze"> Cronograma Capilar - R$ 90,00</label>
+
+    <h3>Detalhes da Tosa Artística:</h3>
+    <p>Transforme o visual do seu pet com uma tosa personalizada feita com tesoura/máquina. Escolha entre estilos que realcem a aparência do seu doguinho. Preço: a partir de R$ 80,00 (varia com base no estilo escolhido).</p>
+    <label><input type="checkbox" value="taxi_dog"> Táxi Dog - R$ 5,00</label>
+    <label><input type="checkbox" value="mascara_hidratacao_tosa"> Máscara Hidratação - R$ 35,00</label>
+    <label><input type="checkbox" value="desembolo_tosa"> Desembolo - R$ 40,00</label>
+
+    <button type="submit">Agendar</button>
     <div class="error" id="error-message"></div>
 </section>
 
+<footer>
+    <p>Entre em contato pelo WhatsApp: <a href="https://wa.me/5537998455418">5537998455418</a></p>
+</footer>
+
 <script>
-    document.getElementById('enviar').addEventListener('click', function() {
-        const nome = document.getElementById('nome').value;
-        const raca = document.getElementById('raca').value;
-        const servico = document.getElementById('servico').value;
-        const data = document.getElementById('data').value;
+    const servicoSelect = document.getElementById('servico');
+    const detalhesServico = document.getElementById('detalhes-servico');
 
-        if (!nome || !raca || !servico || !data) {
-            document.getElementById('error-message').innerText = 'Por favor, preencha todos os campos.';
-            return;
+    servicoSelect.addEventListener('change', function() {
+        let detalhes = '';
+        switch (this.value) {
+            case 'banho_simples':
+                detalhes = '<h4>Detalhes do Banho Simples:</h4><p>Escolha o porte e o tipo de pelo.</p>';
+                break;
+            case 'pacote_ouro':
+                detalhes = '<h4>Detalhes do Pacote Ouro:</h4><p>Inclui serviços premium para o seu pet.</p>';
+                break;
+            case 'pacote_prata':
+                detalhes = '<h4>Detalhes do Pacote Prata:</h4><p>Um pacote intermediário com ótimos serviços.</p>';
+                break;
+            case 'pacote_bronze':
+                detalhes = '<h4>Detalhes do Pacote Bronze:</h4><p>Serviços básicos para o seu pet.</p>';
+                break;
+            case 'tosa_artistica':
+                detalhes = '<h4>Detalhes da Tosa Artística:</h4><p>Transforme o visual do seu pet com uma tosa personalizada.</p>';
+                break;
+            default:
+                detalhes = '';
         }
-
-        const mensagem = `Olá, gostaria de agendar um atendimento para o meu pet:\nNome: ${nome}\nRaça: ${raca}\nServiço: ${servico}\nData: ${data}`;
-        const whatsappUrl = `https://wa.me/5537998455418?text=${encodeURIComponent(mensagem)}`;
- window.open(whatsappUrl, '_blank');
+        detalhesServico.innerHTML = detalhes;
+        detalhesServico.style.display = detalhes ? 'block' : 'none';
     });
 </script>
-
-<footer>
-    <p>&copy; 2023 Estética Petts. Todos os direitos reservados.</p>
-</footer>
 
 </body>
 </html>
