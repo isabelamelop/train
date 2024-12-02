@@ -14,13 +14,13 @@
             overflow-x: hidden;
         }
         header {
-            background: rgba(173, 216, 230, 0.8); /* Azul claro */
+            background: rgba(173, 216, 230, 0.8);
             padding: 20px;
             text-align: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         .logo {
-            max-width: 150px; /* Ajuste o tamanho da logo conforme necessário */
+            max-width: 150px;
             margin-bottom: 10px;
         }
         section {
@@ -37,41 +37,66 @@
         footer {
             text-align: center;
             padding: 20px;
-            background: rgba(173, 216, 230, 0.8); /* Azul claro */
+            background: rgba(173, 216, 230, 0.8);
         }
         .whatsapp-link {
             display: inline-block;
             margin-top: 20px;
             padding: 10px 20px;
-            background: #25D366; /* Verde do WhatsApp */
+            background: #25D366;
             color: white;
             border-radius: 5px;
             text-decoration: none;
             transition: background 0.3s;
         }
         .whatsapp-link:hover {
-            background: #1ebe54; /* Verde mais escuro do WhatsApp */
+            background: #1ebe54;
         }
         .agende-aqui {
             text-align: center;
             margin: 40px 0;
         }
         .agende-aqui img {
-            max-width: 100%; /* Ajusta a imagem para caber no espaço */
+            max-width: 100%;
             height: auto;
             border-radius: 15px;
         }
         .pdf-viewer {
             width: 100%;
-            height: 600px; /* Ajuste a altura conforme necessário */
+            height: 600px;
             border: none;
+        }
+        .form-container {
+            margin-top: 20px;
+        }
+        .form-container input, .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container button {
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background: #0056b3;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="IMG_9663.jpeg" alt="Logo do Pet Shop" class="logo"> <!-- Espaço para a logo -->
+    <img src="IMG_9663.jpeg" alt="Logo do Pet Shop" class="logo">
     <h1>Bem-vindo ao Estética Petts!</h1>
 </header>
 
@@ -86,7 +111,7 @@
 
 <section class="agende-aqui">
     <h2>Agende Aqui</h2>
-    <img src="dfdc10ec-9ec5-4643-9da6-ebbb0a6a1928.jpeg" alt="Homem lavando cachorro"> <!-- Imagem do homem lavando o cachorro -->
+    <img src="dfdc10ec-9ec5-4643-9da6-ebbb0a6a1928.jpeg" alt="Homem lavando cachorro">
     <p>Agende seu atendimento pelo WhatsApp:</p>
     <a href="https://wa.me/5537998455418" class="whatsapp-link" target="_blank">Fale Conosco</a>
 </section>
@@ -96,16 +121,38 @@
     <iframe src="TABELA DE VALORES, ESTÉTICA PETS_20241202_140123_0000.pdf" class="pdf-viewer"></iframe>
 </section>
 
-<footer>
-    <p>&copy; 2024 Estética Petts. Todos os direitos reservados.</p>
-</footer>
+<section class="form -container">
+    <h2>Formulário de Agendamento</h2>
+    <input type="text" id="nome" placeholder="Nome do Pet" required>
+    <input type="text" id="raca" placeholder="Raça do Pet" required>
+    <input type="text" id="servico" placeholder="Serviço Desejado" required>
+    <input type="text" id="data" placeholder="Data do Agendamento" required>
+    <button id="enviar">Enviar para WhatsApp</button>
+    <div class="error" id="error-message"></div>
+</section>
 
 <script>
-    window.addEventListener('scroll', function() {
-        // Adicione animações ou efeitos ao rolar a página
-        console.log('Rolando a página futurística!');
+    document.getElementById('enviar').addEventListener('click', function() {
+        const nome = document.getElementById('nome').value;
+        const raca = document.getElementById('raca').value;
+        const servico = document.getElementById('servico').value;
+        const data = document.getElementById('data').value;
+
+        if (!nome || !raca || !servico || !data) {
+            document.getElementById('error-message').innerText = 'Por favor, preencha todos os campos.';
+            return;
+        }
+
+        const mensagem = `Olá, gostaria de agendar um atendimento para o meu pet:\nNome: ${nome}\nRaça: ${raca}\nServiço: ${servico}\nData: ${data}`;
+        const whatsappUrl = `https://wa.me/5537998455418?text=${encodeURIComponent(mensagem)}`;
+        
+        window.open(whatsappUrl, '_blank');
     });
 </script>
+
+<footer>
+    <p>&copy; 2023 Estética Petts. Todos os direitos reservados.</p>
+</footer>
 
 </body>
 </html>
