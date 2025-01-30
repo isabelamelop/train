@@ -30,6 +30,7 @@
     <h2>Simulador de Parcelamento</h2>
     <label>Parcela mínima (R$): <input type="number" id="parcelaMinima" value="50"></label><br>
     <label>Qtd. máxima de parcelas (sem juros): <input type="number" id="maxParcelas" value="3"></label><br>
+    <label>Taxa de juros por parcela (%): <input type="number" id="taxaJuros" value="2"></label><br>
     <label>Valor para parcelar (R$): <input type="number" id="valor" value="200"></label><br>
     <button onclick="calcularParcelas()">Simular</button>
 
@@ -38,8 +39,8 @@
         <thead>
             <tr>
                 <th>Parcelas</th>
-                <th>Valor Bruto</th>
-                <th>Receber Líquido</th>
+                <th>Valor Bruto (com Juros)</th>
+                <th>Total Pago</th>
             </tr>
         </thead>
         <tbody id="tabelaResultados"></tbody>
@@ -49,18 +50,21 @@
         function calcularParcelas() {
             let parcelaMinima = parseFloat(document.getElementById("parcelaMinima").value);
             let maxParcelas = parseInt(document.getElementById("maxParcelas").value);
+            let taxaJuros = parseFloat(document.getElementById("taxaJuros").value) / 100;
             let valor = parseFloat(document.getElementById("valor").value);
             let tabela = document.getElementById("tabelaResultados");
             tabela.innerHTML = "";
 
             for (let i = 1; i <= maxParcelas; i++) {
-                let valorParcela = valor / i;
+                let valorParcela = valor * Math.pow(1 + taxaJuros, i) / i;
                 if (valorParcela < parcelaMinima) break;
+
+                let totalPago = valorParcela * i;
 
                 let linha = `<tr>
                     <td>${i}x</td>
                     <td>R$ ${valorParcela.toFixed(2)}</td>
-                    <td>R$ ${valor.toFixed(2)}</td>
+                    <td>R$ ${totalPago.toFixed(2)}</td>
                 </tr>`;
                 tabela.innerHTML += linha;
             }
