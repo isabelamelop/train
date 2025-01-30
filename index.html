@@ -12,7 +12,7 @@
         }
         input, button {
             margin: 10px;
-            padding: 10px;
+            padding: 5px;
         }
         table {
             margin: 20px auto;
@@ -28,19 +28,12 @@
 </head>
 <body>
     <h2>Simulador de Parcelamento</h2>
-    <label for="parcelaMin">Parcela mínima (R$):</label>
-    <input type="number" id="parcelaMin" placeholder="Valor mínimo">
-    <br>
-    <label for="maxParcelas">Qtd. máxima de parcelas (sem juros):</label>
-    <input type="number" id="maxParcelas" placeholder="Máx. parcelas">
-    <br>
-    <label for="juros">Ativar juros (%):</label>
-    <input type="number" id="juros" placeholder="Taxa de juros">
-    <br>
-    <label for="valor">Valor para parcelar (R$):</label>
-    <input type="number" id="valor" placeholder="Digite o valor">
-    <br>
-    <button onclick="calcularParcelamento()">Simular</button>
+    <label>Parcela mínima (R$): <input type="number" id="parcelaMinima" value="50"></label><br>
+    <label>Qtd. máxima de parcelas (sem juros): <input type="number" id="maxParcelas" value="3"></label><br>
+    <label>Ativar juros (%): <input type="number" id="juros" step="0.01" value="4.33"></label><br>
+    <label>Valor para parcelar (R$): <input type="number" id="valor" value="200"></label><br>
+    <button onclick="calcularParcelas()">Simular</button>
+
     <h3>Resultados:</h3>
     <table>
         <thead>
@@ -51,34 +44,33 @@
                 <th>Receber Líquido</th>
             </tr>
         </thead>
-        <tbody id="resultado"></tbody>
+        <tbody id="tabelaResultados"></tbody>
     </table>
 
     <script>
-        function calcularParcelamento() {
-            let parcelaMin = parseFloat(document.getElementById('parcelaMin').value);
-            let maxParcelas = parseInt(document.getElementById('maxParcelas').value);
-            let juros = parseFloat(document.getElementById('juros').value) / 100;
-            let valor = parseFloat(document.getElementById('valor').value);
-            
-            if (isNaN(parcelaMin) || isNaN(maxParcelas) || isNaN(juros) || isNaN(valor) || parcelaMin <= 0 || maxParcelas <= 0 || valor <= 0) {
-                alert("Por favor, insira valores válidos.");
-                return;
-            }
-            
-            let resultadoHTML = "";
+        function calcularParcelas() {
+            let parcelaMinima = parseFloat(document.getElementById("parcelaMinima").value);
+            let maxParcelas = parseInt(document.getElementById("maxParcelas").value);
+            let juros = parseFloat(document.getElementById("juros").value) / 100;
+            let valor = parseFloat(document.getElementById("valor").value);
+            let tabela = document.getElementById("tabelaResultados");
+            tabela.innerHTML = "";
+
             for (let i = 1; i <= maxParcelas; i++) {
-                let valorBruto = valor / i;
-                let totalComJuros = valorBruto * (1 + juros) * i;
-                let receberLiquido = totalComJuros * 0.92;
-                resultadoHTML += `<tr>
-                                    <td>${i}x</td>
-                                    <td>R$ ${valorBruto.toFixed(2)}</td>
-                                    <td>R$ ${totalComJuros.toFixed(2)}</td>
-                                    <td>R$ ${receberLiquido.toFixed(2)}</td>
-                                 </tr>`;
+                let valorParcela = valor / i;
+                if (valorParcela < parcelaMinima) break;
+
+                let totalComJuros = valor * Math.pow((1 + juros), i);
+                let valorLiquido = totalComJuros * 0.923; // Simulando taxa de 7.7%
+
+                let linha = `<tr>
+                    <td>${i}x</td>
+                    <td>R$ ${valorParcela.toFixed(2)}</td>
+                    <td>R$ ${totalComJuros.toFixed(2)}</td>
+                    <td>R$ ${valorLiquido.toFixed(2)}</td>
+                </tr>`;
+                tabela.innerHTML += linha;
             }
-            document.getElementById('resultado').innerHTML = resultadoHTML;
         }
     </script>
 </body>
