@@ -3,75 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estética Pets - Agendamentos</title>
-    <link rel="icon" href="IMG_9663.jpeg" type="image/jpeg"> <!-- Usando a logo como favicon -->
-    <!-- Link para o Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Simulador de Parcelamento</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5dc; /* Fundo bege */
-            color: #333;
+            font-family: Arial, sans-serif;
             text-align: center;
+            margin: 50px;
         }
-        header {
-            background: #008080; /* Fundo verde-água escuro */
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        input, button {
+            margin: 10px;
+            padding: 10px;
         }
-        header h1 {
-            font-family: 'Poppins', sans-serif; /* Fonte moderna do Google Fonts */
-            font-weight: 600; /* Negrito */
-            color: black; /* Cor preta */
-            margin: 0;
-        }
-        .logo {
-            max-width: 150px;
-            margin-bottom: 20px; /* Distância entre a logo e o título */
-        }
-        .form-container {
+        table {
             margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 600px;
+            border-collapse: collapse;
+            width: 50%;
         }
-        iframe {
-            width: 100%;
-            height: 7427px; /* Altura do formulário do Google */
-            border: none;
-            border-radius: 15px;
-        }
-        footer {
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
             text-align: center;
-            padding: 20px;
-            background: #008080; /* Fundo verde-água escuro */
-            color: white;
-        }
-        h2 {
-            color: black; /* Cor preta para subtítulos */
         }
     </style>
 </head>
 <body>
+    <h2>Simulador de Parcelamento</h2>
+    <label for="parcelaMin">Parcela mínima (R$):</label>
+    <input type="number" id="parcelaMin" placeholder="Valor mínimo">
+    <br>
+    <label for="maxParcelas">Qtd. máxima de parcelas (sem juros):</label>
+    <input type="number" id="maxParcelas" placeholder="Máx. parcelas">
+    <br>
+    <label for="juros">Ativar juros (%):</label>
+    <input type="number" id="juros" placeholder="Taxa de juros">
+    <br>
+    <label for="valor">Valor para parcelar (R$):</label>
+    <input type="number" id="valor" placeholder="Digite o valor">
+    <br>
+    <button onclick="calcularParcelamento()">Simular</button>
+    <h3>Resultados:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Parcelas</th>
+                <th>Valor Bruto</th>
+                <th>Total com Juros</th>
+                <th>Receber Líquido</th>
+            </tr>
+        </thead>
+        <tbody id="resultado"></tbody>
+    </table>
 
-<header>
-    <h1>Bem-vindo ao melhor PetShop de Pains!</h1>
-    <img src="IMG_9663.jpeg" alt="Logo Estética Pets" class="logo"> <!-- Logo da empresa -->
-</header>
-
-<section class="form-container">
-    <h2>Formulário de Agendamento</h2>
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfFwgoKtpRFDKI9nFQVCFfUVmxl6PBbyUdkx43609l3yt8HRw/viewform?embedded=true" marginheight="0" marginwidth="0">Carregando…</iframe>
-</section>
-
-<footer>
-    <p>&copy; 2024 Estética Pets. Todos os direitos reservados.</p>
-</footer>
-
+    <script>
+        function calcularParcelamento() {
+            let parcelaMin = parseFloat(document.getElementById('parcelaMin').value);
+            let maxParcelas = parseInt(document.getElementById('maxParcelas').value);
+            let juros = parseFloat(document.getElementById('juros').value) / 100;
+            let valor = parseFloat(document.getElementById('valor').value);
+            
+            if (isNaN(parcelaMin) || isNaN(maxParcelas) || isNaN(juros) || isNaN(valor) || parcelaMin <= 0 || maxParcelas <= 0 || valor <= 0) {
+                alert("Por favor, insira valores válidos.");
+                return;
+            }
+            
+            let resultadoHTML = "";
+            for (let i = 1; i <= maxParcelas; i++) {
+                let valorBruto = valor / i;
+                let totalComJuros = valorBruto * (1 + juros) * i;
+                let receberLiquido = totalComJuros * 0.92;
+                resultadoHTML += `<tr>
+                                    <td>${i}x</td>
+                                    <td>R$ ${valorBruto.toFixed(2)}</td>
+                                    <td>R$ ${totalComJuros.toFixed(2)}</td>
+                                    <td>R$ ${receberLiquido.toFixed(2)}</td>
+                                 </tr>`;
+            }
+            document.getElementById('resultado').innerHTML = resultadoHTML;
+        }
+    </script>
 </body>
 </html>
