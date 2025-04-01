@@ -1,67 +1,100 @@
 <!DOCTYPE html>
-<!-- 
-Tutorial: https://www.youtube.com/watch?v=zxxB9SFh9p4
--->
-<html lang="en">
-
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oi, tia! Me faz um pix?</title>
-</head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site divertido pedindo um Pix.">
+  <title>Oi, tia! Me faz um pix?</title>
+  <style>
+    /* Reset básico para margem e preenchimento */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<body>
-    <div id="conteudo">
-        <h2>Oi, tia! Me faz um pix?</h2>
-        <div style="margin: auto;width: 170px;">
-            <button style="position: fixed;display: block;" class="btn" onclick="sim()">SIM</button>
-            <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)" style="position: absolute;">NÃO</button>
-        </div>
-    </div>
-</body>
-<style>
+    html, body {
+      height: 100%;
+    }
+
+    /* Estilização do conteúdo principal */
     #conteudo {
-        background: #ff7a7a;
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        padding: 10px;
-        text-align: center;
-        font-family: sans-serif;
+      background: #ff7a7a;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      text-align: center;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Container para os botões */
+    .button-container {
+      position: relative;
+      width: 170px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
     }
 
     .btn {
-        background: black;
-        color: white;
-        border: none;
-        padding: 10px;
-        width: 80px;
-        border-radius: 5px;
+      background: black;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 80px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
     }
-</style>
 
-<script>
+    .btn:hover {
+      background: #333;
+    }
+
+    /* Posição dos botões */
+    #btn-sim {
+      position: fixed;
+      display: block;
+    }
+
+    #btn-nao {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <main id="conteudo">
+    <h1>Oi, tia! Me faz um pix?</h1>
+    <div class="button-container">
+      <button class="btn" id="btn-sim" onclick="sim()">SIM</button>
+      <button class="btn" id="btn-nao" onclick="desvia(this)" onmouseover="desvia(this)">NÃO</button>
+    </div>
+  </main>
+  <script>
     function sim() {
-        alert("Chave: 155.740.786-00");
-        // redireciona para um URL após clicar no SIM
-        location.href = "https://music.youtube.com/watch?v=VsFF0SdJFPA";
+      alert("Chave: 155.740.786-00");
+      window.location.href = "https://music.youtube.com/watch?v=VsFF0SdJFPA";
     }
 
     function desvia(btn) {
-        // btn declarado na função
-        btn.style.position = 'absolute';
-        btn.style.bottom = geraPosicao(10, 90);
-        btn.style.left = geraPosicao(10, 90);
-        console.log('opa, desviei...');
+      // Gera uma nova posição aleatória para o botão "NÃO"
+      btn.style.position = 'absolute';
+      btn.style.bottom = geraPosicao(10, 90);
+      btn.style.left = geraPosicao(10, 90);
+      console.log('opa, desviei...');
     }
 
     function geraPosicao(min, max) {
-        return (Math.random() * (max - min) + min) + "%";
+      return (Math.random() * (max - min) + min) + "%";
     }
-
-</script>
-
+  </script>
+</body>
 </html>
