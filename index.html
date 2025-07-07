@@ -34,7 +34,7 @@
             color: white;
             border: none;
             padding: 15px 30px;
-            margin: 10px;
+            margin: 0 5px;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -67,9 +67,9 @@
 <body>
     <div id="conteudo">
         <h2 style="font-size: 2rem; margin-bottom: 1.5rem; text-shadow: 0 2px 10px rgba(255, 204, 255, 0.5);">Oi, Gabriela! Aceita namorar comigo?</h2>
-        <div style="margin: auto; position: relative;">
+        <div style="display: flex; justify-content: space-between; width: 200px; margin: 0 auto; position: relative;">
             <button class="btn" onclick="sim()">SIM</button>
-            <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)" style="position: absolute;">NÃO</button>
+            <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)" style="position: static;">NÃO</button>
         </div>
     </div>
 
