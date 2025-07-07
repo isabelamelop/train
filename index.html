@@ -11,10 +11,22 @@
 <body>
     <div id="conteudo">
         <h2>Oi, Gabriela! Aceita namorar comigo?</h2>
+
+        <!-- imagem -->
+        <div id="foto">
+            <img src="image.png" alt="nossa foto" class="foto">
+        </div>
+
+        <!-- botões -->
         <div style="margin: auto;width: 170px;">
             <button style="position: fixed;display: block;" class="btn" onclick="sim()">SIM</button>
             <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)" style="position: absolute;">NÃO</button>
         </div>
+    </div>
+
+    <!-- vídeo oculto inicialmente -->
+    <div id="video" style="display: none; text-align: center;">
+        <video src="video.mp4" controls autoplay style="max-width: 90%; margin-top: 20px; border-radius: 10px;"></video>
     </div>
 </body>
 
@@ -39,12 +51,25 @@
         width: 80px;
         border-radius: 5px;
     }
+
+    #foto {
+        margin: 20px auto;
+    }
+
+    .foto {
+        max-width: 300px;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #ccc;
+    }
 </style>
 
 <script>
     function sim() {
-        // redireciona direto pro link do YouTube Music sem alert
-        location.href = "https://music.youtube.com/watch?v=FMB87XblpwU";
+        // esconde tudo e mostra o vídeo
+        document.getElementById("conteudo").style.display = "none";
+        document.getElementById("video").style.display = "block";
     }
 
     function desvia(btn) {
