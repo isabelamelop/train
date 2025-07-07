@@ -1,22 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #2c0b4e 0%, #4b1474 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #ffccff;
+        }
+
+        #conteudo {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(74, 20, 110, 0.85);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn {
+            background: #ff66cc;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 102, 204, 0.4);
+            min-width: 100px;
+        }
+
+        .btn:hover {
+            background: #ff33cc;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 51, 204, 0.6);
+        }
+
+        #video {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        video {
+            max-width: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="conteudo">
+        <h2 style="font-size: 2rem; margin-bottom: 1.5rem; text-shadow: 0 2px 10px rgba(255, 204, 255, 0.5);">Oi, Gabriela! Aceita namorar comigo?</h2>
+        <div style="margin: auto; position: relative;">
+            <button class="btn" onclick="sim()">SIM</button>
+            <button class="btn" onclick="desvia(this)" onmouseover="desvia(this)" style="position: absolute;">NÃO</button>
         </div>
     </div>
+
     <div id="video">
         <video src="IMG_6349 (1).mov" controls autoplay></video>
     </div>
+
     <script>
         function sim() {
             document.getElementById("conteudo").style.display = "none";
             document.getElementById("video").style.display = "block";
         }
+
         function desvia(btn) {
             btn.style.position = 'absolute';
             btn.style.bottom = geraPosicao(10, 90);
             btn.style.left = geraPosicao(10, 90);
             console.log('opa, desviei...');
         }
+
         function geraPosicao(min, max) {
             return (Math.random() * (max - min) + min) + "%";
         }
     </script>
 </body>
+
 </html>
