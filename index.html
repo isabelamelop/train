@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Surpresa! | CSS Blossoming Flowers at Magical Night</title>
+    <title>Surpresa!</title>
     <meta name="author" content="CodePel">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/demo.css">
@@ -18,6 +18,80 @@
             color: #ffccff;
             overflow-x: hidden;
         }
+        /* Adicione estilos básicos para as flores aparecerem */
+        .flowers {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .flower {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .flower__leafs {
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+        .flower__leaf {
+            width: 40px;
+            height: 60px;
+            background: radial-gradient(circle at 60% 40%, #ffb6e6 60%, #ff66cc 100%);
+            border-radius: 60% 60% 60% 60%;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            transform: rotate(0deg);
+            opacity: 0.9;
+        }
+        .flower__leaf--2 { left: 0px; top: 30px; transform: rotate(-30deg); }
+        .flower__leaf--3 { left: 60px; top: 30px; transform: rotate(30deg); }
+        .flower__leaf--4 { left: 30px; top: 0px; transform: rotate(60deg); }
+        .flower__white-circle {
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            left: 35px;
+            top: 35px;
+            z-index: 2;
+            box-shadow: 0 0 10px #fff8;
+        }
+        .flower__line {
+            width: 8px;
+            height: 120px;
+            background: linear-gradient(to bottom, #7c4dff 0%, #4b1474 100%);
+            border-radius: 4px;
+            margin-top: -10px;
+            z-index: 1;
+        }
+        .flower__line__leaf {
+            width: 20px;
+            height: 30px;
+            background: linear-gradient(135deg, #a5ffb6 60%, #4bff74 100%);
+            border-radius: 50% 50% 50% 50%;
+            position: absolute;
+            left: -6px;
+            top: 60px;
+            opacity: 0.7;
+        }
+        /* Ajuste para múltiplas flores */
+        .flower--1 { left: 30%; }
+        .flower--2 { left: 50%; }
+        .flower--3 { left: 70%; }
         #conteudo {
             text-align: center;
             padding: 40px;
